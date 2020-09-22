@@ -48,6 +48,7 @@ $nombres = $result -> fetchAll();
             <div class="mx-auto mt-3">
                 <h1>Consulta 1</h1>
 
+                <p>Para esta consulta se nos pidio sacar los nombres de todas las navieras:</p>
                 <table class="table table-striped my-3">
                     <thead>
                         <tr>
