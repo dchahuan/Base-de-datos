@@ -48,7 +48,8 @@ $nombres = $result -> fetchAll();
             <div class="mx-auto mt-3">
                 <h1>Consulta 1</h1>
                 <?php
-                echo $nombres
+                echo $nombres[0];
+                echo $nombres[1];
                 ?>
             </div>
 
