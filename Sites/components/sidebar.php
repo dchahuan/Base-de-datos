@@ -13,7 +13,7 @@
         <div class="sidebar-sticky pt-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/index.php">
+                    <a class="nav-link text-dark" href="/~grupo16/index.php">
                         Index
                     </a>
                 </li>
