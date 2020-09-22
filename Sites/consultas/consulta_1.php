@@ -48,7 +48,7 @@ $nombres = $result -> fetchAll();
             <div class="mx-auto mt-3">
                 <h1>Consulta 1</h1>
 
-                <table class="table table-striped">
+                <table class="table table-striped my-3">
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
