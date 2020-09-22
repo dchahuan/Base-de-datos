@@ -18,10 +18,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php">Index</a>
+                    <a class="nav-link" href="/~grupo16/index.php">Index</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/esquemas.php">Esquemas</a>
+                    <a class="nav-link" href="/~grupo16/esquemas.php">Esquemas</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -29,12 +29,12 @@
                         Consultas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/consultas/consulta_1.php">Consulta 1</a>
-                        <a class="dropdown-item" href="/consultas/consulta_2.php">Consulta 2</a>
-                        <a class="dropdown-item" href="/consultas/consulta_3.php">Consulta 3</a>
-                        <a class="dropdown-item" href="/consultas/consulta_4.php">Consulta 4</a>
-                        <a class="dropdown-item" href="/consultas/consulta_5.php">Consulta 5</a>
-                        <a class="dropdown-item" href="/consultas/consulta_6.php">Consulta 6</a>
+                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_1.php">Consulta 1</a>
+                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_2.php">Consulta 2</a>
+                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_3.php">Consulta 3</a>
+                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_4.php">Consulta 4</a>
+                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_5.php">Consulta 5</a>
+                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_6.php">Consulta 6</a>
                     </div>
                 </li>
             </ul>
