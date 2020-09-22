@@ -49,7 +49,8 @@ $nombres = $result -> fetchAll();
                 <h1>Consulta 1</h1>
                 <?php
                 echo $nombres[0][0];
-                echo $nombres[1];
+                echo $nombres[1][0];
+                echo sizeOf($nombre[0]);
                 ?>
             </div>
 
