@@ -1,9 +1,9 @@
 <?php
 require("../config/conexion.php");
-$query = "select * from datacamp_courses";
+$query = "select nombre from navieras";
 $result = $db -> prepare($query);
 $result -> execute();
-$pokemones = $result -> fetchAll();
+$nombres = $result -> fetchAll();
 
 ?>
 
@@ -47,6 +47,9 @@ $pokemones = $result -> fetchAll();
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 1</h1>
+                <?php
+                echo $nombres
+                ?>
             </div>
 
 
