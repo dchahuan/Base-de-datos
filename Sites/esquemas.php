@@ -27,7 +27,7 @@
 
     <?php
         include "components/header.php";
-        
+      
     ?>
     <div class="container-fluid">
 
