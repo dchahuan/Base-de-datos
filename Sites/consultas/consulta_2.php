@@ -1,8 +1,6 @@
 <?php
 require("../config/conexion.php");
-$query = "select distinct buques.nombre, buques.patente, buques.tipo, buques.bpais from buques, pertenece, navieras where
-pertenece.patente = buques.patente and pertenece.nid in (select nid from navieras where lower(nombre) like 'francis
-drake s.a.');";
+$query = "select distinct buques.nombre, buques.patente, buques.tipo, buques.bpais from buques, pertenece, navieras where pertenece.patente = buques.patente and pertenece.nid in (select nid from navieras where lower(nombre) like 'francis drake s.a.');";
 $result = $db -> prepare($query);
 $result -> execute();
 $buques = $result -> fetchAll();
