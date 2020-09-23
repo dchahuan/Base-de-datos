@@ -47,6 +47,8 @@ $buques = $result -> fetchAll();
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 2</h1>
+                <p class="my-3">Para esta consulta se nos pidio sacar todos los buques que pertenecen a la naviera
+                    Francis Drake S.A.</p>
                 <table class="table table-striped my-3">
                     <thead>
                         <tr>
@@ -65,6 +67,11 @@ $buques = $result -> fetchAll();
                         ?>
                     </tbody>
                 </table>
+
+                <h5>La consulta en sql es la siguiente:</h5><br>
+                <h5>Select Distinct buques.nombre, buques.patente, buques.tipo, buques.bpais from buques, pertenece,
+                    navieras Where pertenece.patente = buques.patente And pertenece.nid in (select nid from navieras
+                    where lower(nombre) like 'francis drake s.a.');</h5>
             </div>
 
 
