@@ -1,5 +1,14 @@
+<?php
+require("../config/conexion.php");
+$query = "select * from buques where patente in (select patente from atracos where lower(puerto) like '%valparaiso%' and fecha_llegada > '2020-1-1' and fecha_llegada < '2020-12-31');";
+$result = $db -> prepare($query);
+$result -> execute();
+$buques = $result -> fetchAll();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -38,6 +47,26 @@
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 3</h1>
+                <p class="my-3">Para esta consulta se nos pidio sacar todos los buques que atracaron Valparaiso el 2020
+                </p>
+                <table class="table table-striped my-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Patente</th>
+                            <th scope="col">Pais</th>
+                            <th scope="col">tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($buques as $b){
+                            echo "<tr><td>$b[0]</td><td>$b[1]</td><td>$b[2]</td><td>$b[3]</td></tr>";
+                            
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
 
 
@@ -46,5 +75,6 @@
 </body>
 
 </html>
+
 
 </html>
