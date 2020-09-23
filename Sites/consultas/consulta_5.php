@@ -1,3 +1,13 @@
+<?php
+require("../config/conexion.php");
+$query = "select * from personal where pasaporte in (select distinct pasaporte from buques, capitanes where buques.patente in (select patente from atracos where lower(puerto) like '%talcahuano%') and capitanes.patente = buques.patente)  and genero like 'mujer';";
+$result = $db -> prepare($query);
+$result -> execute();
+$capitanes= $result -> fetchAll();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +48,25 @@
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 5</h1>
+                <table class="table table-striped my-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">Pasaporte</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Genero</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Nacionalidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($capitanes as $c){
+                            echo "<tr><td>$c[0]</td><td>$c[1]</td><td>$c[2]</td><td>$c[3]</td><td>$c[4]</td></tr>";
+                            
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
 
 
