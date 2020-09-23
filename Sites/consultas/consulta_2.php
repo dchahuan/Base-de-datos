@@ -67,11 +67,6 @@ $buques = $result -> fetchAll();
                         ?>
                     </tbody>
                 </table>
-
-                <h5>La consulta en sql es la siguiente:</h5><br>
-                <h5>Select Distinct buques.nombre, buques.patente, buques.tipo, buques.bpais from buques, pertenece,
-                    navieras Where pertenece.patente = buques.patente And pertenece.nid in (select nid from navieras
-                    where lower(nombre) like 'francis drake s.a.');</h5>
             </div>
 
 
