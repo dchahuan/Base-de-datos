@@ -1,5 +1,16 @@
+<?php
+require("../config/conexion.php");
+$query = "select distinct buques.nombre, buques.patente, buques.tipo, buques.bpais from buques, pertenece, navieras where
+pertenece.patente = buques.patente and pertenece.nid in (select nid from navieras where lower(nombre) like 'francis
+drake s.a.');";
+$result = $db -> prepare($query);
+$result -> execute();
+$buques = $result -> fetchAll();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -38,6 +49,27 @@
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 2</h1>
+                <table class="table table-striped my-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Patente</th>
+                            <th scope="col">Pais</th>
+                            <th scope="col">tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($buques as $buque){
+                            echo "<tr>";
+                            foreach($buque as $b){
+                                echo"<td>$b<td>";
+                            }
+                            echo "<tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
 
 
