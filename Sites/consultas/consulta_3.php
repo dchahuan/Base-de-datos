@@ -1,6 +1,6 @@
 <?php
 require("../config/conexion.php");
-$query = "select * from buques where patente in (select patente from atracos where lower(puerto) like '%valparaiso%' and fecha_llegada > '2020-1-1' and fecha_llegada < '2020-12-31');";
+$query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select patente from atracos where lower(puerto) like '%valparaiso%' and fecha_llegada > '2020-1-1' and fecha_llegada < '2020-12-31');";
 $result = $db -> prepare($query);
 $result -> execute();
 $buques = $result -> fetchAll();
