@@ -47,6 +47,7 @@ $buques = $result -> fetchAll();
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 6</h1>
+                Para esta consulta se nos pidio encontrar todos los buques que tienen la mayor cantidad de trabajadores.
                 <table class="table table-striped my-3">
                     <thead>
                         <tr>
