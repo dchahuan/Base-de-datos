@@ -44,7 +44,7 @@ $buques= $result -> fetchAll();
         include "../components/sidebar.php";
         ?>
 
-            <div class="mx-auto mt-3">
+            <div class="mx-auto mt-3 col-xl-7">
                 <h1>Consulta 4</h1>
                 <p>En esta consulta se nos pidio encontras los buques que estuvieron en "Mejillones" al mismo tiempo que
                     el buque "Magnolia".</p>
