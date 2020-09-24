@@ -71,7 +71,6 @@ $buques= $result -> fetchAll();
                 </table>
                 <p>Lamentablemente no encontramos ni un buque con estas caracteristicas :(, por lo que les dejamos
                     nuestra consulta </p>
-                <br>
                 <hr>
                 <p>select * from buques where patente in (select atracos.patente from (select * from atracos where
                     patente in (select patente from buques where lower(nombre) = 'magnolia') and lower(puerto) =
