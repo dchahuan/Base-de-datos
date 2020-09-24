@@ -69,14 +69,17 @@ $buques= $result -> fetchAll();
                         ?>
                     </tbody>
                 </table>
-                <p>Lamentablemente no encontramos ni un buque con estas caracteristicas :(, por lo que les dejamos
-                    nuestra consulta </p>
+                <div class="container">
+                    <p>Lamentablemente no encontramos ni un buque con estas caracteristicas :(, por lo que les dejamos
+                        nuestra consulta </p>
 
-                <p>select * from buques where patente in (select atracos.patente from (select * from atracos where
-                    patente in (select patente from buques where lower(nombre) = 'magnolia') and lower(puerto) =
-                    'mejillones') as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and
-                    atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and
-                        atracos.fecha_salida < foo.fecha_salida)) and lower(atracos.puerto)=lower(foo.puertos));</p>
+                    <p>select * from buques where patente in (select atracos.patente from (select * from atracos where
+                        patente in (select patente from buques where lower(nombre) = 'magnolia') and lower(puerto) =
+                        'mejillones') as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and
+                        atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and
+                            atracos.fecha_salida < foo.fecha_salida)) and lower(atracos.puerto)=lower(foo.puertos));</p>
+                </div>
+
 
             </div>
 
