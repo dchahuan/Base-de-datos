@@ -1,3 +1,11 @@
+<?php
+require("../config/conexion.php");
+$query = "select * from buques where patente in (select atracos.patente from (select * from atracos where patente in (select patente from buques where lower(nombre) = 'magnolia') and lower(puerto) = 'mejillones') as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and atracos.fecha_salida < foo.fecha_salida)) and lower(atracos.puerto)=lower(foo.puertos));";
+$result = $db -> prepare($query);
+$result -> execute();
+$buques= $result -> fetchAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +46,39 @@
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 4</h1>
+                <p>En esta consulta se nos pidio encontras los buques que estuvieron en "Mejillones" al mismo tiempo que
+                    el</p>
+                buque "Magnolia".
+                <table class="table table-striped my-3">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Patente</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">tipo</th>
+                            <th scope="col">Pais</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($buques as $b){
+                            echo "<tr><td>$b[0]</td><td>$b[1]</td><td>$b[2]</td><td>$b[3]</td></tr>";
+                            
+                        }
+                        ?>
+                    </tbody>
+                </table>
+                <p>Lamentablemente no encontramos ni un buque con estas caracteristicas :(, por lo que les dejamos
+                    nuestra consulta </p>
+                <br>
+                <hr>
+                <p>select * from buques where patente in (select atracos.patente from (select * from atracos where
+                    patente in (select patente from buques where lower(nombre) = 'magnolia') and lower(puerto) =
+                    'mejillones') as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and
+                    atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and
+                        atracos.fecha_salida < foo.fecha_salida)) and lower(atracos.puerto)=lower(foo.puertos));</p>
+
             </div>
 
 
