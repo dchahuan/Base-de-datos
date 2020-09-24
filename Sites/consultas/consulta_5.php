@@ -4,10 +4,7 @@ $query = "select * from personal where pasaporte in (select distinct pasaporte f
 $result = $db -> prepare($query);
 $result -> execute();
 $capitanes= $result -> fetchAll();
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 

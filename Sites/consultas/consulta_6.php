@@ -1,3 +1,12 @@
+<?php
+require("../config/conexion.php");
+$query = "select * from buques where patente in (select patente from (select * from buques natural join trabaja_en where tipo = 'pesquero' union select * from buques natural join capitanes where tipo = 'pesquero') as foo group by patente having count(*) >= ALL  (select count(*) from (select * from buques natural join trabaja_en union select * from buques natural join capitanes) as foo group by patente));";
+$result = $db -> prepare($query);
+$result -> execute();
+$buques = $result -> fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +47,26 @@
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 6</h1>
+                <table class="table table-striped my-3">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Patente</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">tipo</th>
+                            <th scope="col">Pais</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($buques as $b){
+                            echo "<tr><td>$b[0]</td><td>$b[1]</td><td>$b[2]</td><td>$b[3]</td></tr>";
+                            
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
 
 
