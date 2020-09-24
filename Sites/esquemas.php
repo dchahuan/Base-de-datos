@@ -38,6 +38,36 @@
 
             <div class="mx-auto mt-3">
                 <h1>Esquema</h1>
+
+                <div class="text-justify"> Para diseñar el esquema nosotros utilizamos el siguiente diagrama relacional:
+                </div>
+                <img src="" alt="">
+
+
+                <div class="text-justify">Lo que resulto en el siguiente esquema:</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Navieras(nid Primary Key int, nombre varchar(255), npais varchar(255),
+                        giro varchar(255) )</li>
+                    <li class="list-group-item">Buques(patente varchar(255) Primary key , nombre varchar(255), tipo
+                        varchar(255), bpais varchar(255))</li>
+                    <li class="list-group-item">Pesqueros(patente varchar(255) Primary key , tipo_pesca varchar(255),
+                        foreign key patente)</li>
+                    <li class="list-group-item">Petroleros(patente varchar(255) Primary key , max_lit int, foreign key
+                        patente)</li>
+                    <li class="list-group-item">Carga(patente varchar(255) Primary Key, max_container int, max_ton
+                        float, foreign key patente )</li>
+                    <li class="list-group-item">Pertenece(patente varchar(255) Primary Key, nid int, Foreign Keys (nid,
+                        patente))</li>
+                    <li class="list-group-item">Personal(pasaporte varchar(255) Primary Key , nombre varchar(255),
+                        genero varchar(255),edad int, nacionalidad varchar(255) )</li>
+                    <li class="list-group-item">Trabaja_en (pasaporte varchar(255) primary key, patente varchar(255),
+                        Foreign Keys (patente, pasaporte))</li>
+                    <li class="list-group-item">Capitan(Foreign Keys (patente, pasaporte))</li>
+                    <li class="list-group-item">Atracos(puerto varchar(255),patente varchar(255), fecha_salida
+                        timestamp, fecha_llegada timestamp, Primary Key(Patente,fecha_llegada))</li>
+                    <li class="list-group-item">Proximo_itenerario(puerto varchar(255),patente varchar(255),
+                        fecha_llegada timestamp, Primary Key(patente,fecha_llegada))</li>
+                </ul>
             </div>
 
 

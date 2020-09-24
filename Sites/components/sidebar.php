@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse  vh-100 position-sticky">
+    <nav id="sidebarMenu" class="col-xl-2 d-xl-block bg-light sidebar collapse  vh-100 position-sticky">
         <div class=" sidebar-sticky pt-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
