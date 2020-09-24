@@ -47,8 +47,8 @@ $buques= $result -> fetchAll();
             <div class="mx-auto mt-3">
                 <h1>Consulta 4</h1>
                 <p>En esta consulta se nos pidio encontras los buques que estuvieron en "Mejillones" al mismo tiempo que
-                    el</p>
-                buque "Magnolia".
+                    el buque "Magnolia".</p>
+
                 <table class="table table-striped my-3">
                     <thead>
                         <tr>
@@ -71,7 +71,7 @@ $buques= $result -> fetchAll();
                 </table>
                 <p>Lamentablemente no encontramos ni un buque con estas caracteristicas :(, por lo que les dejamos
                     nuestra consulta </p>
-                <hr>
+
                 <p>select * from buques where patente in (select atracos.patente from (select * from atracos where
                     patente in (select patente from buques where lower(nombre) = 'magnolia') and lower(puerto) =
                     'mejillones') as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and
