@@ -37,7 +37,20 @@
         ?>
 
             <div class="mx-auto mt-3">
-                <h1>HELLO WORLD</h1>
+                <h1>Bienvenido a la pagina del grupo 16</h1>
+
+                <div class="text-center mt-3">Para esta entrega del projecto se diseño un esquema relacional. Para
+                    aprender mas sobre esto aprete el boton de abajo:
+                    <p class="lead">
+                        <a href="/~grupo16/esquemas.php" class="btn btn-lg btn-primary">Learn more</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="center-block mx-6">
+
+
             </div>
 
 
