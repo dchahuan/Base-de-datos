@@ -39,9 +39,10 @@
             <div class="mx-auto mt-3">
                 <h1>Esquema</h1>
 
-                <div class="text-justify"> Para diseñar el esquema nosotros utilizamos el siguiente diagrama relacional:
+                <div class="text-justify"> Para diseñar el esquema nosotros utilizamos el siguiente diagrama entidad
+                    relacion:
                 </div>
-                <img src="" alt="">
+                <img src="/img/Captura.PNG" alt="No se pudo cargar fotp">
 
 
                 <div class="text-justify">Lo que resulto en el siguiente esquema:</div>
