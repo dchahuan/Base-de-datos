@@ -45,6 +45,27 @@ $capitanes= $result -> fetchAll();
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 5</h1>
+                <form action="/~grupo16/consultas/consulta_2.php" method="get">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Puerto:</label>
+                        <input type="text" class="form-control" name="Puerto">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                            value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Default radio
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                            value="option2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Second default radio
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
                 <table class="table table-striped my-3">
                     <thead>
                         <tr>
