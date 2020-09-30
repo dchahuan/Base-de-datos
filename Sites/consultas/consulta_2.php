@@ -48,23 +48,19 @@ $buques = $result -> fetchAll();
             <div class="mx-auto mt-3">
                 <h1>Consulta 2</h1>
 
-                <form>
+                <form action="\consulta_2.php" method="get">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <label for="exampleInputEmail1">Naviera:</label>
+                        <input type="text" class="form-control" id="naviera">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+
+                <?php
+                    if (isset($_GET) && array_key_exists('navieras',$_GET)){
+                        echo "LLego el get";
+                    }
+                ?>
                 <p class="my-3">Para esta consulta se nos pidio sacar todos los buques que pertenecen a la naviera
                     Francis Drake S.A.</p>
                 <table class="table table-striped my-3">
