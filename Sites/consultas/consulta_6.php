@@ -1,9 +1,6 @@
 <?php
 require("../config/conexion.php");
-$query = "select * from buques where patente in (select patente from (select * from buques natural join trabaja_en where tipo = 'pesquero' union select * from buques natural join capitanes where tipo = 'pesquero') as foo group by patente having count(*) >= ALL  (select count(*) from (select * from buques natural join trabaja_en union select * from buques natural join capitanes) as foo group by patente));";
-$result = $db -> prepare($query);
-$result -> execute();
-$buques = $result -> fetchAll();
+
 
 ?>
 
@@ -48,26 +45,59 @@ $buques = $result -> fetchAll();
             <div class="mx-auto mt-3">
                 <h1>Consulta 6</h1>
                 Para esta consulta se nos pidio encontrar todos los buques que tienen la mayor cantidad de trabajadores.
-                <table class="table table-striped my-3">
-                    <thead>
-                        <tr>
+                <form action="/~grupo16/consultas/consulta_6.php" method="get">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo" id="hombre" value="hombre" checked>
+                        <label class="form-check-label" for="hombre">
+                            Pesquero
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo" id="hombre2" value="petrolero">
+                        <label class="form-check-label" for="hombre2">
+                            Pesquero
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo" id="hombre1" value="carga">
+                        <label class="form-check-label" for="hombre1">
+                            Carga
+                        </label>
+                    </div>
 
-                            <th scope="col">Patente</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">tipo</th>
-                            <th scope="col">Pais</th>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+                <?php
+                    if (isset($_GET) && array_key_exists('tipo',$_GET)){
+                        $query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select patente from (select * from buques natural join trabaja_en where tipo = '".$_GET['tipo']."' union select * from buques natural join capitanes where tipo = '".$_GET['tipo']."') as foo group by patente having count(*) >= ALL  (select count(*) from (select * from buques natural join trabaja_en union select * from buques natural join capitanes) as foo group by patente));";
+                        $result = $db -> prepare($query);
+                        $result -> execute();
+                        $buques = $result -> fetchAll();
+                        echo "<table class='table table-striped my-3'>
+                                <thead>
+                                    <tr>
+                                        <th scope='col'>Nombre</th>
+                                        <th scope='col'>Patente</th>
+                                        <th scope='col'>Pais</th>
+                                        <th scope='col'>tipo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($buques as $b){
-                            echo "<tr><td>$b[0]</td><td>$b[1]</td><td>$b[2]</td><td>$b[3]</td></tr>";
-                            
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                                    foreach ($buques as $b){
+                                    echo "<tr>
+                                        <td>$b[0]</td>
+                                        <td>$b[1]</td>
+                                        <td>$b[2]</td>
+                                        <td>$b[3]</td>
+                                    </tr>";
+
+                                    }
+
+                                echo "</tbody>
+                            </table>";
+                    }
+                ?>
             </div>
 
 
