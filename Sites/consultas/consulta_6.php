@@ -47,7 +47,7 @@ require("../config/conexion.php");
                 Para esta consulta se nos pidio encontrar todos los buques que tienen la mayor cantidad de trabajadores.
                 <form action="/~grupo16/consultas/consulta_6.php" method="get">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="tipo" id="hombre" value="hombre" checked>
+                        <input class="form-check-input" type="radio" name="tipo" id="hombre" value="pesquero" checked>
                         <label class="form-check-label" for="hombre">
                             Pesquero
                         </label>
@@ -55,7 +55,7 @@ require("../config/conexion.php");
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="tipo" id="hombre2" value="petrolero">
                         <label class="form-check-label" for="hombre2">
-                            Pesquero
+                            Petrolero
                         </label>
                     </div>
                     <div class="form-check">
