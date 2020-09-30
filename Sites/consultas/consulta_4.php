@@ -1,9 +1,6 @@
 <?php
 require("../config/conexion.php");
-$query = "select * from buques where patente in (select atracos.patente from (select * from atracos where patente in (select patente from buques where lower(nombre) = 'magnolia') and lower(puerto) = 'mejillones') as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and atracos.fecha_salida < foo.fecha_salida)) and lower(atracos.puerto)=lower(foo.puertos));";
-$result = $db -> prepare($query);
-$result -> execute();
-$buques= $result -> fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -46,39 +43,54 @@ $buques= $result -> fetchAll();
 
             <div class="mx-auto mt-3 col-xl-7">
                 <h1>Consulta 4</h1>
-                <p>En esta consulta se nos pidio encontras los buques que estuvieron en "Mejillones" al mismo tiempo que
-                    el buque "Magnolia".</p>
+                <p>En esta consulta se nos pidio encontras los buques que estuvieron en un puerto (Ej:"Mejillones") al
+                    mismo tiempo que
+                    un buque (Ej:"Magnolia").</p>
+                <form action="/~grupo16/consultas/consulta_4.php" method="get">
+                    <div class="form-group">
+                        <label for="puerto">Puerto:</label>
+                        <input type="text" class="form-control" name="puerto">
+                    </div>
+                    <div class="form-group">
+                        <label for="ano">Buque:</label>
+                        <input type="text" class="form-control" name="buque">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <?php
+                    if (isset($_GET) && array_key_exists('puerto',$_GET) &&  array_key_exists('buque',$_GET)){
 
-                <table class="table table-striped my-3">
-                    <thead>
-                        <tr>
+                        $query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select atracos.patente from (select * from atracos where patente in (select patente from buques where lower(nombre) = lower('%".$_GET['buque']."%')) and lower(puerto) = lower('%".$_GET['puerto']."%')) as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and atracos.fecha_salida < foo.fecha_salida)) and lower(atracos.puerto)=lower(foo.puertos));";
+                        $result = $db -> prepare($query);
+                        $result -> execute();
+                        $buques= $result -> fetchAll();
+                        echo "<table class='table table-striped my-3'>
+                        <thead>
+                            <tr>
+                                <th scope='col'>Nombre</th>
+                                <th scope='col'>Patente</th>
+                                <th scope='col'>Pais</th>
+                                <th scope='col'>tipo</th>
+                            </tr>
+                        </thead>
+                        <tbody>";
 
-                            <th scope="col">Patente</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">tipo</th>
-                            <th scope="col">Pais</th>
+                                    foreach ($buques as $b){
+                                    echo "<tr>
+                                        <td>$b[0]</td>
+                                        <td>$b[1]</td>
+                                        <td>$b[2]</td>
+                                        <td>$b[3]</td>
+                                    </tr>";
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($buques as $b){
-                            echo "<tr><td>$b[0]</td><td>$b[1]</td><td>$b[2]</td><td>$b[3]</td></tr>";
-                            
-                        }
-                        ?>
-                    </tbody>
-                </table>
-                <div class="container">
-                    <p>Lamentablemente no encontramos ni un buque con estas caracteristicas :(, por lo que les dejamos
-                        nuestra consulta </p>
+                                    }
 
-                    <p>select * from buques where patente in (select atracos.patente from (select * from atracos where
-                        patente in (select patente from buques where lower(nombre) = 'magnolia') and lower(puerto) =
-                        'mejillones') as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and
-                        atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and
-                            atracos.fecha_salida < foo.fecha_salida)) and lower(atracos.puerto)=lower(foo.puertos));</p>
-                </div>
+                                echo "</tbody>
+                            </table>";
+                    }
+                ?>
+
+
 
 
             </div>
