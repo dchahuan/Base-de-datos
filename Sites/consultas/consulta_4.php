@@ -60,7 +60,7 @@ require("../config/conexion.php");
                 <?php
                     if (isset($_GET) && array_key_exists('puerto',$_GET) &&  array_key_exists('buque',$_GET)){
 
-                        $query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select atracos.patente from (select * from atracos where patente in (select patente from buques where lower(nombre) = lower('%".$_GET['buque']."%')) and lower(puerto) = lower('%".$_GET['puerto']."%')) as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and atracos.fecha_salida < foo.fecha_salida)) and lower(atracos.puerto)=lower(foo.puertos));";
+                        $query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select atracos.patente from (select * from atracos where patente in (select patente from buques where lower(nombre) like lower('%".$_GET['buque']."%')) and lower(puerto) like lower('%".$_GET['puerto']."%')) as foo join atracos on ((atracos fecha_llegada > foo.fecha_llegada and atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and atracos.fecha_salida < foo.fecha_salida)) and lower(atracos.puerto)=lower(foo.puertos));";
                         $result = $db -> prepare($query);
                         $result -> execute();
                         $buques= $result -> fetchAll();
