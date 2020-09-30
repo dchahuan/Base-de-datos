@@ -1,9 +1,6 @@
 <?php
 require("../config/conexion.php");
-$query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select patente from atracos where lower(puerto) like '%valparaiso%' and fecha_llegada > '2020-1-1' and fecha_llegada < '2020-12-31');";
-$result = $db -> prepare($query);
-$result -> execute();
-$buques = $result -> fetchAll();
+
 
 ?>
 <!DOCTYPE html>
@@ -49,24 +46,50 @@ $buques = $result -> fetchAll();
                 <h1>Consulta 3</h1>
                 <p class="my-3">Para esta consulta se nos pidio sacar todos los buques que atracaron Valparaiso el 2020
                 </p>
-                <table class="table table-striped my-3">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Patente</th>
-                            <th scope="col">Pais</th>
-                            <th scope="col">tipo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($buques as $b){
-                            echo "<tr><td>$b[0]</td><td>$b[1]</td><td>$b[2]</td><td>$b[3]</td></tr>";
-                            
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                <form action="/~grupo16/consultas/consulta_2.php" method="get">
+                    <div class="form-group">
+                        <label for="puerto">Puerto:</label>
+                        <input type="text" class="form-control" name="puerto">
+                    </div>
+                    <div class="form-group">
+                        <label for="ano">Año:</label>
+                        <input type="number" class="form-control" name="ano">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <?php
+                    if (isset($_GET) && array_key_exists('puerto',$_GET) &&  array_key_exists('ano',$_GET)){
+
+                        $query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select patente from atracos where lower(puerto) like lower('%".$_GET['puerto']."%') and fecha_llegada > '".$_GET["ano"]."-1-1' and fecha_llegada < '".$_GET["ano"]."-12-31');";
+                        $result = $db -> prepare($query);
+                        $result -> execute();
+                        $buques = $result -> fetchAll();
+                        echo "<table class='table table-striped my-3'>
+                        <thead>
+                            <tr>
+                                <th scope='col'>Nombre</th>
+                                <th scope='col'>Patente</th>
+                                <th scope='col'>Pais</th>
+                                <th scope='col'>tipo</th>
+                            </tr>
+                        </thead>
+                        <tbody>";
+
+                                    foreach ($buques as $b){
+                                    echo "<tr>
+                                        <td>$b[0]</td>
+                                        <td>$b[1]</td>
+                                        <td>$b[2]</td>
+                                        <td>$b[3]</td>
+                                    </tr>";
+
+                                    }
+
+                                echo "</tbody>
+                            </table>";
+                    }
+                ?>
+
             </div>
 
 
