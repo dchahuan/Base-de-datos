@@ -45,10 +45,10 @@ require("../config/conexion.php");
                 <form action="/~grupo16/consultas/consulta_5.php" method="get">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Puerto:</label>
-                        <input type="text" class="form-control" name="Puerto">
+                        <input type="text" class="form-control" name="puerto">
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="genero" id="hombre" value="option1" checked>
+                        <input class="form-check-input" type="radio" name="genero" id="hombre" value="hombre" checked>
                         <label class="form-check-label" for="exampleRadios1">
                             Hombre
                         </label>
