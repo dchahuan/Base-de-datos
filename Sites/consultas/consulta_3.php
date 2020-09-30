@@ -46,7 +46,7 @@ require("../config/conexion.php");
                 <h1>Consulta 3</h1>
                 <p class="my-3">Para esta consulta se nos pidio sacar todos los buques que atracaron Valparaiso el 2020
                 </p>
-                <form action="/~grupo16/consultas/consulta_2.php" method="get">
+                <form action="/~grupo16/consultas/consulta_3.php" method="get">
                     <div class="form-group">
                         <label for="puerto">Puerto:</label>
                         <input type="text" class="form-control" name="puerto">
