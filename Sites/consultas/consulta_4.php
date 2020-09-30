@@ -59,8 +59,6 @@ require("../config/conexion.php");
                 </form>
                 <?php
                     if (isset($_GET) && array_key_exists('puerto',$_GET) &&  array_key_exists('buque',$_GET)){
-                        echo $_GET['buque'];
-                        echo $_GET['puerto'];
                         $query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select atracos.patente from atracos,(select * from atracos where patente in (select patente from buques where lower(nombre) like lower('%".$_GET['buque']."%'))) as foo where lower(atracos.puerto) like lower('%".$_GET['puerto']."%') and ((atracos.fecha_llegada > foo.fecha_llegada and atracos.fecha_llegada < foo.fecha_salida) or (atracos.fecha_salida> foo.fecha_llegada and atracos.fecha_salida < foo.fecha_salida)));";
                         
                         $result = $db -> prepare($query);
