@@ -48,7 +48,7 @@ $buques = $result -> fetchAll();
             <div class="mx-auto mt-3">
                 <h1>Consulta 2</h1>
 
-                <form action="..\..\consulta_2.php" method="get">
+                <form action="/~grupo16/consultas/consulta_2.php" method="get">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Naviera:</label>
                         <input type="text" class="form-control" id="naviera">
@@ -57,8 +57,8 @@ $buques = $result -> fetchAll();
                 </form>
 
                 <?php
-                    if (isset($_GET) && array_key_exists('navieras',$_GET)){
-                        echo "LLego el get";
+                    if (isset($_GET) && array_key_exists('naviera',$_GET)){
+                        echo "LLego el get". $_GET['naviera'];
                     }
                 ?>
                 <p class="my-3">Para esta consulta se nos pidio sacar todos los buques que pertenecen a la naviera
