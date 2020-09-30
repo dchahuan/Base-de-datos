@@ -42,7 +42,7 @@ require("../config/conexion.php");
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 5</h1>
-                <form action="/~grupo16/consultas/consulta_2.php" method="get">
+                <form action="/~grupo16/consultas/consulta_5.php" method="get">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Puerto:</label>
                         <input type="text" class="form-control" name="Puerto">
@@ -56,7 +56,7 @@ require("../config/conexion.php");
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="genero" id="exampleRadios2" value="mujer">
                         <label class="form-check-label" for="exampleRadios2">
-                            Second default radio
+                            Mujer
                         </label>
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
