@@ -51,13 +51,13 @@ $buques = $result -> fetchAll();
                 <form action="/~grupo16/consultas/consulta_2.php" method="get">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Naviera:</label>
-                        <input type="text" class="form-control" id="naviera">
+                        <input type="text" class="form-control" name="naviera">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 
                 <?php
-                    if (isset($_GET) ){
+                    if (isset($_GET) && array_key_exists('naviera',$_GET)){
                         echo "LLego el get". $_GET['naviera'];
                     }
                 ?>
