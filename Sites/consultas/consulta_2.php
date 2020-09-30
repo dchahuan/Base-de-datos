@@ -57,7 +57,7 @@ $buques = $result -> fetchAll();
                 </form>
 
                 <?php
-                    if (isset($_GET) && array_key_exists('naviera',$_GET)){
+                    if (isset($_GET) ){
                         echo "LLego el get". $_GET['naviera'];
                     }
                 ?>
