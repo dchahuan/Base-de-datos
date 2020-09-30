@@ -1,9 +1,5 @@
 <?php
-require("../config/conexion.php");
-$query = "select distinct buques.nombre, buques.patente, buques.tipo, buques.bpais from buques, pertenece, navieras where pertenece.patente = buques.patente and pertenece.nid in (select nid from navieras where lower(nombre) like 'francis drake s.a.');";
-$result = $db -> prepare($query);
-$result -> execute();
-$buques = $result -> fetchAll(); 
+require("../config/conexion.php"); 
 
 ?>
 <!DOCTYPE html>
@@ -47,7 +43,8 @@ $buques = $result -> fetchAll();
 
             <div class="mx-auto mt-3">
                 <h1>Consulta 2</h1>
-
+                <p class="my-3">Para esta consulta se nos pidio sacar todos los buques que pertenecen una naviera
+                    (Ej:Francis Drake S.A.)</p>
                 <form action="/~grupo16/consultas/consulta_2.php" method="get">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Naviera:</label>
@@ -58,29 +55,40 @@ $buques = $result -> fetchAll();
 
                 <?php
                     if (isset($_GET) && array_key_exists('naviera',$_GET)){
-                        echo "LLego el get". $_GET['naviera'];
+                        $query = "select distinct buques.nombre, buques.patente, buques.tipo, buques.bpais from buques, pertenece, navieras where pertenece.patente = buques.patente and pertenece.nid in (select nid from navieras where lower(nombre) like '%".$_GET['naviera']."%');";
+                        $result = $db -> prepare($query);
+                        $result -> execute();
+                        $buques = $result -> fetchAll();
+                        echo "<table class='table table-striped my-3'>
+                                <thead>
+                                    <tr>
+                                        <th scope='col'>Nombre</th>
+                                        <th scope='col'>Patente</th>
+                                        <th scope='col'>Pais</th>
+                                        <th scope='col'>tipo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+
+                                    foreach ($buques as $b){
+                                    echo "<tr>
+                                        <td>$b[0]</td>
+                                        <td>$b[1]</td>
+                                        <td>$b[2]</td>
+                                        <td>$b[3]</td>
+                                    </tr>";
+
+                                    }
+
+                                echo "</tbody>
+                            </table>";
                     }
                 ?>
-                <p class="my-3">Para esta consulta se nos pidio sacar todos los buques que pertenecen a la naviera
-                    Francis Drake S.A.</p>
-                <table class="table table-striped my-3">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Patente</th>
-                            <th scope="col">Pais</th>
-                            <th scope="col">tipo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($buques as $b){
-                            echo "<tr><td>$b[0]</td><td>$b[1]</td><td>$b[2]</td><td>$b[3]</td></tr>";
-                            
-                        }
-                        ?>
-                    </tbody>
-                </table>
+
+
+
+
+
             </div>
 
 
