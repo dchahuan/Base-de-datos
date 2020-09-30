@@ -56,6 +56,7 @@ require("../config/conexion.php");
                 <?php
                     if (isset($_GET) && array_key_exists('naviera',$_GET)){
                         $query = "select distinct buques.nombre, buques.patente, buques.tipo, buques.bpais from buques, pertenece, navieras where pertenece.patente = buques.patente and pertenece.nid in (select nid from navieras where lower(nombre) like '%".$_GET['naviera']."%');";
+                        echo $query;
                         $result = $db -> prepare($query);
                         $result -> execute();
                         $buques = $result -> fetchAll();
