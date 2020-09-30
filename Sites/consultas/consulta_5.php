@@ -69,7 +69,7 @@ require("../config/conexion.php");
                         $result -> execute();
                         $buques = $result -> fetchAll();
 
-                        $query = "select * from personal where pasaporte in (select distinct pasaporte from buques, capitanes where buques.patente in (select patente from atracos where lower(puerto) like lower('".$_GET['puerto']."')) and capitanes.patente = buques.patente)  and genero like '".$_GET['genero']."';";
+                        $query = "select * from personal where pasaporte in (select distinct pasaporte from buques, capitanes where buques.patente in (select patente from atracos where lower(puerto) like lower('%".$_GET['puerto']."%')) and capitanes.patente = buques.patente)  and genero like '".$_GET['genero']."';";
                         $result = $db -> prepare($query);
                         $result -> execute();
                         $capitanes= $result -> fetchAll();
