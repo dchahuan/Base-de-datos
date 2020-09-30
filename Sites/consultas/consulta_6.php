@@ -69,7 +69,7 @@ require("../config/conexion.php");
                 </form>
                 <?php
                     if (isset($_GET) && array_key_exists('tipo',$_GET)){
-                        $query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select patente from (select * from buques natural join trabaja_en where tipo = '".$_GET['tipo']."' union select * from buques natural join capitanes where tipo = '".$_GET['tipo']."') as foo group by patente having count(*) >= ALL  (select count(*) from (select * from buques natural join trabaja_en union select * from buques natural join capitanes) as foo group by patente));";
+                        $query = "select buques.nombre, buques.patente, buques.tipo, buques.bpais from buques where patente in (select patente from (select * from buques natural join trabaja_en where tipo = '".$_GET['tipo']."' union select * from buques natural join capitanes where tipo = '".$_GET['tipo']."') as foo group by patente having count(*) >= ALL  (select count(*) from (select * from buques natural join trabaja_en where tipo = '".$_GET['tipo']."' union select * from buques natural join capitanes where tipo = '".$_GET['tipo']."') as foo1 group by patente));";
                         $result = $db -> prepare($query);
                         $result -> execute();
                         $buques = $result -> fetchAll();
