@@ -1,14 +1,15 @@
+const class_name = "active";
+
 document.addEventListener("DOMContentLoaded", () => {
   const boton_naviera = document.getElementById("nav-naviera");
   const boton_puerto = document.getElementById("nav-puerto");
 
   boton_naviera.addEventListener("click", () => {
-    console.log(boton_naviera.classList);
-    if (!("active" in boton_naviera.classList)) {
-      boton_naviera.classList.add("active");
+    if (!("active" in boton_naviera.contains(class_name))) {
+      boton_naviera.classList.add(class_name);
     }
 
-    if ("active" in boton_puerto.classList) {
+    if (boton_puerto.classList.contains(class_name)) {
       boton_puerto.classList.remove("active");
     }
   });
