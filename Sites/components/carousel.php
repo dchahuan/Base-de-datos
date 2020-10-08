@@ -9,7 +9,7 @@
             <img class="d-block w-100" src="img\buque.jpg" alt="First slide">
             <div class="carousel-caption  d-md-block">
                 <h3>Para ver los Navieras:</h3>
-                <a href="../consultas/navieras.php" class="btn btn-dark">Navieras</a>
+                <a href="../~grupo16/consultas/navieras.php" class="btn btn-dark">Navieras</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -24,7 +24,7 @@
             <img class="d-block w-100" src="img\puertos.jpg" alt="Third slide">
             <div class="carousel-caption d-md-block" style="z-index:1000;">
                 <h3>Para ver los Puertos:</h3>
-                <a href="../consultas/puertos.php" class="btn btn-dark bg-dark">Puertos</a>
+                <a href="../~grupo16/consultas/puertos.php" class="btn btn-dark bg-dark">Puertos</a>
             </div>
         </div>
     </div>
