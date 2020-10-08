@@ -8,7 +8,7 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active" id="nav-naviera">
+                <li class="nav-item" id="nav-naviera">
                     <a class="nav-link" href="/~grupo16/consultas/navieras.php">Navieras <span
                             class="sr-only">(current)</span></a>
                 </li>
