@@ -13,12 +13,12 @@
         <div class=" sidebar-sticky pt-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/~grupo16/index.php">
+                    <a class="nav-link text-dark" href="/index.php">
                         Index
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/~grupo16/esquemas.php">
+                    <a class="nav-link text-dark" href="/esquemas.php">
                         Esquema
                     </a>
                 </li>
@@ -31,17 +31,17 @@
 
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/~grupo16/consultas/consulta_1.php">
+                    <a class="nav-link text-dark" href="/consultas/consulta_1.php">
                         Consulta 1
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/~grupo16/consultas/consulta_2.php">
+                    <a class="nav-link text-dark" href="/consultas/consulta_2.php">
                         Consulta 2
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/~grupo16/consultas/consulta_3.php">
+                    <a class="nav-link text-dark" href="/consultas/consulta_3.php">
                         Consulta 3
                     </a>
                 </li>
@@ -51,12 +51,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/~grupo16/consultas/consulta_5.php">
+                    <a class="nav-link text-dark" href="/consultas/consulta_5.php">
                         Consulta 5
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/~grupo16/consultas/consulta_6.php">
+                    <a class="nav-link text-dark" href="/consultas/consulta_6.php">
                         Consulta 6
                     </a>
                 </li>

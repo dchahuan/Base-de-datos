@@ -1,47 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <nav class="navbar navbar-dark bg-primary">
-        <span class="navbar-brand">Entrega 2 Grupo 16</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+        <a class="navbar-brand link-personalizado" href="/index.php">Entrega 3 Grupos 16 y 45</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/~grupo16/index.php">Index</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active" id="nav-naviera">
+                    <a class="nav-link" href="../consultas/navieras.php">Navieras <span
+                            class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/~grupo16/esquemas.php">Esquemas</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Consultas
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_1.php">Consulta 1</a>
-                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_2.php">Consulta 2</a>
-                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_3.php">Consulta 3</a>
-                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_4.php">Consulta 4</a>
-                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_5.php">Consulta 5</a>
-                        <a class="dropdown-item" href="/~grupo16/consultas/consulta_6.php">Consulta 6</a>
-                    </div>
+                <li class="nav-item" id="nav-puerto">
+                    <a class="nav-link" href="../consultas/puertos.php">Puertos</a>
                 </li>
             </ul>
+            <a class="btn btn-light my-sm-0 my-2 mr-2" href="loginForm.php" role="button">Login</a>
+            <a class="btn btn-light my-sm-0 my-2" href="loginForm.php" role="button">Register</a>
         </div>
     </nav>
 
-
-</body>
-
-</html>
+</header>
