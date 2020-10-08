@@ -9,11 +9,11 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active" id="nav-naviera">
-                    <a class="nav-link" href="../consultas/navieras.php">Navieras <span
+                    <a class="nav-link" href="../~grupo16/consultas/navieras.php">Navieras <span
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" id="nav-puerto">
-                    <a class="nav-link" href="../consultas/puertos.php">Puertos</a>
+                    <a class="nav-link" href="../~grupo16/consultas/puertos.php">Puertos</a>
                 </li>
             </ul>
             <a class="btn btn-light my-sm-0 my-2 mr-2" href="loginForm.php" role="button">Login</a>
