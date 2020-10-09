@@ -29,7 +29,7 @@
             print_r($_POST)
         ?>
 
-        
+
 
 
     </div>
@@ -42,6 +42,6 @@
 
 <?php
 } else {
-    header("Location: /index.php");
+    header("Location: /~grupo16/consultas/navieras.php");
     exit();
 }?>
