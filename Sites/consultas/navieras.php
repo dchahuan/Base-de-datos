@@ -25,7 +25,7 @@
         </div>
 
         <div class="row justify-content-around">
-        <?php
+            <?php
             foreach($navieras as $nav){
                 
                 echo "<div class='card col-xs-12 col-sm-6 col-md-4 col-lg-2 cole-xl-1 mx-2 mt-2' style='width: 18rem;'>
@@ -35,6 +35,7 @@
                   <p class='card-text'>$nav[3].</p>
                 <form method = 'POST' action = 'naviera.php'>
                     <input value='$nav[0]' name='nid' class = 'd-none' type='text' disable>
+                    <input value='$nav[1]' name='name' class = 'd-none' type='text' disable>
                     <button type='submit' class='btn btn-dark'>Login</button>
                 </form>
                 </div>
