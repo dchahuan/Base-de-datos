@@ -40,7 +40,7 @@
                 <tbody>
                     <?php
                     foreach($buques as $b){
-                    echo "<tr><td>$b[0]</td><td>$b[1]</td><td>$b[2]</td><td>$b[3]</td></tr>";
+                    echo "<tr><td>$b[1]</td><td>$b[0]</td><td>$b[3]</td><td>$b[2]</td></tr>";
                 };?>
                 </tbody>
             </table>
