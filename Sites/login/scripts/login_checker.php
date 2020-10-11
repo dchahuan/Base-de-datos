@@ -18,14 +18,14 @@ if (isset($_POST["login-submit"])){
         $usuario = $results -> fetchAll();
 
 
-        if ($usuario["pwd"] == $pwd){
+        if ($usuario["pwd"] == $_POST["pwd"]){
             session_start();
             $_SESSION["pasaporte"] = $n_pass;
             
             header("Location: \~grupo16\home.php ");
             exit();
         } else{
-            header("Location: /~grupo16/login/login_form.php?error=wrongpwd");
+            header("Location: /~grupo16/login/login_form.php?error=wrongpwd&pwd=pwd");
             exit();
         }
     }
