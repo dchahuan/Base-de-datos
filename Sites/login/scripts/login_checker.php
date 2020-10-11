@@ -25,7 +25,7 @@ if (isset($_POST["login-submit"])){
             header("Location: \~grupo16\home.php ");
             exit();
         } else{
-            $a = $usuario[0];
+            $a = $usuario["pwd"];
             header("Location: /~grupo16/login/login_form.php?error=wrongpwd&db=$a");
             exit();
         }
