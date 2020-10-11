@@ -1,8 +1,8 @@
 <?php
+include "components/head.php";
+include "components/header.php";
 require("config/conexion.php");
 if (isset($_SESSION["pasaporte"])){
-    include "components/head.php";
-    include "components/header.php";
     echo "hello ". $_SESSION["pasaporte"];
 ?>
 
