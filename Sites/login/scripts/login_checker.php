@@ -17,18 +17,18 @@ if (isset($_POST["login-submit"])){
         $results -> execute(["pasaporte" => $_POST["pasaporte"]]);
         $usuario = $results -> fetchAll();
 
-
-        if ($usuario[0] == $_POST["pwd"]){
+        foreach($usuario as $u){
+            $a = $u[0];
+        }
+        if ($a == $_POST["pwd"]){
             session_start();
             $_SESSION["pasaporte"] = $n_pass;
             
             header("Location: \~grupo16\home.php ");
             exit();
         } else{
-            foreach($usuario as $u){
-                $a = $u[0];
-            }
-            header("Location: /~grupo16/login/login_form.php?error=wrongpwd&db=$a");
+            
+            header("Location: /~grupo16/login/login_form.php?error=wrongpwd");
             exit();
         }
     }
