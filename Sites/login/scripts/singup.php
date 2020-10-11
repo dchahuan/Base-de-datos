@@ -17,7 +17,10 @@ if (isset($_POST["signup-submit"])){
     } else if (!($pwd_r == $pwd)){
         header("Location: /~grupo16/login/signup_form.php?error=pwd_mismatch");
         exit();
-    } else {
+    } else if (!filter_var($edad, FILTER_VALIDATE_INT)){
+        header("Location: /~grupo16/login/signup_form.php?error=edad_no_int");
+        exit();
+    }else {
         $query = "select name from usuarios where pasaport = :pasaporte";
         $result = $db -> prepare($query);
         $result -> execute(["pasaporte" => $_POST["pasaporte"]]);

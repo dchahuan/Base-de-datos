@@ -32,7 +32,7 @@
                 <form method = 'POST' action = 'naviera.php'>
                     <input value='$nav[0]' name='nid' class = 'd-none' type='text' disable>
                     <input value='$nav[1]' name='name' class = 'd-none' type='text' disable>
-                    <button type='submit' class='btn btn-dark'>Login</button>
+                    <button type='submit' class='btn btn-dark'>Mas info</button>
                 </form>
                 </div>
               </div>";
