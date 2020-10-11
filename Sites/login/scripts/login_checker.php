@@ -12,9 +12,9 @@ if (isset($_POST["login-submit"])){
         header("Location: /~grupo16/login/login_form.php?error=empty");
         exit();
     } else {
-        $query = "select pwd from usuarios where pasaporte = :pwd";
+        $query = "select pwd from usuarios where pasaporte = :pasaporte";
         $results = $db -> prepare($query); 
-        $results -> execute(["pwd" => $_POST["pwd"]]);
+        $results -> execute(["pasaporte" => $_POST["pasaporte"]]);
         $usuario = $results -> fetchAll();
 
 
@@ -25,8 +25,8 @@ if (isset($_POST["login-submit"])){
             header("Location: \~grupo16\home.php ");
             exit();
         } else{
-            $a = $usuario["pwd"];
-            header("Location: /~grupo16/login/login_form.php?error=wrongpwd&pwd=$pwd&db=$a");
+            $a = $usuario[0];
+            header("Location: /~grupo16/login/login_form.php?error=wrongpwd&db=$a");
             exit();
         }
     }
