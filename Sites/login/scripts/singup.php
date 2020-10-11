@@ -12,10 +12,10 @@ if (isset($_POST["signup-submit"])){
     $pais = $_POST["nacionalidad"];
 
     if (empty($username) || empty($pwd) || empty($pwd_r) || empty($edad) || empty($sexo) || empty($n_pasaporte) || empty($pais)){
-        header("Location: /login/signup_form.php?error=emptyfields");
+        header("Location: /~grupo16/login/signup_form.php?error=emptyfields");
         exit();
     } else if (!($pwd_r == $pwd)){
-        header("Location: /login/signup_form.php?error=pwd_mismatch");
+        header("Location: /~grupo16/login/signup_form.php?error=pwd_mismatch");
         exit();
     } else {
         $query = "select name from usuarios where pasaport = :pasaporte";
@@ -24,12 +24,12 @@ if (isset($_POST["signup-submit"])){
         $usuarios = $result->fetchAll();
 
         if (count($usuarios) > 0){
-            header("Location: /login/signup_form.php?error=invalid_passport");
+            header("Location:  /~grupo16/login/signup_form.php?error=invalid_passport");
             exit();
         } else {
             $query = "insert into usuarios(nombre,pasaporte,edad,nacionalidad,sexo,pwd) values (?,?,?,?,?,?)";           
             $db -> prepare($query) -> execute([$username,$n_pasaporte,$edad,$pais,$sexo,$pwd]);
-            header("Location: /login/signup_form.php?signup=success");
+            header("Location:  /~grupo16/login/signup_form.php?signup=success");
             exit();
 
         }

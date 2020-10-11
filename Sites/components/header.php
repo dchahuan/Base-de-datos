@@ -16,8 +16,8 @@
                     <a class="nav-link" href="/~grupo16/consultas/puertos.php">Puertos</a>
                 </li>
             </ul>
-            <a class="btn btn-light my-sm-0 my-2 mr-2" href="loginForm.php" role="button">Login</a>
-            <a class="btn btn-light my-sm-0 my-2" href="loginForm.php" role="button">Register</a>
+            <a class="btn btn-light my-sm-0 my-2 mr-2" href=/~grupo16/login/login_form.php" role="button">Login</a>
+            <a class="btn btn-light my-sm-0 my-2" href="/~grupo16/login/signup_form.php" role="button">Register</a>
         </div>
     </nav>
 
