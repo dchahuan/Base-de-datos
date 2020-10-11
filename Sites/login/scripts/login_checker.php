@@ -18,7 +18,7 @@ if (isset($_POST["login-submit"])){
         $usuario = $results -> fetchAll();
 
 
-        if ($usuario["pwd"] == $_POST["pwd"]){
+        if ($usuario[0] == $_POST["pwd"]){
             session_start();
             $_SESSION["pasaporte"] = $n_pass;
             
