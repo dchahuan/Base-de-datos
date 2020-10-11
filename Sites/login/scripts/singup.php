@@ -38,5 +38,5 @@ if (isset($_POST["signup-submit"])){
     }
 
 } else {
-    header("Location: /login/signup_form.php");
+    header("Location: /~grupo16/login/signup_form.php");
 }
