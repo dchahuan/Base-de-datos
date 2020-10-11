@@ -69,7 +69,7 @@
                 </div>
 
 
-                <button type="submit" name="signup-submit" class="btn btn-dark btn-block ">Register</button>
+                <button type="submit" name="signup-submit" class="btn btn-dark btn-block my-1">Register</button>
 
 
             </form>
