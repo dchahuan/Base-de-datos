@@ -6,9 +6,6 @@
     $result -> execute();
     $buques = $result -> fetchAll();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
     include "../components/head.php"
 ?>
