@@ -15,7 +15,7 @@
 
             <hr style="border:1px solid black;">
 
-            <form action="/login/scripts/singup.php" method="post">
+            <form action="/~grupo16/login/scripts/singup.php" method="post">
                 <div class="form">
                     <div class="form-group">
                         <label for="name" class="col-3 control-label">Nombre: </label>
