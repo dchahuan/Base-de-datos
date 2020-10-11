@@ -15,7 +15,7 @@ if (isset($_POST["login-submit"])){
 
         try{
             $query = "select pwd from usuarios where pasaporte = :pwd";
-            $db -> prepare($query); 
+            $reults = $db -> prepare($query); 
             $results -> execute(["pwd" => $_POST["pwd"]]);
             $usuario = $results -> fetchAll();
         } catch (Exception $e) {
