@@ -9,7 +9,7 @@ if (isset($_SESSION["pasaporte"])){
     $result = $db -> prepare($query);
     $result -> execute([$_SESSION["pasaporte"]]);
     $data = $result -> fetchAll();
-    print_r($data);
+    print_r($data[0]["pasaporte"]);
 ?>
 
 
