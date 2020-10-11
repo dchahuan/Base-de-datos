@@ -13,7 +13,7 @@ if (isset($_POST["login-submit"])){
         exit();
     } else {
         $query = "select pwd from usuarios where pasaporte = :pwd";
-        $reults = $db -> prepare($query); 
+        $results = $db -> prepare($query); 
         $results -> execute(["pwd" => $_POST["pwd"]]);
         $usuario = $results -> fetchAll();
 
