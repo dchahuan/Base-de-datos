@@ -12,10 +12,16 @@ if (isset($_POST["login-submit"])){
         header("Location: /~grupo16/login/login_form.php?error=empty");
         exit();
     } else {
-        $query = "select pwd from usuarios where pasaporte = ?";
-        $db -> prepare($query); 
-        $results -> execute([$n_pass]);
-        $usuario = $results -> fetchAll();
+
+        try{
+            $query = "select pwd from usuarios where pasaporte = :pwd";
+            $db -> prepare($query); 
+            $results -> execute(["pwd" => $_POST["pwd"]]);
+            $usuario = $results -> fetchAll();
+        } catch (Exception $e) {
+            echo "$pwd";
+        }
+        
 
         if ($usuario["pwd"] == $pwd){
             session_start();
