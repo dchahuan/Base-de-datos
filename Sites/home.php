@@ -1,11 +1,12 @@
 <?php
+require("config/conexion.php");
 if (isset($_SESSION["pasaporte"])){
     include "components/head.php";
-    require("config/conexion.php");
     include "components/header.php";
-
-
+    echo "hello ". $_SESSION["pasaporte"];
 ?>
+
+
 
 
 
