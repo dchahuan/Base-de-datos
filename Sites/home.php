@@ -5,11 +5,11 @@
 
 require("config/conexion.php");
 if (isset($_SESSION["pasaporte"])){
-    $query = "select * from usuarios where pasaporte = ?";
+    $query = "select nombre, pasaporte, edad, nacionalidad,sexo from usuarios where pasaporte = ?";
     $result = $db -> prepare($query);
     $result -> execute([$_SESSION["pasaporte"]]);
     $data = $result -> fetchAll();
-    print_r($data[0]["pasaporte"]);
+    print_r($data[0]);
 ?>
 
 
