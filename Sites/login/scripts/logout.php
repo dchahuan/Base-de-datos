@@ -4,5 +4,5 @@ session_start();
 session_unset();
 session_destroy();
 
-header("Location: /index.php");
+header("Location: /~grupo16/index.php");
 exit();
