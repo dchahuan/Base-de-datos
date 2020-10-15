@@ -3,17 +3,31 @@
     include "components/header.php";
 
 
-require("config/conexion.php");
+
+
 if (isset($_SESSION["pasaporte"])){
-    $query = "select nombre, pasaporte, edad, nacionalidad,sexo from usuarios where pasaporte = ?";
-    $result = $db -> prepare($query);
-    $result -> execute([$_SESSION["pasaporte"]]);
-    $data = $result -> fetchAll();
-    print_r($data[0]);
+    require("config/conexion.php");
+    echo "hello ". $_SESSION["pasaporte"];
+
+
+    $query_es_capitan = "select * from capitanes where pasaporte = ?";
+    $result = $db -> prepare($query_es_capitan) -> execute([$_SESSION["pasaporte"]]);
+
+    if (count($result) > 0 ){
+        $patente = $result["patente"];
+        echo $patente;
+
+        $query_itinerarios_pasados = "select * from intinerarios where patente = ? order by fecha_salida limit 5";
+        $resultados_itinerarios = $db -> prepare($query_itinerarios_pasados) -> execute($patente);
+
+
+        #Programar tabla
+        foreach($resultados_itinerarios as $i){
+            #continue 
+        }
+    }
+    
 ?>
-
-
-
 
 
 
