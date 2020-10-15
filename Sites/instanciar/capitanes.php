@@ -18,7 +18,7 @@ try{
 	    
 	    $d = $data[0];
 	    $query3 = "insert into usuarios(nombre,pasaporte,edad,nacionalidad,sexo,pwd) values values (?,?,?,?,?,?);";
-	    print_r(d);
+	    print_r($d);
 	}
 	echo "Transaccion terminada";
 } catch (Exception $e){
