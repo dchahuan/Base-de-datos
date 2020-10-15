@@ -10,18 +10,25 @@ $results -> execute();
 $pasaporte_capites = $results -> fetchAll();
 
 $query2 = "select * from personal where pasaporte = ?";
-
-foreach($pasaporte_capites as $num_pass){
-    $results = $db -> prepare($query2);
-    $results -> execute([$num_pass[0]]);
-    $data = $results -> fetchAll();
-    
-    $d = $data[0];
-    $query3 = "insert into usuarios values (?,?,?,?,?,?)";
-    $db -> prepare($query3) -> execute([$d[0],$d[1],$d[2],$d[3],$d[4],"a"]);
+try{
+	$pdo->beginTransaction();
+	foreach($pasaporte_capites as $num_pass){
+	    $results = $db -> prepare($query2);
+	    $results -> execute([$num_pass[0]]);
+	    $data = $results -> fetchAll();
+	    
+	    $d = $data[0];
+	    $query3 = "insert into usuarios(nombre,pasaporte,edad,nacionalidad,sexo,pwd) values values (?,?,?,?,?,?);";
+	    $db -> prepare($query3) -> execute([$d[1],$d[0],$d[3],$d[4],$d[2],"a"]);
+	}
+	$pdo->commit();
+	echo "Transaccion terminada";
+} catch (Exception $e){
+    $pdo->rollback();
+    throw $e;
 }
 
-echo "Transaccion terminada";
+
 
 ?>
 
