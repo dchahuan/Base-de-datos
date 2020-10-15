@@ -11,7 +11,6 @@ $pasaporte_capites = $results -> fetchAll();
 
 $query2 = "select * from personal where pasaporte = ?";
 try{
-	$pdo->beginTransaction();
 	foreach($pasaporte_capites as $num_pass){
 	    $results = $db -> prepare($query2);
 	    $results -> execute([$num_pass[0]]);
@@ -21,7 +20,6 @@ try{
 	    $query3 = "insert into usuarios(nombre,pasaporte,edad,nacionalidad,sexo,pwd) values values (?,?,?,?,?,?);";
 	    print_r(d);
 	}
-	$pdo->commit();
 	echo "Transaccion terminada";
 } catch (Exception $e){
     $pdo->rollback();
