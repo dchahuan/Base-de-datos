@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 require("../config/conexion.php");
 
 
@@ -23,4 +22,7 @@ foreach($pasaporte_capites as $num_pass){
 }
 
 echo "Transaccion terminada";
->
+
+?>
+
+
