@@ -21,3 +21,6 @@ foreach($pasaporte_capites as $num_pass){
     $query3 = "insert into usuarios values (?,?,?,?,?,?)";
     $db -> prepare($query3) -> execute([$d[0],$d[1],$d[2],$d[3],$d[4],"a"]);
 }
+
+echo "Transaccion terminada";
+>
