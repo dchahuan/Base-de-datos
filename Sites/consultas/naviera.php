@@ -1,9 +1,9 @@
 <?php if(isset($_POST["nid"])){?>
 <?php
     require("../config/conexion.php");
-    $query = "select * from buques join pertenece on pertenece.patente = buques.patente and pertenece.nid =".$_POST['nid']." order by tipo;";
+    $query = "select * from buques join pertenece on pertenece.patente = buques.patente and pertenece.nid =? order by tipo;";
     $result = $db -> prepare($query);
-    $result -> execute();
+    $result -> execute([$_POST['nid']]);
     $buques = $result -> fetchAll();
 ?>
 <?php
