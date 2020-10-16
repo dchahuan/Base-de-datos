@@ -20,10 +20,9 @@ try{
 	    $d = $data[0];
 
 	    $query3 = "insert into usuarios(nombre,pasaporte,edad,nacionalidad,sexo,pwd) values values (?,?,?,?,?,?);";
-
-	    print_r($d);
-	    #$db -> prepare($query3) -> execute([]);
+	    $db -> prepare($query3) -> execute([$d[1],$d[0]],$d[3],$d[4],$d[2],"a");
 	}
+	$db -> commit();
 	echo "Transaccion terminada";
 } catch (Exception $e){
     $db->rollback();
