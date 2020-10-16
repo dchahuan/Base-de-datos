@@ -11,7 +11,7 @@ if (isset($_SESSION["pasaporte"])){
 
 
     $query_es_capitan = "select * from capitanes where pasaporte = ?";
-    $result = $db -> prepare($query_es_capitan) -> execute([$_SESSION["pasaporte"]]);
+    $result = $db -> prepare($query_es_capitan) -> execute([$_SESSION["pasaporte"]]) -> fetchAll();
 
     if (count($result) > 0 ){
         $patente = $result["patente"];
