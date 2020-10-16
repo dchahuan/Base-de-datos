@@ -14,7 +14,7 @@ if (isset($_SESSION["pasaporte"])){
     $result = $db -> prepare($query_es_capitan) ;
     $result -> execute([$_SESSION["pasaporte"]]) ;
     $es_capitan = $result -> fetchAll();
-    print_r($es_capitan)
+    print_r($es_capitan);
 
     if (count($es_capitan) > 0 ){
         $patente = $result["patente"];
