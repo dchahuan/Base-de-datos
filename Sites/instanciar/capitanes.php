@@ -20,7 +20,7 @@ try{
 	    $d = $data[0];
 
 	    $query3 = "insert into usuarios(nombre,pasaporte,edad,nacionalidad,sexo,pwd) values values (?,?,?,?,?,?);";
-	    $db -> prepare($query3) -> execute([$d[1],$d[0]],$d[3],$d[4],$d[2],"a");
+	    $db -> prepare($query3) -> execute([$d[1],$d[0]],$d[3],$d[4],$d[2],"a"]);
 	}
 	$db -> commit();
 	echo "Transaccion terminada";
