@@ -14,19 +14,20 @@ if (isset($_SESSION["pasaporte"])){
     $result = $db -> prepare($query_es_capitan) ;
     $result -> execute([$_SESSION["pasaporte"]]) ;
     $es_capitan = $result -> fetchAll();
+    print_r($es_capitan)
 
-    if (count($result) > 0 ){
+    if (count($es_capitan) > 0 ){
         $patente = $result["patente"];
-        echo $patente;
+        echo "Felicitacion encontraste un capitan";
 
-        $query_itinerarios_pasados = "select * from intinerarios where patente = ? order by fecha_salida limit 5";
-        $resultados_itinerarios = $db -> prepare($query_itinerarios_pasados) -> execute($patente);
+        #$query_itinerarios_pasados = "select * from intinerarios where patente = ? order by fecha_salida limit 5";
+        #$resultados_itinerarios = $db -> prepare($query_itinerarios_pasados) -> execute($patente);
 
 
         #Programar tabla
-        foreach($resultados_itinerarios as $i){
+        #foreach($resultados_itinerarios as $i){
             #continue 
-        }
+        #}
     }
     
 ?>
