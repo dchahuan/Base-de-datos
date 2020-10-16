@@ -11,6 +11,7 @@ $pasaporte_capites = $results -> fetchAll();
 
 $query2 = "select * from personal where pasaporte = ?";
 try{
+	$db -> beginTransaction();
 	foreach($pasaporte_capites as $num_pass){
 	    $results = $db -> prepare($query2);
 	    $results -> execute([$num_pass[0]]);
@@ -25,7 +26,7 @@ try{
 	}
 	echo "Transaccion terminada";
 } catch (Exception $e){
-    $pdo->rollback();
+    $db->rollback();
     throw $e;
 }
 
