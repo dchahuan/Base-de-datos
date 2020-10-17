@@ -30,10 +30,8 @@ if (isset($_SESSION["pasaporte"])){
 
              ?>
             
-            <div class="card mb-4">
-              
 
-            <div class="card ">
+            <div class="card mb-2">
               <div class="card-body">
                 <h6 class="mt-4 mb-3">Personal info</h6>
                 <?php 
