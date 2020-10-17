@@ -22,7 +22,7 @@ if (isset($_SESSION["pasaporte"])){
                 echo '<div class="media align-items-center py-3 mb-3">';
 
                 if ($data_usuario[5] == "hombre") {
-                    
+                    echo ' <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle">';
                 } else {
                     echo ' <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" class="d-block ui-w-100 rounded-circle">';
                 }
