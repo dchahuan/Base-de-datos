@@ -105,7 +105,6 @@ if (isset($_SESSION["pasaporte"])){
                 $resultado_prox -> execute([$patente]);
                 $proximos_itinerario = $resultado_prox -> fetchAll();
 
-                print_r($proximos_itinerario);
                 if (count($proximos_itinerario) > 0){
                     echo '<table class="table">
                 <thead class="thead-dark">
@@ -120,7 +119,7 @@ if (isset($_SESSION["pasaporte"])){
 
                 <?php
                     foreach($proximos_itinerario as $p){
-                        echo "<tr><td>$b[0]</td><td>$b[1]</td></tr>";
+                        echo "<tr><td>$p[0]</td><td>$p[1]</td></tr>";
                     };
                 echo '</tbody>
             </table>';
