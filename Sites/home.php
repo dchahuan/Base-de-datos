@@ -108,15 +108,16 @@ if (isset($_SESSION["pasaporte"])){
                   </tbody>
                 </table>';
 
-                 ?>
+        ?>
 
      </div> 
  </div>
 
 <?php }else {
     echo "";
-}>
-<?php } else {
+    }
+
+ } else {
     header("/~grupo16/index.php?error=nouser");
     exit();
 
