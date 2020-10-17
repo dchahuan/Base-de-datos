@@ -78,7 +78,7 @@ if (isset($_SESSION["pasaporte"])){
 
 
     if (count($es_capitan) > 0 ){
-        $patente = $es_capitan[0];
+        $patente = $es_capitan[0][0];
 
         #$query_itinerarios_pasados = "select * from intinerarios where patente = ? order by fecha_salida limit 5";
         #$resultados_itinerarios = $db -> prepare($query_itinerarios_pasados) -> execute($patente);
