@@ -7,15 +7,30 @@
 
 if (isset($_SESSION["pasaporte"])){
     require("config/conexion.php");
-    echo "hello ". $_SESSION["pasaporte"];
+
 
 
     $query_es_capitan = "select * from capitanes where pasaporte = ?";
     $result = $db -> prepare($query_es_capitan) ;
     $result -> execute([$_SESSION["pasaporte"]]) ;
     $es_capitan = $result -> fetchAll();
-    print_r($es_capitan);
 
+    $query_data_ususario = "select nombre,pasaporte,edad,nacionalidad,sexo from usuarios where pasaporte = ?";
+    $resultado_usuario = $db -> prepare($query_data_ususario) ->execute([$_SESSION["pasaporte"]])
+    $data_usuario = $resultado_usuario -> fetchAll();
+
+
+
+    
+?>
+
+
+
+
+
+
+
+<?php 
     if (count($es_capitan) > 0 ){
         $patente = $es_capitan["patente"];
         echo "Felicitacion encontraste un capitan";
@@ -29,10 +44,8 @@ if (isset($_SESSION["pasaporte"])){
             #continue 
         #}
     }
-    
-?>
 
-
+ ?>
 
 
 <?php } else {
