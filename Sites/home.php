@@ -105,6 +105,8 @@ if (isset($_SESSION["pasaporte"])){
                 $resultado_prox -> execute([$patente]);
                 $proximos_itinerario = $resultado_prox -> fetchAll();
 
+
+                if (count($proximos_itinerario) > 0){
                     echo '<table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -121,15 +123,21 @@ if (isset($_SESSION["pasaporte"])){
                         echo "<tr><td>$b[0]</td><td>$b[1]</td></tr>";
                     };
                 echo '</tbody>
-            </table>>';
-
+            </table>';
+                } else {
+                    echo "<p>No hay proximo itinerario</p>";
+                }   
         ?>
+
+                    
         <h6 class="mt-4 mb-3">Ultimos 5 atracos: </h6>
         <?php 
             $query_ultimos_atracos = "select puerto,fecha_llegada, fecha_salida from atracos where patente = ? order by fecha_llegada desc limit 5;";
             $resultado_atracos = $db -> prepare($query_ultimos_atracos);
             $resultado_atracos -> execute([$patente]);
             $ultimos_5_atracos = $resultado_atracos -> fetchAll();
+
+
 
 
             echo '<table class="table">
@@ -149,7 +157,7 @@ if (isset($_SESSION["pasaporte"])){
                         echo "<tr><td>$u[0]</td><td>$u[1]</td><td>$u[2]</td></tr>";
                     };
                 echo '</tbody>
-            </table>>';
+            </table>';
 
 
          ?>
