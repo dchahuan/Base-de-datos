@@ -113,8 +113,10 @@ if (isset($_SESSION["pasaporte"])){
 
                     </tr>
                 </thead>
-                <tbody>'
+                <tbody>';
+                ?>
 
+                <?php
                     foreach($proximos_itinerario as $p){
                         echo "<tr><td>$b[0]</td><td>$b[1]</td></tr>";
                     };
@@ -124,7 +126,7 @@ if (isset($_SESSION["pasaporte"])){
         ?>
         <h6 class="mt-4 mb-3">Ultimos 5 atracos: </h6>
         <?php 
-            $query_ultimos_atracos = "select puerto,fecha_llegada, fecha_salida from atracos where patente = ? order by fecha_llegada desc limit 5;"
+            $query_ultimos_atracos = "select puerto,fecha_llegada, fecha_salida from atracos where patente = ? order by fecha_llegada desc limit 5;";
             $resultado_atracos = $db -> prepare($query_ultimos_atracos);
             $resultado_atracos -> execute([$patente]);
             $ultimos_5_atracos = $resultado_atracos -> fetchAll();
@@ -138,7 +140,10 @@ if (isset($_SESSION["pasaporte"])){
                         <th scope="col">Fecha de salida</th>
                     </tr>   
                 </thead>
-                <tbody>'
+                <tbody>';
+                ?>
+
+                <?php
 
                     foreach($ultimos_5_atracos as $u){
                         echo "<tr><td>$u[0]</td><td>$u[1]</td><td>$u[2]</td></tr>";
