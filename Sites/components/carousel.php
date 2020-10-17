@@ -9,14 +9,14 @@
             <img class="d-block w-100" src="img\buque.jpg" alt="First slide" style=" width:100%; max-height: 768px !important;">
             <div class="carousel-caption  d-md-block">
                 <h3>Para ver los Navieras:</h3>
-                <a href="../consultas/navieras.php" class="btn btn-dark">Navieras</a>
+                <a href="/~grupo16/consultas/navieras.php" class="btn btn-dark">Navieras</a>
             </div>
         </div>
         <div class="carousel-item" style=" width:100%; max-height: 768px !important;">
             <img class="d-block w-100" src="img\office.jpg" alt="Second slide" style=" width:100%; max-height: 768px !important;">
             <div class="carousel-caption d-md-block" style="z-index:1000;">
                 <h3>Para entrar a tu sesion:</h3>
-                <a href="#" class="btn btn-dark bg-dark">Login</a>
+                <a href="/~grupo16/login/login_form.php" class="btn btn-dark bg-dark">Login</a>
             </div>
 
         </div>
@@ -24,7 +24,7 @@
             <img class="d-block w-100" src="img\puertos.jpg" alt="Third slide" style=" width:100%; max-height: 768px !important;">
             <div class="carousel-caption d-md-block" style="z-index:1000;">
                 <h3>Para ver los Puertos:</h3>
-                <a href="../consultas/puertos.php" class="btn btn-dark bg-dark">Puertos</a>
+                <a href="/~grupo16/consultas/puertos.php" class="btn btn-dark bg-dark">Puertos</a>
             </div>
         </div>
     </div>
