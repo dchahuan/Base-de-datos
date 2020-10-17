@@ -19,9 +19,16 @@ if (isset($_SESSION["pasaporte"])){
 <div class="container  flex-grow-1 container-p-y">
             <?php 
 
-                echo '<div class="media align-items-center py-3 mb-3">
-              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle">
-              <div class="media-body ml-4">
+                echo '<div class="media align-items-center py-3 mb-3">';
+
+                if (data_usuario[5] == "hombre") {
+                    
+                } else {
+                    echo ' <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" class="d-block ui-w-100 rounded-circle">';
+                }
+                
+             
+              echo '<div class="media-body ml-4">
                 <h4 class="font-weight-bold mb-0">'.$data_usuario[1].'<span class="text-muted font-weight-normal">@'.$data_usuario[2].'</span></h4>
                 <div class="text-muted mb-2">ID:'.$data_usuario[0].'</div>
               </div>
