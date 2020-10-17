@@ -78,16 +78,6 @@ if (isset($_SESSION["pasaporte"])){
     if (count($es_capitan) > 0 ){
         $patente = $es_capitan[0][0];
 
-        #$query_itinerarios_pasados = "select * from intinerarios where patente = ? order by fecha_salida limit 5";
-        #$resultados_itinerarios = $db -> prepare($query_itinerarios_pasados) -> execute($patente);
-
-
-        #Programar tabla
-        #foreach($resultados_itinerarios as $i){
-            #continue 
-        #}
-    
-
  ?>
 
  <div class="card">
@@ -106,7 +96,58 @@ if (isset($_SESSION["pasaporte"])){
                 </table>';
 
         ?>
+        <h6 class="mt-4 mb-3">Proximo itinerario: </h6>
+         <?php 
 
+
+                $query_data_prox = "select puerto, fecha_llegada from proximo_itenerario where patente = ?";
+                $resultado_prox = $db -> prepare($query_data_prox);
+                $resultado_prox -> execute([$patente])
+                $proximos_itinerario = $resultado_prox -> fetchAll();
+
+                    echo '<table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Puerto:</th>
+                        <th scope="col">Fecha de llegada</th>
+
+                    </tr>
+                </thead>
+                <tbody>'
+
+                    foreach($proximos_itinerario as $p){
+                        echo "<tr><td>$b[0]</td><td>$b[1]</td></tr>";
+                    };
+                echo '</tbody>
+            </table>>';
+
+        ?>
+        <h6 class="mt-4 mb-3">Ultimos 5 atracos: </h6>
+        <?php 
+            $query_ultimos_atracos = "select puerto,fecha_llegada, fecha_salida from atracos where patente = ? order by fecha_llegada desc limit 5;"
+            $resultado_atracos = $db -> prepare($query_ultimos_atracos);
+            $resultado_atracos -> execute([$patente]);
+            $ultimos_5_atracos = $resultado_atracos -> fetchAll();
+
+
+            echo '<table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Puerto</th>
+                        <th scope="col">Fecha de llegada</th>
+                        <th scope="col">Fecha de salida</th>
+                    </tr>   
+                </thead>
+                <tbody>'
+
+                    foreach($ultimos_5_atracos as $u){
+                        echo "<tr><td>$u[0]</td><td>$u[1]</td><td>$u[2]</td></tr>";
+                    };
+                echo '</tbody>
+            </table>>';
+
+
+         ?>
      </div> 
  </div>
 
