@@ -73,7 +73,7 @@ if (isset($_SESSION["pasaporte"])){
 <?php 
     $query_es_capitan = "select * from capitanes where pasaporte = ?";
     $result = $db -> prepare($query_es_capitan);
-    $result -> execute($_SESSION["pasaporte"]);
+    $result -> execute([$_SESSION["pasaporte"]]);
     $es_capitan = $result -> fetchAll();
 
 
