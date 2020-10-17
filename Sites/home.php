@@ -102,7 +102,7 @@ if (isset($_SESSION["pasaporte"])){
 
                 $query_data_prox = "select puerto, fecha_llegada from proximo_itenerario where patente = ?";
                 $resultado_prox = $db -> prepare($query_data_prox);
-                $resultado_prox -> execute([$patente])
+                $resultado_prox -> execute([$patente]);
                 $proximos_itinerario = $resultado_prox -> fetchAll();
 
                     echo '<table class="table">
