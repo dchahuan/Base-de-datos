@@ -1,0 +1,65 @@
+<?php if(isset($_POST["name"])){?>
+<?php
+    require("../config/conexion_2.php");
+    $query = "SELECT Instalaciones.id_instalacion, tipo_instalacion, capacidad_instalacion, nombre_puerto FROM instalaciones, Esta_en WHERE Instalaciones.id_instalacion = Esta_en.id_instalacion AND Esta_en.nombre_puerto = ?";
+    $result = $db -> prepare($query);
+    $result -> execute([$_POST['name']]);
+    $instalaciones = $result -> fetchAll();
+?>
+<?php
+    include "../components/head.php"
+?>
+
+<body>
+    <?php
+        include "../components/header.php"
+    ?>
+
+    <div class="container-fluid">
+
+        <div class="text-center">
+            <h1>
+                <?php
+            echo "Puerto ". $_POST['name'];
+        ?>
+            </h1>
+        </div>
+        <div class="container">
+            <ul>
+                <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
+            </ul>
+            <input type="text" id="date_range" name="date_range" class="form-control">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Patente</th>
+                        <th scope="col">Pais</th>
+                        <th scope="col">Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach($instalaciones as $i){
+                    echo "<tr><td>$i[1]</td><td>$i[0]</td><td>$i[3]</td><td>$i[2]</td></tr>";
+                    };?>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+    </div>
+    <?php
+        include "../components/footer.php";
+    ?>
+</body>
+
+</html>
+
+<?php
+} else {
+    header("Location: /~grupo16/consultas/navieras.php");
+    exit();
+}?>
