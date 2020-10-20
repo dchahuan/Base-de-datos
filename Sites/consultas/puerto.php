@@ -17,7 +17,7 @@
 
     <div class="container-fluid">
 
-        <div class="text-center">
+        <div class="text-center mt-2">
             <h1>
                 <?php
             echo "Puerto ". $_POST['name'];
@@ -30,7 +30,7 @@
             </ul>
             <div class="row">
                 <form action="puerto.php" method="POST">
-                    <div class="form-group col-md-6">
+                    <div class="form-group">
                         <label>Selecciona fechas:</label>
                         <div class="input-group">
                             <div class="input-group-addon">
