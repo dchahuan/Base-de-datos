@@ -28,8 +28,23 @@
             <ul>
                 <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
             </ul>
-            <input type="text" id="date_range" name="date_range" class="form-control">
-            <table class="table">
+            <div class="row">
+                <form action="puerto.php" method="POST">
+                    <div class="form-group col-md-6">
+                        <label>Selecciona fechas:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" id="date_range" name="date_range" class="form-control pull-right">
+                            <span class="input-group-btn">
+                                <button class="btn btn-info btn-flat" type="submit" name="submitRangeDates">Enviar</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <table class="table mt-5">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Nombre</th>
