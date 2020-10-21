@@ -32,12 +32,13 @@
                 <form action="puerto.php" method="POST">
                     <div class="form-group">
                         <label>Selecciona fechas:</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
+                        <div class="input-group col-xl-6 col-lg-6">
+                            <div class="input-group-addon col-xl-5 col-lg-5">
                                 <i class="fa fa-calendar"></i>
                             </div>
                             <input type="text" id="date_range" name="date_range" class="form-control pull-right">
                             <span class="input-group-btn">
+
                                 <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
                             </span>
                         </div>
