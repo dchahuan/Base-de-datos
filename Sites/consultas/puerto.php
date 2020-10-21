@@ -36,7 +36,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" id="date_range" name="date_range" class="form-control pull-right w-75">
+                            <input type="text" id="date_range" name="date_range" class="form-control pull-right w-50">
                             <span class="input-group-btn">
 
                                 <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
