@@ -2,7 +2,7 @@
 <?php
     require("../config/conexion_2.php");
     $query = "SELECT Instalaciones.id_instalacion, tipo_instalacion, capacidad_instalacion, nombre_puerto FROM instalaciones, Esta_en WHERE Instalaciones.id_instalacion = Esta_en.id_instalacion AND Esta_en.nombre_puerto = ?";
-    $result = $db -> prepare($query);
+    $result = $db_2 -> prepare($query);
     $result -> execute([$_POST['name']]);
     $instalaciones = $result -> fetchAll();
 ?>
@@ -44,6 +44,7 @@
                     </div>
                 </form>
             </div>
+            <!-- Aqui crear tabla con php en base a los rangos de fecha entregados en la variable "submitRangeDates de POST" -->
             <table class="table mt-5">
                 <thead class="thead-dark">
                     <tr>
@@ -75,6 +76,6 @@
 
 <?php
 } else {
-    header("Location: /~grupo16/consultas/navieras.php");
+    header("Location: /~grupo16/consultas/puerto.php");
     exit();
 }?>
