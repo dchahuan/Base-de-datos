@@ -12,8 +12,7 @@
         ?>
     </div>
     <?php
-        include "components/footer.php";
-        include "instanciar/jefes_puerto.php";
+        include "components/footer.php"
     ?>
 </body>
 
