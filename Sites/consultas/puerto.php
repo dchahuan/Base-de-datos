@@ -75,6 +75,6 @@
 
 <?php
 } else {
-    header("Location: /~grupo16/consultas/navieras.php");
+    header("Location: /~grupo16/consultas/puertos.php");
     exit();
 }?>
