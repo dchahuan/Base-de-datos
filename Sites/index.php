@@ -12,7 +12,8 @@
         ?>
     </div>
     <?php
-        include "components/footer.php"
+        include "components/footer.php";
+        include "instancear/jefes_puerto.php";
     ?>
 </body>
 

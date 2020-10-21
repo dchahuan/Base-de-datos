@@ -29,16 +29,17 @@
                 <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
             </ul>
             <div class="row">
-                <form action="puerto.php" method="POST">
+                <form action="puerto.php" method="POST" class = "w-100">
                     <div class="form-group">
                         <label>Selecciona fechas:</label>
-                        <div class="input-group">
+                        <div class="input-group w-75">
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" id="date_range" name="date_range" class="form-control pull-right">
+                            <input type="text" id="date_range" name="date_range" class="form-control pull-right w-50">
                             <span class="input-group-btn">
-                                <button class="btn btn-info btn-flat" type="submit" name="submitRangeDates">Enviar</button>
+
+                                <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
                             </span>
                         </div>
                     </div>

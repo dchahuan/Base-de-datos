@@ -15,7 +15,6 @@ if (isset($_SESSION["pasaporte"])){
 ?>
 
 
-
 <div class="container  flex-grow-1 container-p-y">
             <?php 
 

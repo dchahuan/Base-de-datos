@@ -1,7 +1,7 @@
 <?php
     require("../config/conexion_2.php");
     $query = "SELECT * FROM Puertos";
-    $result = $db -> prepare($query);
+    $result = $db_2 -> prepare($query);
     $result -> execute();
     $puertos = $result -> fetchAll();
 ?>
