@@ -33,10 +33,10 @@
                     <div class="form-group">
                         <label>Selecciona fechas:</label>
                         <div class="input-group w-75">
-                            <div class="input-group-addon w-50">
+                            <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" id="date_range" name="date_range" class="form-control pull-right">
+                            <input type="text" id="date_range" name="date_range" class="form-control pull-right w-75">
                             <span class="input-group-btn">
 
                                 <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
