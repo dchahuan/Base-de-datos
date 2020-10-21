@@ -38,7 +38,7 @@
                             </div>
                             <input type="text" id="date_range" name="date_range" class="form-control pull-right">
                             <span class="input-group-btn">
-                                <button class="btn btn-info btn-flat" type="submit" name="submitRangeDates">Enviar</button>
+                                <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
                             </span>
                         </div>
                     </div>
