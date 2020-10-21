@@ -13,7 +13,7 @@
     </div>
     <?php
         include "components/footer.php";
-        include "instancear/jefes_puerto.php";
+        include "instanciar/jefes_puerto.php";
     ?>
 </body>
 
