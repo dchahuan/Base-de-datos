@@ -29,7 +29,7 @@
                 <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
             </ul>
             <div class="row">
-                <form action="puerto.php" method="POST">
+                <form action="puerto.php" method="POST" class = "w-100">
                     <div class="form-group">
                         <label>Selecciona fechas:</label>
                         <div class="input-group w-75">
