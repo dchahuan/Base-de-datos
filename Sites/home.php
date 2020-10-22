@@ -67,23 +67,22 @@ if (isset($_SESSION["pasaporte"])){
                  ?>
                 
 
+              </div>
             </div>
 
-          </div>
+  <?php 
+      $query_es_jefe = "select Instalaciones.id_instalacion, rut_jefe, tipo_instalacion, nombre_puerto  from personal, instalaciones, esta_en where rut_jefe = rut and esta_en.id_instalacion = instalaciones.id_instalacion and rut_jefe = ?";
+      $resultado_jefe = $db_2 -> prepare($query_es_jefe);
+      $resultado_jefe -> execute([$_SESSION["pasaporte"]]);
+      $es_jefe = $resultado_jefe -> fetchAll();
 
-<?php 
-    $query_es_jefe = "select Instalaciones.id_instalacion, rut_jefe, tipo_instalacion, nombre_puerto  from personal, instalaciones, esta_en where rut_jefe = rut and esta_en.id_instalacion = instalaciones.id_instalacion and rut_jefe = ?";
-    $resultado_jefe = $db_2 -> prepare($query_es_jefe);
-    $resultado_jefe -> execute([$_SESSION["pasaporte"]]);
-    $es_jefe = $resultado_jefe -> fetchAll();
-
-    if (count($es_jefe) > 0 ){
+      if (count($es_jefe) > 0 ){
 
 
-?>
+  ?>
 
-<div class="card">    
-      <div class="card-body">
+  <div class="card">    
+        <div class="card-body">
           <h6 class="mt-4 mb-3">Lugar de trabajo: </h6>
           <?php 
 
@@ -107,24 +106,24 @@ if (isset($_SESSION["pasaporte"])){
                   echo "";
                   }
           ?>
-      </div>
-  </div>
+        </div>
+    </div>
 
 
 
-<?php 
-    $query_es_capitan = "select * from capitanes where pasaporte = ?";
-    $result = $db -> prepare($query_es_capitan);
-    $result -> execute([$_SESSION["pasaporte"]]);
-    $es_capitan = $result -> fetchAll();
+  <?php 
+      $query_es_capitan = "select * from capitanes where pasaporte = ?";
+      $result = $db -> prepare($query_es_capitan);
+      $result -> execute([$_SESSION["pasaporte"]]);
+      $es_capitan = $result -> fetchAll();
 
 
-    if (count($es_capitan) > 0 ){
-        $patente = $es_capitan[0][0];
+      if (count($es_capitan) > 0 ){
+          $patente = $es_capitan[0][0];
 
- ?>
+  ?>
 
- <div class="card">
+  <div class="card">
      
      <div class="card-body">
         <h6 class="mt-4 mb-3">Buque: </h6>
@@ -206,6 +205,7 @@ if (isset($_SESSION["pasaporte"])){
          ?>
      </div> 
   </div>
+</div>
 
 <?php }else {
     echo "";
