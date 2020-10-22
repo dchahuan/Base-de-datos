@@ -75,7 +75,7 @@ if (isset($_SESSION["pasaporte"])){
       $resultado_jefe = $db_2 -> prepare($query_es_jefe);
       $resultado_jefe -> execute([$_SESSION["pasaporte"]]);
       $es_jefe = $resultado_jefe -> fetchAll();
-      $es_jefe = $es_jefe[0];
+      $es_jefe_tupla = $es_jefe[0];
 
       if (count($es_jefe) > 0 ){
 
@@ -91,15 +91,15 @@ if (isset($_SESSION["pasaporte"])){
                     <tbody>
                       <tr>
                         <td>Nombre del Puerto: </td>
-                        <td>'.$es_jefe[3].'</td>
+                        <td>'.$es_jefe_tupla[3].'</td>
                       </tr>
                       <tr>
                         <td>ID Instalacion a cargo: </td>
-                        <td>'.$es_jefe[0].'</td>
+                        <td>'.$es_jefe_tupla[0].'</td>
                       </tr>
                       <tr>
                         <td>Tipo Instalacion a cargo: </td>
-                        <td>'.$es_jefe[2].'</td>
+                        <td>'.$es_jefe_tupla[2].'</td>
                       </tr>
                     </tbody>
                   </table>';
