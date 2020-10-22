@@ -123,7 +123,8 @@ if (isset($_SESSION["pasaporte"])){
           $patente = $es_capitan[0][0];
 
   ?>
-
+</div>
+<div class="container  flex-grow-1 container-p-y">
   <div class="card">
      
      <div class="card-body">
