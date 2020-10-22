@@ -118,6 +118,8 @@ if (isset($_SESSION["pasaporte"])){
                 </table>';
 
         ?>
+      </div>
+</div>
 
  <div class="card">
      
@@ -200,7 +202,7 @@ if (isset($_SESSION["pasaporte"])){
 
          ?>
      </div> 
- </div>
+  </div>
 
 <?php }else {
     echo "";
