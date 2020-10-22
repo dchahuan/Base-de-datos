@@ -75,6 +75,7 @@ if (isset($_SESSION["pasaporte"])){
       $resultado_jefe = $db_2 -> prepare($query_es_jefe);
       $resultado_jefe -> execute([$_SESSION["pasaporte"]]);
       $es_jefe = $resultado_jefe -> fetchAll();
+      $es_jefe = $es_jefe[0];
 
       if (count($es_jefe) > 0 ){
 
