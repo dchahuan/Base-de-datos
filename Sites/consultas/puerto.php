@@ -1,8 +1,9 @@
 <?php
     require("../config/conexion_2.php");
+    $nombre_puerto = $_POST['name'];
     $query = "SELECT Instalaciones.id_instalacion, tipo_instalacion, capacidad_instalacion, nombre_puerto FROM instalaciones, Esta_en WHERE Instalaciones.id_instalacion = Esta_en.id_instalacion AND Esta_en.nombre_puerto = ?";
     $result = $db_2 -> prepare($query);
-    $result -> execute([$_POST['name']]);
+    $result -> execute([$nombre_puerto]);
     $instalaciones = $result -> fetchAll();
 ?>
 <?php
@@ -19,7 +20,7 @@
         <div class="text-center mt-2">
             <h1>
                 <?php
-            echo "Puerto ". $_POST['name'];
+            echo "Puerto ". $nombre_puerto;
         ?>
             </h1>
         </div>
@@ -45,7 +46,7 @@
                 </form>
             </div>
             <?php if(isset($_POST["date_range"])){
-                echo "La fechas son:", $_POST["date_range"];
+                echo "La fechas son:". $_POST["date_range"];
             }?>
                 
             <!-- Aqui crear tabla con php en base a los rangos de fecha entregados en la variable "submitRangeDates de POST" -->
