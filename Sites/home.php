@@ -83,7 +83,7 @@ if (isset($_SESSION["pasaporte"])){
 
 
     if (count($es_capitan) > 0 ){
-        $patente = $es_capitan[0];
+        $patente = $es_capitan[0][0];
 
  ?>
 
