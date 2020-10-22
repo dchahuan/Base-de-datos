@@ -5,6 +5,7 @@
 if (isset($_SESSION["pasaporte"])){
 
     require("config/conexion.php");
+    require("config/conexion_2.php");
 
 
     $query_data_ususario = "select id,nombre,pasaporte,edad,nacionalidad,sexo from usuarios where pasaporte = ?";
@@ -82,7 +83,7 @@ if (isset($_SESSION["pasaporte"])){
 
 
     if (count($es_capitan) > 0 ){
-        $patente = $es_capitan[0][0];
+        $patente = $es_capitan[0];
 
  ?>
 

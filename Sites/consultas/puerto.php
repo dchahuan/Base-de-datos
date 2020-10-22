@@ -1,6 +1,6 @@
 <?php
     require("../config/conexion_2.php");
-    define("NOMBRE", $_POST['name']);
+    $nombre_puerto = $_POST['name'];
     $query = "SELECT Instalaciones.id_instalacion, tipo_instalacion, capacidad_instalacion, nombre_puerto FROM instalaciones, Esta_en WHERE Instalaciones.id_instalacion = Esta_en.id_instalacion AND Esta_en.nombre_puerto = ?";
     $result = $db_2 -> prepare($query);
     $result -> execute([$nombre_puerto]);
@@ -20,7 +20,7 @@
         <div class="text-center mt-2">
             <h1>
                 <?php
-            echo "Puerto "[".NOMBRE."];
+            echo "Puerto ". $nombre_puerto;
         ?>
             </h1>
         </div>
