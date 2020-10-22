@@ -32,6 +32,25 @@
 
 
             </form>
+
+
+
+            <?php
+                if (isset($_GET["error"])){
+                    echo "<h7 class = 'text-danger'>";
+                    if($_GET["error"] == "wrongpwd"){
+
+                        echo "Su usuario o su clave no existen en la base de datos";
+                    } else if ($_GET["error"] == "empty"){
+                        echo "No ha rellenado todos los items del form";
+                    }
+
+                    echo "</h7>";
+                }
+                
+            
+            
+            ?>
         </div>
     </div>
 
