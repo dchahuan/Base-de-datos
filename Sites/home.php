@@ -73,9 +73,9 @@ if (isset($_SESSION["pasaporte"])){
 
 <?php 
     $query_es_jefe = "select Instalaciones.id_instalacion, rut_jefe, tipo_instalacion, nombre_puerto  from personal, instalaciones, esta_en where rut_jefe = rut and esta_en.id_instalacion = instalaciones.id_instalacion and rut_jefe = ?";
-    $result = $db_2 -> prepare($query_es_jefe);
-    $result -> execute([$_SESSION["pasaporte"]]);
-    $es_jefe = $result -> fetchAll();
+    $resultado_jefe = $db_2 -> prepare($query_es_jefe);
+    $resultado_jefe -> execute([$_SESSION["pasaporte"]]);
+    $es_jefe = $resultado_jefe -> fetchAll();
 
 
 ?>
@@ -94,32 +94,31 @@ if (isset($_SESSION["pasaporte"])){
 
  ?>
 
-<div class="card">
-     
-     <div class="card-body">
-        <h6 class="mt-4 mb-3">Lugar de trabajo: </h6>
-        <?php 
+  <div class="card">    
+      <div class="card-body">
+          <h6 class="mt-4 mb-3">Lugar de trabajo: </h6>
+          <?php 
 
-                    echo '<table class="table user-view-table m-0">
-                  <tbody>
-                    <tr>
-                      <td>Nombre del Puerto: </td>
-                      <td>'.$es_jefe[3].'</td>
-                    </tr>
-                    <tr>
-                      <td>ID Instalacion a cargo: </td>
-                      <td>'.$es_jefe[0].'</td>
-                    </tr>
-                    <tr>
-                      <td>Tipo Instalacion a cargo: </td>
-                      <td>'.$es_jefe[2].'</td>
-                    </tr>
-                  </tbody>
-                </table>';
+                      echo '<table class="table user-view-table m-0">
+                    <tbody>
+                      <tr>
+                        <td>Nombre del Puerto: </td>
+                        <td>'.$es_jefe[3].'</td>
+                      </tr>
+                      <tr>
+                        <td>ID Instalacion a cargo: </td>
+                        <td>'.$es_jefe[0].'</td>
+                      </tr>
+                      <tr>
+                        <td>Tipo Instalacion a cargo: </td>
+                        <td>'.$es_jefe[2].'</td>
+                      </tr>
+                    </tbody>
+                  </table>';
 
-        ?>
+          ?>
       </div>
-</div>
+  </div>
 
  <div class="card">
      
