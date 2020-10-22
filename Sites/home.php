@@ -77,24 +77,12 @@ if (isset($_SESSION["pasaporte"])){
     $resultado_jefe -> execute([$_SESSION["pasaporte"]]);
     $es_jefe = $resultado_jefe -> fetchAll();
 
+    if (count($es_jefe) > 0 ){
+
 
 ?>
 
-
-
-<?php 
-    $query_es_capitan = "select * from capitanes where pasaporte = ?";
-    $result = $db -> prepare($query_es_capitan);
-    $result -> execute([$_SESSION["pasaporte"]]);
-    $es_capitan = $result -> fetchAll();
-
-
-    if (count($es_capitan) > 0 ){
-        $patente = $es_capitan[0][0];
-
- ?>
-
-  <div class="card">    
+<div class="card">    
       <div class="card-body">
           <h6 class="mt-4 mb-3">Lugar de trabajo: </h6>
           <?php 
@@ -115,10 +103,26 @@ if (isset($_SESSION["pasaporte"])){
                       </tr>
                     </tbody>
                   </table>';
-
+                }else {
+                  echo "";
+                  }
           ?>
       </div>
   </div>
+
+
+
+<?php 
+    $query_es_capitan = "select * from capitanes where pasaporte = ?";
+    $result = $db -> prepare($query_es_capitan);
+    $result -> execute([$_SESSION["pasaporte"]]);
+    $es_capitan = $result -> fetchAll();
+
+
+    if (count($es_capitan) > 0 ){
+        $patente = $es_capitan[0][0];
+
+ ?>
 
  <div class="card">
      
