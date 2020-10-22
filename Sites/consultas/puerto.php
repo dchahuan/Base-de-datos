@@ -77,6 +77,6 @@
 
 <?php
 } else {
-    header("Location: /~grupo16/consultas/puerto.php");
+    header("Location: /~grupo16/consultas/puertos.php");
     exit();
 }?>
