@@ -44,7 +44,7 @@
                     </div>
                 </form>
             </div>
-            <?php if(isset($_POST["name"])){
+            <?php if(isset($_POST["date_range"])){
                 echo "La fechas son:", $_POST["date_range"];
             }?>
                 
