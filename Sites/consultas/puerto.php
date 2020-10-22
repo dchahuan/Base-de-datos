@@ -1,4 +1,3 @@
-<?php if(isset($_POST["name"])){?>
 <?php
     require("../config/conexion_2.php");
     $query = "SELECT Instalaciones.id_instalacion, tipo_instalacion, capacidad_instalacion, nombre_puerto FROM instalaciones, Esta_en WHERE Instalaciones.id_instalacion = Esta_en.id_instalacion AND Esta_en.nombre_puerto = ?";
@@ -45,6 +44,10 @@
                     </div>
                 </form>
             </div>
+            <?php if(isset($_POST["name"])){
+                echo "La fechas son:", $_POST["date_range"];
+                ?>
+                
             <!-- Aqui crear tabla con php en base a los rangos de fecha entregados en la variable "submitRangeDates de POST" -->
             <table class="table mt-5">
                 <thead class="thead-dark">
@@ -74,9 +77,3 @@
 </body>
 
 </html>
-
-<?php
-} else {
-    header("Location: /~grupo16/consultas/puertos.php");
-    exit();
-}?>
