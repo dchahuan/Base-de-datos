@@ -46,7 +46,7 @@
             </div>
             <?php if(isset($_POST["name"])){
                 echo "La fechas son:", $_POST["date_range"];
-                ?>
+            }?>
                 
             <!-- Aqui crear tabla con php en base a los rangos de fecha entregados en la variable "submitRangeDates de POST" -->
             <table class="table mt-5">
