@@ -28,12 +28,12 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="border p-4" style="margin-left: 15%; margin-right: 0%">
-                        <h2 style="color:black" class="center mb-5">Capacidad y porcentaje de ocupación</h2>
+                        <h2 style="color:black" class="center mb-4">Capacidad y porcentaje de ocupación</h2>
                         <ul>
                             <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
                         </ul>
                         <form action="consulta1_puerto.php" method="POST">
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label>Selecciona fechas:</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="border p-4" style="margin-left: 5%; margin-right: 15%">
-                        <h2 class="center mb-2" style="color:black">Generar Permiso</h2>
+                        <h2 class="center mb-4" style="color:black">Generar Permiso</h2>
                         <ul>
                             <li> Para saber si algun tipo de instalacion tiene capacidad para tu barco en una fecha en específico, ingresa los siguientes datos: </li>
                             <li> IMPORTANTE: Recuerda que si alguna instalacion tiene capacidad, se generará un permiso para que puedas usarla! </li>
