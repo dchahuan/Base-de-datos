@@ -74,11 +74,11 @@
                             <div class="form-row mt-2">
                                 <div class="col-sm-6">
                                     <label>Fecha atraque:</label>
-                                    <input type="date" class="form-control" id="validationCustom01" value="2020-01-01" required>
+                                    <input type="date" class="form-control" id="validationCustom01" value="2020-01-01" style="display:none" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Fecha salida:</label>
-                                    <input type="date" class="form-control" id="validationCustom02" value="2020-01-03" required>
+                                    <input type="date" class="form-control" id="validationCustom02" value="2020-01-03" style="display:none" required>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
