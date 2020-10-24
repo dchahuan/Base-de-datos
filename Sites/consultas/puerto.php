@@ -66,30 +66,25 @@
                                     <label for="validationDefault02">Tipo de Instalacion</label>
                                     <select class="custom-select" required>
                                         <option value="">Selecciona...</option>
-                                        <option value="validationCustom01">Muelle</option>
-                                        <option value="validationCustom02">Astillero</option>
+                                        <option value="muelle">Muelle</option>
+                                        <option value="astillero">Astillero</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-row mt-2">
                                 <div class="col-sm-6">
                                     <label>Fecha atraque:</label>
-                                    <input type="date" class="form-control" id="validationCustom01" value="2020-01-01" style="display:none" required>
+                                    <input type="date" class="form-control" id="validationCustom01" value="2020-01-01" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Fecha salida:</label>
-                                    <input type="date" class="form-control" id="validationCustom02" value="2020-01-03" style="display:none" required>
+                                    <input type="date" class="form-control" id="validationCustom02" value="2020-01-03" required>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <button type='submit' class='btn btn-dark mt-4'>Consultar</button>
                             </div>
                         </form>
-                        <script>
-                            $("#myselect").on("change", function() {
-                                $("#" + $(this).val()).show().siblings().hide();
-                            })
-                        </script>
                     </div>
                 </div>
             </div>
