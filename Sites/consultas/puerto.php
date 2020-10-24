@@ -39,7 +39,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" id="date_range" name="date_range" class="form-control pull-right">
+                                    <input type="text" id="date_range" name="date_range_1" class="form-control pull-right">
                                     <span class="input-group-btn">
 
                                         <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
@@ -57,6 +57,37 @@
                             <li> Para saber si algun tipo de instalacion tiene capacidad para tu barco en una fecha en específico, ingresa los siguientes datos: </li>
                             <li> IMPORTANTE: Recuerda que si alguna instalacion tiene capacidad, se generará un permiso para que puedas usarla! </li>
                         </ul>
+                        <form action="consulta2_puerto.php" method="POST">
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault01">Patente Barco</label>
+                                    <input type="text" class="form-control" id="validationDefault01" placeholder="Patente Barco" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault02">Tipo de Instalacion</label>
+                                    <select class="custom-select" required>
+                                        <option value="">Selecciona...</option>
+                                        <option value="1">Muelle</option>
+                                        <option value="2">Astillero</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group mt-3">
+                                    <label>Selecciona fechas:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" id="date_range" name="date_range_2" class="form-control pull-right">
+                                        <span class="input-group-btn">
+
+                                            <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
