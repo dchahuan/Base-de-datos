@@ -74,16 +74,14 @@
                             <div class="form-row mt-2">
                                 <div class="col-sm-6">
                                     <label>Fecha atraque:</label>
-                                    <input type="date" class="form-control" id="validationCustom01" required>
+                                    <input type="date" class="form-control" id="validationCustom01" value="2020-01-01" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Fecha salida:</label>
-                                    <input type="date" class="form-control" id="validationCustom02" required>
+                                    <input type="date" class="form-control" id="validationCustom02" value="2020-01-03" required>
                                 </div>
                             </div>
-                            <span class="input-group-btn mt-2">
-                                <button class="btn btn-dark btn-flat" type="submit" name="submitform">Consultar</button>
-                            </span>
+                            <button type='submit' class='btn btn-dark'>Consultar</button>
                         </form>
                     </div>
                 </div>
