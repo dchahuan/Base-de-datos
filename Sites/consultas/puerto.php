@@ -59,11 +59,11 @@
                         </ul>
                         <form action="consulta2_puerto.php" method="POST">
                             <div class="form-row">
-                                <div class="col-md-4 mb-3">
+                                <div class="col">
                                     <label for="validationDefault01">Patente Barco</label>
                                     <input type="text" class="form-control" id="validationDefault01" placeholder="Patente Barco" required>
                                 </div>
-                                <div class="col-md-4 mb-3">
+                                <div class="col">
                                     <label for="validationDefault02">Tipo de Instalacion</label>
                                     <select class="custom-select" required>
                                         <option value="">Selecciona...</option>
