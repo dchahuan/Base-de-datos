@@ -39,7 +39,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" id="date_range" name="date_range" class="form-control pull-right">
+                                    <input type="text" id="date_range" name="date_range" class="form-control pull-right" required>
                                     <span class="input-group-btn">
                                         <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Consultar</button>
                                     </span>
@@ -81,7 +81,9 @@
                                     <input type="date" class="form-control" id="validationCustom02" value="2020-01-03" required>
                                 </div>
                             </div>
-                            <button type='submit' class='btn btn-dark'>Consultar</button>
+                            <div class="d-flex justify-content-center">
+                                <button type='submit' class='btn btn-dark mt-4'>Consultar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
