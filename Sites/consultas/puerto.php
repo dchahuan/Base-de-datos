@@ -71,19 +71,17 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="col">
+                            <div class="form-row mt-2">
+                                <div class="col-sm-6">
                                     <label>Fecha atraque:</label>
-                                    <!-- Añadir 2 selectores de fechas por separado -->
                                     <input type="date" class="form-control" id="validationCustom01" required>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <label>Fecha salida:</label>
-                                    <!-- Añadir 2 selectores de fechas por separado -->
                                     <input type="date" class="form-control" id="validationCustom02" required>
                                 </div>
                             </div>
-                            <span class="input-group-btn justify-content-center">
+                            <span class="input-group-btn mt-2">
                                 <button class="btn btn-dark btn-flat" type="submit" name="submitform">Consultar</button>
                             </span>
                         </form>
