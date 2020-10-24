@@ -66,8 +66,8 @@
                                     <label for="validationDefault02">Tipo de Instalacion</label>
                                     <select class="custom-select" required>
                                         <option value="">Selecciona...</option>
-                                        <option value="1">Muelle</option>
-                                        <option value="2">Astillero</option>
+                                        <option value="validationCustom01">Muelle</option>
+                                        <option value="validationCustom02">Astillero</option>
                                     </select>
                                 </div>
                             </div>
@@ -85,6 +85,11 @@
                                 <button type='submit' class='btn btn-dark mt-4'>Consultar</button>
                             </div>
                         </form>
+                        <script>
+                            $("#myselect").on("change", function() {
+                                $("#" + $(this).val()).show().siblings().hide();
+                            })
+                        </script>
                     </div>
                 </div>
             </div>
