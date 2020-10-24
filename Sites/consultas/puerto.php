@@ -17,7 +17,7 @@
 
     <div class="container-fluid">
 
-        <div class="text-center mt-2">
+        <div class="text-center mt-2 mb-5">
             <h1>
                 <?php
             echo "Puerto ". $nombre_puerto;
@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="consulta1-box" style="margin-left: 15%; margin-right: 0%">
+                    <div class="border" style="margin-left: 15%; margin-right: 0%">
                         <h2 style="color:black" class="center">Capacidad y porcentaje de ocupación</h2>
                         <ul>
                             <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="consulta2-box" style="margin-left: 5%; margin-right: 15%">
+                    <div class="border" style="margin-left: 5%; margin-right: 15%">
                         <h2 class="center" style="color:black">Generar Permiso</h2>
                         <ul>
                             <li> Para saber si algun tipo de instalacion tiene capacidad para tu barco en una fecha en específico, ingresa los siguientes datos: </li>
