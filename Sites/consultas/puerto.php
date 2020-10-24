@@ -26,7 +26,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="column">
+                <div class="col-sm-6">
                     <div class="consulta1-box" style="margin-left: 15%; margin-right: 0%">
                         <h2 style="color:black" class="center">Capacidad y porcentaje de ocupación</h2>
                         <ul>
@@ -50,7 +50,7 @@
                         <!-- Aqui enviar los datos a consulta1_puertos.php para ejecutarlo -->
                     </div>
                 </div>
-                <div class="column">
+                <div class="col-sm-6">
                     <div class="consulta2-box" style="margin-left: 5%; margin-right: 15%">
                         <h2 class="center" style="color:black">Generar Permiso</h2>
                         <ul>
