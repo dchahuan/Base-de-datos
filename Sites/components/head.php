@@ -73,4 +73,23 @@
             });
         });
     </script>
+    <script>
+        function myFunction(val) {
+            let fecha = document.getElementById("fecha_salida");
+            console.log(fecha);
+
+            if (val.value == "muelle") {
+            fecha.style.display = "none";
+            let fecha_salida_value = document.getElementById("validationCustom02");
+            fecha_salida_value.value = "none";
+            console.log(fecha_salida_value.value);
+
+            } else if (val.value == "astillero") {
+            fecha.style.display = "block";
+            let fecha_salida_value = document.getElementById("validationCustom02");
+            console.log(fecha_salida_value.value);
+
+            }
+        }
+	</script>
 </head>

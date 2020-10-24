@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col">
                                     <label for="validationDefault02">Tipo de Instalacion</label>
-                                    <select class="custom-select" required>
+                                    <select class="custom-select" onchange="myFunction(this)" required>
                                         <option value="">Selecciona...</option>
                                         <option value="muelle">Muelle</option>
                                         <option value="astillero">Astillero</option>
@@ -76,7 +76,7 @@
                                     <label>Fecha atraque:</label>
                                     <input type="date" class="form-control" id="validationCustom01" value="2020-01-01" required>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6" id="fecha_salida">
                                     <label>Fecha salida:</label>
                                     <input type="date" class="form-control" id="validationCustom02" value="2020-01-03" required>
                                 </div>
