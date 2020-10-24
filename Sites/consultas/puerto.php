@@ -41,7 +41,7 @@
                                     </div>
                                     <input type="text" id="date_range" name="date_range" class="form-control pull-right">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
+                                        <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Consultar</button>
                                     </span>
                                 </div>
                             </div>
@@ -72,19 +72,20 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group mt-3">
-                                    <label>Selecciona fechas:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" id="date_range" name="date_range_2" class="form-control pull-right">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates_2">Enviar</button>
-                                        </span>
-                                    </div>
+                                <div class="col">
+                                    <label>Fecha atraque:</label>
+                                    <!-- Añadir 2 selectores de fechas por separado -->
+                                    <input type="date" class="form-control" id="validationCustom01" required>
+                                </div>
+                                <div class="col">
+                                    <label>Fecha salida:</label>
+                                    <!-- Añadir 2 selectores de fechas por separado -->
+                                    <input type="date" class="form-control" id="validationCustom02" required>
                                 </div>
                             </div>
+                            <span class="input-group-btn justify-content-center">
+                                <button class="btn btn-dark btn-flat" type="submit" name="submitform">Consultar</button>
+                            </span>
                         </form>
                     </div>
                 </div>
