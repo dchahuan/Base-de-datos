@@ -17,7 +17,7 @@
 
     <div class="container-fluid">
 
-        <div class="text-center mt-2 mb-5">
+        <div class="text-center mt-4 mb-5">
             <h1>
                 <?php
             echo "Puerto ". $nombre_puerto;
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="border p-4" style="margin-left: 15%; margin-right: 0%">
-                        <h2 style="color:black" class="center">Capacidad y porcentaje de ocupación</h2>
+                        <h2 style="color:black; align: center" class="center">Capacidad y porcentaje de ocupación</h2>
                         <ul>
                             <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
                         </ul>
