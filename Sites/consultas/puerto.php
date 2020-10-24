@@ -25,47 +25,41 @@
             </h1>
         </div>
         <div class="container">
-            <ul>
-                <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
-            </ul>
             <div class="row">
-                <form action="puerto.php" method="POST" class = "w-100">
-                    <div class="form-group">
-                        <label>Selecciona fechas:</label>
-                        <div class="input-group w-75">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" id="date_range" name="date_range" class="form-control pull-right w-50">
-                            <span class="input-group-btn">
+                <div class="column">
+                    <div class="consulta1-box" style="margin-left: 15%; margin-right: 0%">
+                        <h2 style="color:black" class="center">Capacidad y porcentaje de ocupación</h2>
+                        <ul>
+                            <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
+                        </ul>
+                        <form action="consulta1_puerto.php" method="POST">
+                            <div class="form-group">
+                                <label>Selecciona fechas:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" id="date_range" name="date_range" class="form-control pull-right">
+                                    <span class="input-group-btn">
 
-                                <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
-                            </span>
-                        </div>
+                                        <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Enviar</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Aqui enviar los datos a consulta1_puertos.php para ejecutarlo -->
                     </div>
-                </form>
+                </div>
+                <div class="column">
+                    <div class="consulta2-box" style="margin-left: 5%; margin-right: 15%">
+                        <h2 class="center" style="color:black">Generar Permiso</h2>
+                        <ul>
+                            <li> Para saber si algun tipo de instalacion tiene capacidad para tu barco en una fecha en específico, ingresa los siguientes datos: </li>
+                            <li> IMPORTANTE: Recuerda que si alguna instalacion tiene capacidad, se generará un permiso para que puedas usarla! </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <?php if(isset($_POST["date_range"])){
-                echo "La fechas son:". $_POST["date_range"];
-            }?>
-                
-            <!-- Aqui crear tabla con php en base a los rangos de fecha entregados en la variable "submitRangeDates de POST" -->
-            <table class="table mt-5">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Patente</th>
-                        <th scope="col">Pais</th>
-                        <th scope="col">Tipo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach($instalaciones as $i){
-                    echo "<tr><td>$i[1]</td><td>$i[0]</td><td>$i[3]</td><td>$i[2]</td></tr>";
-                    };?>
-                </tbody>
-            </table>
         </div>
 
 
