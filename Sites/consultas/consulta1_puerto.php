@@ -4,7 +4,7 @@
         $value = trim($value); 
     }
     require("../config/conexion_2.php");
-    $fecha_array = explode("-", $_POST['date_range']);
+    $fecha_array = explode("/", $_POST['date_range']);
     array_walk($fecha_array, 'trim_value');
     $fecha_inicio = $fecha_array[0]; 
     $fecha_fin = $fecha_array[1];

@@ -36,7 +36,7 @@
             $('#date_range').daterangepicker({
                 "locale": {
                     "format": "YYYY-MM-DD",
-                    "separator": " - ",
+                    "separator": " / ",
                     "applyLabel": "Guardar",
                     "cancelLabel": "Cancelar",
                     "fromLabel": "Desde",
