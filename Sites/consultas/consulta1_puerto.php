@@ -17,6 +17,7 @@
             <h1>
                 <?php
             echo "Puerto ". $_POST['nombre_puerto'];
+            echo "Rango de fechas seleccionadas: ". $_POST['date_range'];
             ?>
             </h1>
         </div>
