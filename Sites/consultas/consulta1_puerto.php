@@ -53,13 +53,13 @@
                 echo
                 "<div class='text-center my-4'>
                     <h2>
-                        Instalacion $i[0]
+                        Instalación $i[0]
                     </h2>
                 </div>
                 <table class='table'>
                     <thead class='thead-dark'>
                         <tr>
-                            <th scope='col'>Dias con capacidad</th>
+                            <th scope='col'>Días con capacidad</th>
                             <th scope='col'>Capacidad (%)</th>
                         </tr>
                     </thead>

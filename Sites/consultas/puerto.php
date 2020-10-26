@@ -63,30 +63,33 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="validationDefault01">Patente Barco</label>
-                                    <input type="text" class="form-control" id="validationDefault01" placeholder="Patente Barco" required>
+                                    <input name='patente_barco' type="text" class="form-control" id="validationDefault01" placeholder="Patente Barco" required>
                                 </div>
                                 <div class="col">
                                     <label for="validationDefault02">Tipo de Instalacion</label>
                                     <select class="custom-select" onchange="myFunction(this)" required>
                                         <option value="">Selecciona...</option>
-                                        <option value="muelle">Muelle</option>
-                                        <option value="astillero">Astillero</option>
+                                        <option name='tipo_instalacion' value="muelle">Muelle</option>
+                                        <option name='tipo_instalacion' value="astillero">Astillero</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-row mt-2">
                                 <div class="col-sm-6">
                                     <label>Fecha atraque:</label>
-                                    <input type="date" class="form-control" id="validationCustom01" value="2020-01-01" required>
+                                    <input name='fecha_atraque' type="date" class="form-control" id="validationCustom01" value="2020-01-01" required>
                                 </div>
                                 <div class="col-sm-6" id="fecha_salida">
                                     <label>Fecha salida:</label>
-                                    <input type="date" class="form-control" id="validationCustom02" value="2020-01-03" required>
+                                    <input name='fecha_salida' type="date" class="form-control" id="validationCustom02" value="2020-01-03" required>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <button type='submit' class='btn btn-dark mt-4'>Consultar</button>
                             </div>
+                            <?php
+                                echo "<input value= '$nombre_puerto' name='nombre_puerto' class = 'd-none' type='text' disable>";
+                            ?>
                         </form>
                     </div>
                 </div>
