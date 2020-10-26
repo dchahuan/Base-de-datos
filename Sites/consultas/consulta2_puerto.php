@@ -30,7 +30,7 @@
             </h1>
             <p>
                 <?php
-                    echo "Rango de fechas seleccionadas: ".$fecha_inicio." y ".$fecha_fin;
+                    echo "Rango de fechas seleccionadas: ".$fecha_atraque." y ".$fecha_salida;
                 ?>
             </p>
             <p>
