@@ -10,8 +10,17 @@
     array_walk($fecha_array, 'trim_value');
     $fecha_inicio = $fecha_array[0]; 
     $fecha_fin = $fecha_array[1];
-    $nombre_puerto = $_POST['nombre_puerto']
-    // añadir query y procedimiento almacenado
+    $nombre_puerto = $_POST['nombre_puerto'];
+    // añadimos la query
+    $query = "SELECT Instalaciones.id_instalacion, tipo_instalacion, capacidad_instalacion, nombre_puerto FROM instalaciones, Esta_en WHERE Instalaciones.id_instalacion = Esta_en.id_instalacion AND Esta_en.nombre_puerto = ?";
+    $result = $db_2 -> prepare($query);
+    $result -> execute([$nombre_puerto]);
+    $instalaciones = $result -> fetchAll();
+    // añadimos el procedimiento almacenado que retorna una tabla
+    $stored_procedure = "SELECT * FROM calcular_capacidad(?, ?, ?)";
+    $result_procedure = $db_2 -> prepare($query);
+    $result_procedure -> execute([$nombre_puerto, $fecha_inicio, $fecha_fin]);
+    $capacidad_instalaciones = $result_procedure -> fetchAll();
 ?>
 <?php
     include "../components/head.php"
@@ -35,6 +44,40 @@
                     echo "Rango de fechas seleccionadas: ".$fecha_inicio." y ".$fecha_fin;
                 ?>
             </p>
+        </div>
+        <div class='container'>
+            <?php
+            foreach ($instalaciones as $i){
+                echo 
+                "<div class='text-center>'
+                    <h2>
+                        Instalacion $i[0]
+                    </h2>
+                </div>
+                <table class='table'>
+                    <thead class='thead-dark'>
+                        <tr>
+                            <th scope='col'>Dias con capacidad</th>
+                            <th scope='col'>Capacidad (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+                        foreach($capacidad_instalaciones as $c){ //aqui meter el procedimiento almacenado
+                            if ($c[0] == $i[0]){
+                                echo 
+                                "<tr>
+                                    <td>$c[1]</td>
+                                    <td>$c[2]</td>
+                                </tr>";
+                            }
+                        };
+            ?>
+            <?php
+                    echo 
+                    "</tbody>
+                </table>";
+            };
+            ?>
         </div>
     </div>
     <?php
