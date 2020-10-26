@@ -51,7 +51,7 @@
                 $suma_capacidades = 0;
                 $cantidad_instalaciones = 0;
                 echo
-                "<div class='text-center m-2'>
+                "<div class='text-center my-4'>
                     <h2>
                         Instalacion $i[0]
                     </h2>
@@ -81,8 +81,8 @@
                     echo 
                     "</tbody>
                 </table>
-                <ul class='m-2'> 
-                    <li> Promedio de ocupación entre $fecha_inicio y $fecha_fin: $promedio </li>
+                <ul class='m-2' style='font-size: 20px'> 
+                    <li> Promedio de ocupación entre $fecha_inicio y $fecha_fin: $promedio% </li>
                 </ul>";
             };
             ?>
