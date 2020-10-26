@@ -33,7 +33,7 @@
 
     <div class="container-fluid">
 
-        <div class="text-center">
+        <div class="text-center m-2">
             <h1>
                 <?php
                     echo "Puerto ".$nombre_puerto;
@@ -51,7 +51,7 @@
                 $suma_capacidades = 0;
                 $cantidad_instalaciones = 0;
                 echo
-                "<div class='text-center'>
+                "<div class='text-center m-2'>
                     <h2>
                         Instalacion $i[0]
                     </h2>
@@ -81,7 +81,9 @@
                     echo 
                     "</tbody>
                 </table>
-                <p class='m-2'> Promedio: $promedio </p>";
+                <ul class='m-2'> 
+                    <li> Promedio de ocupación entre $fecha_inicio y $fecha_fin: $promedio </li>
+                </ul>";
             };
             ?>
         </div>
