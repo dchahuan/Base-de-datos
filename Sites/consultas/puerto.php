@@ -41,7 +41,7 @@
                                     </div>
                                     <input type="text" id="date_range" name="date_range" class="form-control pull-right" required>
                                     <?php
-                                        echo "<input value= $nombre_puerto name='nombre_puerto' class = 'd-none' type='text' disable>";
+                                        echo "<input value= '$nombre_puerto' name='nombre_puerto' class = 'd-none' type='text' disable>";
                                     ?>
                                     <span class="input-group-btn">
                                         <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Consultar</button>
