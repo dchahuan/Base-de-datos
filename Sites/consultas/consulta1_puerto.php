@@ -49,7 +49,7 @@
             <?php
             foreach ($instalaciones as $i){
                 echo 
-                "<div class='text-center>'
+                "<div class='text-center'>
                     <h2>
                         Instalacion $i[0]
                     </h2>
