@@ -48,7 +48,9 @@
         <div class='container'>
             <?php
             foreach ($instalaciones as $i){
-                echo 
+                $suma_capacidades = 0;
+                $cantidad_instalaciones = 0;
+                echo
                 "<div class='text-center'>
                     <h2>
                         Instalacion $i[0]
@@ -64,6 +66,8 @@
                     <tbody>";
                         foreach($capacidad_instalaciones as $c){ //aqui meter el procedimiento almacenado
                             if ($c[0] == $i[0]){
+                                $suma_capacidades += $c[2];
+                                $cantidad_instalaciones += 1;
                                 echo 
                                 "<tr>
                                     <td>$c[1]</td>
@@ -73,9 +77,11 @@
                         };
             ?>
             <?php
+            $promedio = $suma_capacidades / $cantidad_instalaciones;
                     echo 
                     "</tbody>
-                </table>";
+                </table>
+                <p class='m-2'> Promedio: $promedio </p>";
             };
             ?>
         </div>
