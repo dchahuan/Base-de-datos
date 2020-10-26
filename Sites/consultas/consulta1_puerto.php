@@ -18,7 +18,7 @@
     $instalaciones = $result -> fetchAll();
     // añadimos el procedimiento almacenado que retorna una tabla
     $stored_procedure = "SELECT * FROM calcular_capacidad(?, ?, ?)";
-    $result_procedure = $db_2 -> prepare($query);
+    $result_procedure = $db_2 -> prepare($stored_procedure);
     $result_procedure -> execute([$nombre_puerto, $fecha_inicio, $fecha_fin]);
     $capacidad_instalaciones = $result_procedure -> fetchAll();
 ?>
