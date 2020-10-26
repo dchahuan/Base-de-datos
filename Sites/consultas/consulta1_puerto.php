@@ -82,7 +82,7 @@
                     "</tbody>
                 </table>
                 <ul class='m-2' style='font-size: 20px'> 
-                    <li> Promedio de ocupación entre $fecha_inicio y $fecha_fin: <span class='text-dark'>$promedio%</span> </li>
+                    <li> Promedio de ocupación entre $fecha_inicio y $fecha_fin: <span class='text-white bg-dark'>$promedio%</span> </li>
                 </ul>";
             };
             ?>
