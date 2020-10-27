@@ -11,6 +11,8 @@
     }
     $fecha_salida_2 = new DateTime($_POST['fecha_salida']);
     $nombre_puerto = $_POST['nombre_puerto'];
+    $interval = $fecha_atraque_2->diff($fecha_salida_2);
+    $days_diff = $interval->days 
     // añadimos el procedimiento almacenado que retorna una tabla
     $stored_procedure = "SELECT Instalaciones.id_instalacion, dias FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ? ORDER BY id_instalacion";
     $result_procedure = $db_2 -> prepare($stored_procedure);
@@ -44,7 +46,7 @@
             </p>
             <p>
                 <?php
-                    echo "Se generará un permiso de tipo $tipo_instalacion para la instalación x en las fechas seleccionadas";
+                    echo "Se generará un permiso de tipo $tipo_instalacion para la instalación x en las fechas seleccionadas, dias diferencia = $days_diff";
                 ?>
             </p>
             <table class="table">
