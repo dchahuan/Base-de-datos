@@ -87,7 +87,7 @@
             echo "</h7>";
         } else if (isset($_GET["signup"])){
             echo "<h7 class = 'text-success'>Se ha registrado correctamente</h7>";
-            echo "<a class='btn btn-light my-sm-0 my-2 mr-2' href='/~grupo16/login/login_form.php' role='button'>Login</a>";
+            echo "<a class='btn btn-dark my-sm-0 my-2 mr-2' href='/~grupo16/login/login_form.php' role='button'>Login</a>";
         }
     ?>
 
