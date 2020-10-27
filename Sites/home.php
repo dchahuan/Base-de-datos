@@ -1,9 +1,9 @@
 <?php
         include "components/head.php";
-        include "components/header.php";
+        
 
 if (isset($_SESSION["pasaporte"])){
-
+    include "components/header.php";
     require("config/conexion.php");
     require("config/conexion_2.php");
 
@@ -214,8 +214,6 @@ if (isset($_SESSION["pasaporte"])){
     }
 
  } else {
-   print_r($_SESSION);
-    #header("Location: /~grupo16/index.php?error=nouser");
-    #exit();
-
+    header("Location: /~grupo16/index.php?error=nouser");
+    exit();
 }?>
