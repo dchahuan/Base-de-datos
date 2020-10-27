@@ -2,13 +2,12 @@
     require("../config/conexion_2.php");
     $patente_barco = $_POST['patente_barco'];
     $tipo_instalacion = $_POST['tipo_instalacion'];
-    $fecha_atraque = new DateTime(strval($_POST['fecha_atraque']));
+    $fecha_atraque = $_POST['fecha_atraque'];
     if ($tipo_instalacion == 'muelle'){
         $fecha_salida = $fecha_atraque;
     } elseif ($tipo_instalacion == 'astillero'){
-        $fecha_salida = new DateTime(strval($_POST['fecha_salida']));
+        $fecha_salida = $_POST['fecha_salida'];
     }
-    $diff = $fecha_atraque->diff($fecha_salida);
     $nombre_puerto = $_POST['nombre_puerto'];
     // añadimos el procedimiento almacenado que retorna una tabla
     $stored_procedure = "SELECT Instalaciones.id_instalacion, dias FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ? ORDER BY id_instalacion";
