@@ -214,7 +214,7 @@ if (isset($_SESSION["pasaporte"])){
     }
 
  } else {
-    header("/~grupo16/index.php?error=nouser");
+    header("Location: /~grupo16/index.php?error=nouser");
     exit();
 
 }?>
