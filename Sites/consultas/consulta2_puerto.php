@@ -10,7 +10,7 @@
     }
     $nombre_puerto = $_POST['nombre_puerto'];
     // añadimos el procedimiento almacenado que retorna una tabla
-    $stored_procedure = "SELECT * FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ?";
+    $stored_procedure = "SELECT Instalaciones.id_instalacion, dias FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ?";
     $result_procedure = $db_2 -> prepare($stored_procedure);
     $result_procedure -> execute([$nombre_puerto, $fecha_atraque, $fecha_salida, $tipo_instalacion]);
     $capacidad_instalaciones = $result_procedure -> fetchAll();
@@ -34,22 +34,23 @@
             </h1>
             <p>
                 <?php
-                    echo "Rango de fechas seleccionadas: ".$fecha_atraque." y ".$fecha_salida;
+                    echo "Las siguientes instalaciones de tipo $tipo_instalacion tienen capacidad para la/s fecha/s seleccionada/s";
                 ?>
             </p>
-            <p>
-                <?php
-                    echo "Tipo instalación: ".$tipo_instalacion;
-                ?>
-            </p>
-            <p>
-                <?php
-                    echo "Patente barco: ".$patente_barco;
-                ?>
-            </p>
-        </div>
-        <div class='container'>
-
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID Instalación</th>
+                        <th scope="col">Días</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach($capacidad_instalaciones as $c){
+                    echo "<tr><td>$c[0]</td><td>$c[1]</td></tr>";
+                };?>
+                </tbody>
+            </table>
         </div>
     </div>
     <?php
