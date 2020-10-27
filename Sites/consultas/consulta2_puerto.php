@@ -94,9 +94,9 @@
                                 throw $e;
                             }
                         } elseif ($instalacion_a_usar == 1){
-                            echo "<li class='text-danger m-5' style='font-size: 25px'> Lamentablemente no hemos podido encontrar ninguna instalacion con capacidad para la/s fecha/s que elegiste!, vuelve a intentarlo con otras fechas por favor </li>";
+                            echo "<p class='text-danger m-5' style='font-size: 25px'> Lamentablemente no hemos podido encontrar ninguna instalacion con capacidad para la/s fecha/s que elegiste!, vuelve a intentarlo con otras fechas por favor </p>";
                         } elseif ($esta_la_patente == FALSE){
-                            echo "<li class='text-danger m-5' style='font-size: 25px'> La patente no está presente en nuestra base de datos! intenta con otra por favor </li>";
+                            echo "<p class='text-danger m-5' style='font-size: 25px'> La patente no está presente en nuestra base de datos! intenta con otra por favor </p>";
                         }
                     ?>
                 </li>
