@@ -66,7 +66,7 @@
                             }
                         }
                         if ($instalacion_a_usar != 1){
-                            echo "Se generará un permiso para el barco de patente $patente_barco en la instalación $instalacion_a_usar de tipo $tipo_instalacion en la/s fecha/s seleccionada/s";
+                            echo "Se generará un permiso para el barco de patente <span class='bg-dark text-white'>$patente_barco</span> en la instalación <span class='bg-dark text-white'>$instalacion_a_usar</span> de tipo <span class='bg-dark text-white'>$tipo_instalacion</span> en la/s fecha/s seleccionada/s";
                         } elseif ($instalacion_a_usar == 1){
                             echo "Lamentablemente no hemos podido encontrar ninguna instalacion con capacidad para la/s fecha/s que elegiste!, vuelve a intentarlo con otras fechas por favor";
                         }
@@ -74,7 +74,7 @@
                 </li>
                 <li>
                     <?php
-                        echo "Las siguientes instalaciones de tipo $tipo_instalacion tienen capacidad para la/s fecha/s seleccionada/s";
+                        echo "Las siguientes instalaciones de tipo <span class='bg-dark text-white'>$tipo_instalacion</span> tienen capacidad para la/s fecha/s seleccionada/s:";
                     ?>
                 </li>
                 <li>
