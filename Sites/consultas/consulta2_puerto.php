@@ -53,7 +53,7 @@
         <div>
             <h1 class='text-center m-2'>
                 <?php
-                    echo "Puerto ".$nombre_puerto;
+                    echo "Puerto ".$nombre_puerto." ".$fecha_atraque_2->getTimestamp();
                 ?>
             </h1>
         </div>
@@ -82,7 +82,7 @@
                                 if ($tipo_instalacion == 'astillero'){
                                     $query_astillero = "INSERT INTO permisos_astilleros VALUES (?, ?, ?, ?)";
                                     $resultado_astilleros = $db_2 -> prepare($query_astillero); 
-                                    $resultado_astilleros -> execute([$instalacion_a_usar, $patente_barco, $fecha_atraque, $fecha_salida]);
+                                    $resultado_astilleros -> execute([$instalacion_a_usar, $patente_barco, $fecha_atraque."00:00:00", $fecha_salida]);
                                 } elseif ($tipo_instalacion == 'muelle'){
                                     $query_muelle = "INSERT INTO permisos_muelles VALUES (?, ?, ?, ?)";
                                     $resultado_muelle = $db_2 -> prepare($query_muelle); 
