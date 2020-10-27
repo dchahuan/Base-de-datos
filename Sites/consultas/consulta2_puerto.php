@@ -8,6 +8,7 @@
     } elseif ($tipo_instalacion == 'astillero'){
         $fecha_salida = $_POST['fecha_salida'];
     }
+    $diff = $fecha_atraque->diff($fecha_salida);
     $nombre_puerto = $_POST['nombre_puerto'];
     // añadimos el procedimiento almacenado que retorna una tabla
     $stored_procedure = "SELECT Instalaciones.id_instalacion, dias FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ? ORDER BY id_instalacion";
@@ -37,6 +38,11 @@
                     echo "Las siguientes instalaciones de tipo $tipo_instalacion tienen capacidad para la/s fecha/s seleccionada/s";
                 ?>
             </p>
+            <p>
+                <?php
+                    echo "Se generará un permiso de tipo $tipo_instalacion para la instalación x, diferencia entre fechas: ".$diff->days. 'days';
+                ?>
+            </p>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -47,8 +53,13 @@
                 <tbody>
                     <?php
                     foreach($capacidad_instalaciones as $c){
-                    echo "<tr><td>$c[0]</td><td>$c[1]</td></tr>";
-                };?>
+                        echo 
+                        "<tr>
+                            <td>$c[0]</td>
+                            <td>$c[1]</td>
+                        </tr>";
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
