@@ -48,7 +48,7 @@
             </h1>
         </div>
         <div class='container'>
-            <ul style='font-size: 18px'>
+            <ul class='my-4' style='font-size: 18px'>
                 <li>
                     <?php
                         foreach ($capacidad_instalaciones as $c){
