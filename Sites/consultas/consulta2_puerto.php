@@ -15,7 +15,7 @@
     $interval = $fecha_atraque_2->diff($fecha_salida_2);
     $days_diff = $interval->days + 1;
     // añadimos el procedimiento almacenado que retorna una tabla
-    $stored_procedure = "SELECT Instalaciones.id_instalacion, dias FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ? ORDER BY id_instalacion";
+    $stored_procedure = "SELECT Instalaciones.id_instalacion, dias FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ? ORDER BY id_instalacion, dias";
     $result_procedure = $db_2 -> prepare($stored_procedure);
     $result_procedure -> execute([$nombre_puerto, $fecha_atraque, $fecha_salida, $tipo_instalacion]);
     $capacidad_instalaciones = $result_procedure -> fetchAll();
