@@ -46,31 +46,31 @@
                     echo "Puerto ".$nombre_puerto;
                 ?>
             </h1>
-            <ul style='font-size: 20px'>
+        </div>
+        <div class='container'>
+            <ul style='font-size: 18px'>
                 <li>
-                <?php
-                    echo "Las siguientes instalaciones de tipo $tipo_instalacion tienen capacidad para la/s fecha/s seleccionada/s";
-                ?>
+                    <?php
+                        echo "Las siguientes instalaciones de tipo $tipo_instalacion tienen capacidad para la/s fecha/s seleccionada/s";
+                    ?>
                 </li>
                 <li>
-                <?php
-                    foreach ($capacidad_instalaciones as $c){
-                        while ($instalacion_a_usar == 0){
-                            foreach ($count_iid as $i){
-                                if ($c[0] == $i[0]){
-                                    if ($i[1] == $days_diff){
-                                        $instalacion_a_usar = $i[0];
+                    <?php
+                        foreach ($capacidad_instalaciones as $c){
+                            while ($instalacion_a_usar == 0){
+                                foreach ($count_iid as $i){
+                                    if ($c[0] == $i[0]){
+                                        if ($i[1] == $days_diff){
+                                            $instalacion_a_usar = $i[0];
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    echo "Se generará un permiso de tipo $tipo_instalacion para la instalación $instalacion_a_usar en las fechas seleccionadas, dias diferencia = $days_diff";
-                ?>
+                        echo "Se generará un permiso de tipo $tipo_instalacion para la instalación $instalacion_a_usar en las fechas seleccionadas, dias diferencia = $days_diff";
+                    ?>
                 </li>
             </ul>
-        </div>
-        <div class='container'>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
