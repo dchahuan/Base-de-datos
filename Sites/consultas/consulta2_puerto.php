@@ -40,18 +40,19 @@
 
     <div class="container-fluid">
 
-        <div class="text-center m-2">
-            <h1>
+        <div>
+            <h1 class='text-center m-2'>
                 <?php
                     echo "Puerto ".$nombre_puerto;
                 ?>
             </h1>
-            <p>
+            <ul style='font-size: 20px'>
+                <li>
                 <?php
                     echo "Las siguientes instalaciones de tipo $tipo_instalacion tienen capacidad para la/s fecha/s seleccionada/s";
                 ?>
-            </p>
-            <p>
+                </li>
+                <li>
                 <?php
                     foreach ($capacidad_instalaciones as $c){
                         while ($instalacion_a_usar == 0){
@@ -66,7 +67,8 @@
                     }
                     echo "Se generará un permiso de tipo $tipo_instalacion para la instalación $instalacion_a_usar en las fechas seleccionadas, dias diferencia = $days_diff";
                 ?>
-            </p>
+                </li>
+            </ul>
         </div>
         <div class='container'>
             <table class="table">
