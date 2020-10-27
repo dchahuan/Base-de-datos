@@ -7,10 +7,11 @@
     $fecha_atraque_2 = new DateTime($_POST['fecha_atraque']);
     if ($tipo_instalacion == 'muelle'){
         $fecha_salida = $fecha_atraque;
+        $fecha_salida_2 = $fecha_atraque_2;
     } elseif ($tipo_instalacion == 'astillero'){
         $fecha_salida = $_POST['fecha_salida'];
+        $fecha_salida_2 = new DateTime($_POST['fecha_salida']);
     }
-    $fecha_salida_2 = new DateTime($_POST['fecha_salida']);
     $nombre_puerto = $_POST['nombre_puerto'];
     $interval = $fecha_atraque_2->diff($fecha_salida_2);
     $days_diff = $interval->days + 1;
