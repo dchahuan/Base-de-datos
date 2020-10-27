@@ -1,14 +1,18 @@
 <?php
     require("../config/conexion_2.php");
-    $patente_barco = $_POST['patente_barco']; 
-    $fecha_atraque = $_POST['fecha_atraque']; 
-    $fecha_salida = $_POST['fecha_salida'];
-    $nombre_puerto = $_POST['nombre_puerto'];
+    $patente_barco = $_POST['patente_barco'];
     $tipo_instalacion = $_POST['tipo_instalacion'];
+    $fecha_atraque = $_POST['fecha_atraque'];
+    if ($tipo_instalacion == 'muelle'){
+        $fecha_salida = $fecha_atraque;
+    } elseif ($tipo_instalacion == 'astillero'){
+        $fecha_salida = $_POST['fecha_salida'];
+    }
+    $nombre_puerto = $_POST['nombre_puerto'];
     // añadimos el procedimiento almacenado que retorna una tabla
-    $stored_procedure = "SELECT * FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion";
+    $stored_procedure = "SELECT * FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ?";
     $result_procedure = $db_2 -> prepare($stored_procedure);
-    $result_procedure -> execute([$nombre_puerto, $fecha_atraque, $fecha_salida]);
+    $result_procedure -> execute([$nombre_puerto, $fecha_atraque, $fecha_salida, $tipo_instalacion]);
     $capacidad_instalaciones = $result_procedure -> fetchAll();
 ?>
 <?php
