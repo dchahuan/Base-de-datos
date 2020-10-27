@@ -76,7 +76,7 @@
                             }
                         }
                         if ($instalacion_a_usar != 1 and $esta_la_patente == TRUE){
-                            echo "Se generará un permiso para el barco de patente <span class='font-weight-bold'>$patente_barco</span> en la instalación <span class='bg-dark text-white'>$instalacion_a_usar</span> de tipo <span class='bg-dark text-white text-uppercase'>$tipo_instalacion</span> en la/s fecha/s seleccionada/s";
+                            echo "Se generará un permiso para el barco de patente <span class='font-weight-bold'>$patente_barco</span> en la instalación <span class='font-weight-bold'>$instalacion_a_usar</span> de tipo <span class='font-weight-bold text-uppercase'>$tipo_instalacion</span> en la/s fecha/s seleccionada/s";
                             try{
                                 $db_2 -> beginTransaction();
                                 if ($tipo_instalacion == 'astillero'){
@@ -105,8 +105,8 @@
                         echo "Las siguientes instalaciones de tipo <span class='font-weight-bold text-uppercase'>$tipo_instalacion</span> tienen capacidad para las fechas específicadas en la columna de la derecha:";
                     ?>
                 </li>
-                <li class='font-italic'>
-                    ¡IMPORTANTE! Recuerda que las intalaciones de tipo astillero necesitan que todas las fechas estén disponibles entre la fecha de atraque y salida. Por el contrario, las de tipo muelle solo nececitas tener capacidad en la fecha de atraque.
+                <li>
+                    <span class='font-italic'>¡IMPORTANTE!</span> Recuerda que las intalaciones de tipo astillero necesitan que todas las fechas estén disponibles entre la fecha de atraque y salida. Por el contrario, las de tipo muelle solo nececitas tener capacidad en la fecha de atraque.
                 </li>
             </ul>
             <table class="table">
