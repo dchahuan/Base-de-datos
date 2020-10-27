@@ -53,7 +53,7 @@
         <div>
             <h1 class='text-center m-2'>
                 <?php
-                    echo "Puerto ".$nombre_puerto." ".$fecha_atraque_2->getTimestamp();
+                    echo "Puerto ".$nombre_puerto." ".$fecha_atraque." 00:00:00";
                 ?>
             </h1>
         </div>
