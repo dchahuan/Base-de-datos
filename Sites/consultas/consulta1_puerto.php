@@ -39,7 +39,7 @@
                     echo "Puerto ".$nombre_puerto;
                 ?>
             </h1>
-            <p>
+            <p class='font-italic'>
                 <?php
                     echo "Rango de fechas seleccionadas: ".$fecha_inicio." y ".$fecha_fin;
                 ?>
@@ -82,7 +82,7 @@
                     "</tbody>
                 </table>
                 <ul class='m-2' style='font-size: 20px'> 
-                    <li> Promedio de ocupación entre $fecha_inicio y $fecha_fin: <span class='text-white bg-dark'>$promedio%</span> </li>
+                    <li> Promedio de ocupación entre $fecha_inicio y $fecha_fin: <span class='font-weight-bold'>$promedio%</span> </li>
                 </ul>";
             };
             ?>

@@ -94,9 +94,9 @@
                                 throw $e;
                             }
                         } elseif ($instalacion_a_usar == 1){
-                            echo "<p class='text-danger m-5' style='font-size: 25px'> Lamentablemente no hemos podido encontrar ninguna instalacion con capacidad para la/s fecha/s que elegiste!, vuelve a intentarlo con otras fechas por favor </p>";
+                            echo "<p class='text-danger m-5' style='font-size: 25px'> Lamentablemente no hemos podido encontrar ninguna instalación con capacidad para la/s fecha/s que elegiste! Vuelve a intentarlo con otras fechas por favor </p>";
                         } elseif ($esta_la_patente == FALSE){
-                            echo "<p class='text-danger m-5' style='font-size: 25px'> La patente no está presente en nuestra base de datos! intenta con otra por favor </p>";
+                            echo "<p class='text-danger m-5' style='font-size: 25px'> La patente no está presente en nuestra base de datos! Intenta con otra por favor </p>";
                         }
                     ?>
                 </li>
@@ -106,7 +106,7 @@
                     ?>
                 </li>
                 <li>
-                    <span class='font-italic'>¡IMPORTANTE!</span> Recuerda que las intalaciones de tipo astillero necesitan que todas las fechas estén disponibles entre la fecha de atraque y salida. Por el contrario, las de tipo muelle solo nececitas tener capacidad en la fecha de atraque.
+                    <span class='font-italic'>¡IMPORTANTE!</span> Recuerda que las intalaciones de tipo astillero necesitan que todas las fechas estén disponibles entre la fecha de atraque y salida. Por el contrario, las de tipo muelle solo nececitan tener capacidad en la fecha de atraque.
                 </li>
             </ul>
             <table class="table">
