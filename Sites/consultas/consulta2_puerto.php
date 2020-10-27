@@ -1,5 +1,6 @@
 <?php
     require("../config/conexion_2.php");
+    $instalacion_a_usar = 0
     $patente_barco = $_POST['patente_barco'];
     $tipo_instalacion = $_POST['tipo_instalacion'];
     $fecha_atraque = $_POST['fecha_atraque'];
@@ -18,6 +19,12 @@
     $result_procedure = $db_2 -> prepare($stored_procedure);
     $result_procedure -> execute([$nombre_puerto, $fecha_atraque, $fecha_salida, $tipo_instalacion]);
     $capacidad_instalaciones = $result_procedure -> fetchAll();
+    // Segunda query
+    $query_2 = "SELECT iid, COUNT(iid) FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion and tipo_instalacion = ? GROUP BY iid";
+    $query_result = $db_2 -> prepare($query_2);
+    $query_result -> execute([$nombre_puerto, $fecha_atraque, $fecha_salida, $tipo_instalacion]);
+    $count_iid = $query_result -> fetchAll();
+
     // para añadir a permisos necesito: 
     // Permisos_Astilleros -> id_instalacion, patente_barco, fecha_atraque, fecha_salida
     // Permisos_Muelles	-> id_instalacion, patente_barco, fecha_atraque, descripcion_actividad	
@@ -46,7 +53,18 @@
             </p>
             <p>
                 <?php
-                    echo "Se generará un permiso de tipo $tipo_instalacion para la instalación x en las fechas seleccionadas, dias diferencia = $days_diff";
+                    foreach ($capacidad_instalaciones as $c){
+                        while ($instalacion_a_usar == 0){
+                            foreach ($count_iid as $i){
+                                if ($c[0] == $i[0]){
+                                    if ($i[1] == $days_diff){
+                                        $instalacion_a_usar = $i[0];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    echo "Se generará un permiso de tipo $tipo_instalacion para la instalación $instalacion_a_usar en las fechas seleccionadas, dias diferencia = $days_diff";
                 ?>
             </p>
             <table class="table">
