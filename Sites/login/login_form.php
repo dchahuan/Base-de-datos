@@ -44,12 +44,8 @@
                     } else if ($_GET["error"] == "empty"){
                         echo "No ha rellenado todos los items del form";
                     }
-
                     echo "</h7>";
                 }
-                
-            
-            
             ?>
         </div>
     </div>

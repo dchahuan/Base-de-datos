@@ -81,10 +81,13 @@
                 echo "Las claves no son iguales";
             } else if ($_GET["error"] == "invalid_passport"){
                 echo "Su numero de pasaporte ya fue usado por otra cuenta";
+            } else if ($_GET["error"] == "edad_no_int"){
+                echo "La edad no es un numero entero.";
             }
             echo "</h7>";
         } else if (isset($_GET["signup"])){
-            echo "<h7 class = 'text-success'>Se ha registrado correctamente</h7>";
+            header("Location: /~grupo16/home.php");
+            exit();
         }
     ?>
 
