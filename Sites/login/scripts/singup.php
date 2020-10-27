@@ -42,4 +42,5 @@ if (isset($_POST["signup-submit"])){
 
 } else {
     header("Location: /~grupo16/login/signup_form.php");
+    exit();
 }
