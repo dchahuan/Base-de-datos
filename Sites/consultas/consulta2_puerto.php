@@ -2,11 +2,11 @@
     require("../config/conexion_2.php");
     $patente_barco = $_POST['patente_barco'];
     $tipo_instalacion = $_POST['tipo_instalacion'];
-    $fecha_atraque = $_POST['fecha_atraque'];
+    $fecha_atraque = new DateTime($_POST['fecha_atraque']);
     if ($tipo_instalacion == 'muelle'){
         $fecha_salida = $fecha_atraque;
     } elseif ($tipo_instalacion == 'astillero'){
-        $fecha_salida = $_POST['fecha_salida'];
+        $fecha_salida = new DateTime($_POST['fecha_salida']);
     }
     $diff = $fecha_atraque->diff($fecha_salida);
     $nombre_puerto = $_POST['nombre_puerto'];
