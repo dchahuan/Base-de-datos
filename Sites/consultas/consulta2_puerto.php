@@ -1,6 +1,6 @@
 <?php
     require("../config/conexion_2.php");
-    $instalacion_a_usar = 0
+    $instalacion_a_usar = 0;
     $patente_barco = $_POST['patente_barco'];
     $tipo_instalacion = $_POST['tipo_instalacion'];
     $fecha_atraque = $_POST['fecha_atraque'];
