@@ -67,6 +67,8 @@
                     echo "Se generará un permiso de tipo $tipo_instalacion para la instalación $instalacion_a_usar en las fechas seleccionadas, dias diferencia = $days_diff";
                 ?>
             </p>
+        </div>
+        <div class='container'>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
