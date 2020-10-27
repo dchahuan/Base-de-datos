@@ -76,7 +76,7 @@
                             }
                         }
                         if ($instalacion_a_usar != 1 and $esta_la_patente == TRUE){
-                            echo "Se generará un permiso para el barco de patente <span class='bg-dark text-white'>$patente_barco</span> en la instalación <span class='bg-dark text-white'>$instalacion_a_usar</span> de tipo <span class='bg-dark text-white'>$tipo_instalacion</span> en la/s fecha/s seleccionada/s";
+                            echo "Se generará un permiso para el barco de patente <span class='bg-dark text-white'>$patente_barco</span> en la instalación <span class='bg-dark text-white'>$instalacion_a_usar</span> de tipo <span class='bg-dark text-white text-uppercase'>$tipo_instalacion</span> en la/s fecha/s seleccionada/s";
                             try{
                                 $db_2 -> beginTransaction();
                                 if ($tipo_instalacion == 'astillero'){
@@ -94,15 +94,15 @@
                                 throw $e;
                             }
                         } elseif ($instalacion_a_usar == 1){
-                            echo "Lamentablemente no hemos podido encontrar ninguna instalacion con capacidad para la/s fecha/s que elegiste!, vuelve a intentarlo con otras fechas por favor";
+                            echo "<li class='text-danger m-5' style='font-size: 25px'> Lamentablemente no hemos podido encontrar ninguna instalacion con capacidad para la/s fecha/s que elegiste!, vuelve a intentarlo con otras fechas por favor </li>";
                         } elseif ($esta_la_patente == FALSE){
-                            echo "La patente no está presente en nuestra base de datos! intenta con otra por favor";
+                            echo "<li class='text-danger m-5' style='font-size: 25px'> La patente no está presente en nuestra base de datos! intenta con otra por favor </li>";
                         }
                     ?>
                 </li>
                 <li>
                     <?php
-                        echo "Las siguientes instalaciones de tipo <span class='bg-dark text-white'>$tipo_instalacion</span> tienen capacidad para las fechas específicadas en la columna de la derecha:";
+                        echo "Las siguientes instalaciones de tipo <span class='bg-dark text-white text-uppercase'>$tipo_instalacion</span> tienen capacidad para las fechas específicadas en la columna de la derecha:";
                     ?>
                 </li>
                 <li>
