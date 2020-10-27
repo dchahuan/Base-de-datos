@@ -53,7 +53,7 @@
         <div>
             <h1 class='text-center m-2'>
                 <?php
-                    echo "Puerto ".$nombre_puerto." ".$fecha_atraque." 00:00:00";
+                    echo "Puerto ".$nombre_puerto;
                 ?>
             </h1>
         </div>
@@ -82,11 +82,11 @@
                                 if ($tipo_instalacion == 'astillero'){
                                     $query_astillero = "INSERT INTO permisos_astilleros VALUES (?, ?, ?, ?)";
                                     $resultado_astilleros = $db_2 -> prepare($query_astillero); 
-                                    $resultado_astilleros -> execute([$instalacion_a_usar, $patente_barco, $fecha_atraque."00:00:00", $fecha_salida]);
+                                    $resultado_astilleros -> execute([$instalacion_a_usar, $patente_barco, $fecha_atraque." 00:00:00", $fecha_salida." 12:00:00"]);
                                 } elseif ($tipo_instalacion == 'muelle'){
                                     $query_muelle = "INSERT INTO permisos_muelles VALUES (?, ?, ?, ?)";
                                     $resultado_muelle = $db_2 -> prepare($query_muelle); 
-                                    $resultado_muelle -> execute([$instalacion_a_usar, $patente_barco, $fecha_atraque, "descarga de pescados"]);
+                                    $resultado_muelle -> execute([$instalacion_a_usar, $patente_barco, $fecha_atraque." 00:00:00", "descarga de pescados"]);
                                 }
                                 $db_2 -> commit();
                             } catch (Exception $e){
