@@ -51,11 +51,6 @@
             <ul style='font-size: 18px'>
                 <li>
                     <?php
-                        echo "Las siguientes instalaciones de tipo $tipo_instalacion tienen capacidad para la/s fecha/s seleccionada/s";
-                    ?>
-                </li>
-                <li>
-                    <?php
                         foreach ($capacidad_instalaciones as $c){
                             while ($instalacion_a_usar == 0){
                                 foreach ($count_iid as $i){
@@ -65,10 +60,25 @@
                                         }
                                     }
                                 }
+                                if ($instalacion_a_usar == 0){
+                                    $instalacion_a_usar = 1;
+                                }
                             }
                         }
-                        echo "Se generará un permiso de tipo $tipo_instalacion para la instalación $instalacion_a_usar en las fechas seleccionadas, dias diferencia = $days_diff";
+                        if ($instalacion_a_usar != 1){
+                            echo "Se generará un permiso para el barco de patente $patente_barco en la instalación $instalacion_a_usar de tipo $tipo_instalacion en la/s fecha/s seleccionada/s";
+                        } elseif ($instalacion_a_usar == 1){
+                            echo "Lamentablemente no hemos podido encontrar ninguna instalacion con capacidad para la/s fecha/s que elegiste!, vuelve a intentarlo con otras fechas por favor";
+                        }
                     ?>
+                </li>
+                <li>
+                    <?php
+                        echo "Las siguientes instalaciones de tipo $tipo_instalacion tienen capacidad para la/s fecha/s seleccionada/s";
+                    ?>
+                </li>
+                <li>
+                    ¡IMPORTANTE! Recuerda que las intalaciones de tipo astillero necesitan que todas las fechas estén disponibles entre la fecha de atraque y salida.
                 </li>
             </ul>
             <table class="table">
