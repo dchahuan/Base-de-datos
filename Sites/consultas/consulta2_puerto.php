@@ -10,7 +10,7 @@
     }
     $nombre_puerto = $_POST['nombre_puerto'];
     // añadimos el procedimiento almacenado que retorna una tabla
-    $stored_procedure = "SELECT Instalaciones.id_instalacion, dias FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ?";
+    $stored_procedure = "SELECT Instalaciones.id_instalacion, dias FROM calcular_capacidad(?, ?, ?), Instalaciones WHERE iid = id_instalacion AND tipo_instalacion = ? ORDER BY id_instalacion";
     $result_procedure = $db_2 -> prepare($stored_procedure);
     $result_procedure -> execute([$nombre_puerto, $fecha_atraque, $fecha_salida, $tipo_instalacion]);
     $capacidad_instalaciones = $result_procedure -> fetchAll();
