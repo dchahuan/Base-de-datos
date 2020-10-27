@@ -32,7 +32,7 @@ if (isset($_POST["signup-submit"])){
         } else {
             $query = "insert into usuarios(nombre,pasaporte,edad,nacionalidad,sexo,pwd) values (?,?,?,?,?,?);";           
             $db -> prepare($query) -> execute([$username,$n_pasaporte,$edad,$pais,$sexo,$pwd]);
-            header("Location:  /~grupo16/home.php");
+            header("Location:  /~grupo16/login/signup_form.php?signup=success");
             exit();
 
         }
@@ -42,4 +42,5 @@ if (isset($_POST["signup-submit"])){
 
 } else {
     header("Location: /~grupo16/login/signup_form.php");
+    exit();
 }
