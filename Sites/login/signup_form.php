@@ -86,8 +86,7 @@
             }
             echo "</h7>";
         } else if (isset($_GET["signup"])){
-            header("Location: /~grupo16/home.php");
-            exit();
+            echo "<h7 class = 'text-success'>Se ha registrado correctamente</h7>";
         }
     ?>
 
