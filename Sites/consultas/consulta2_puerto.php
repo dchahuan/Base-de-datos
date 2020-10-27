@@ -24,7 +24,17 @@
     $query_result = $db_2 -> prepare($query_2);
     $query_result -> execute([$nombre_puerto, $fecha_atraque, $fecha_salida, $tipo_instalacion]);
     $count_iid = $query_result -> fetchAll();
-
+    // Tercera query (verificar si la patente pertenece a algún barco)
+    $query_barcos = "SELECT patente_barco FROM Barcos";
+    $result_barcos = $db_2 -> prepare($query_barcos);
+    $result_barcos -> execute();
+    $barcos = $result_barcos -> fetchAll();
+    $esta_la_patente = FALSE;
+    foreach ($barcos as $bar){
+        if ($bar[0] == $patente_barco){
+            $esta_la_patente = TRUE;
+        }
+    }
     // para añadir a permisos necesito: 
     // Permisos_Astilleros -> id_instalacion, patente_barco, fecha_atraque, fecha_salida
     // Permisos_Muelles	-> id_instalacion, patente_barco, fecha_atraque, descripcion_actividad	
@@ -65,20 +75,38 @@
                                 }
                             }
                         }
-                        if ($instalacion_a_usar != 1){
+                        if ($instalacion_a_usar != 1 and $esta_la_patente == TRUE){
                             echo "Se generará un permiso para el barco de patente <span class='bg-dark text-white'>$patente_barco</span> en la instalación <span class='bg-dark text-white'>$instalacion_a_usar</span> de tipo <span class='bg-dark text-white'>$tipo_instalacion</span> en la/s fecha/s seleccionada/s";
+                            try{
+                                $db_2 -> beginTransaction();
+                                if ($tipo_instalacion == 'astillero'){
+                                    $query_astillero = "INSERT INTO permisos_astilleros VALUES (?, ?, ?, ?)";
+                                    $resultado_astilleros = $db_2 -> prepare($query_astillero); 
+                                    $resultado_astilleros -> execute([$instalacion_a_usar, $patente_barco, $fecha_atraque, $fecha_salida]);
+                                } elseif ($tipo_instalacion == 'muelle'){
+                                    $query_muelle = "INSERT INTO permisos_muelles VALUES (?, ?, ?, ?)";
+                                    $resultado_muelle = $db_2 -> prepare($query_muelle); 
+                                    $resultado_muelle -> execute([$instalacion_a_usar, $patente_barco, $fecha_atraque, "descarga de pescados"]);
+                                }
+                                $db_2 -> commit();
+                            } catch (Exception $e){
+                                $db_2 ->rollback();
+                                throw $e;
+                            }
                         } elseif ($instalacion_a_usar == 1){
                             echo "Lamentablemente no hemos podido encontrar ninguna instalacion con capacidad para la/s fecha/s que elegiste!, vuelve a intentarlo con otras fechas por favor";
+                        } elseif ($esta_la_patente == FALSE){
+                            echo "La patente no está presente en nuestra base de datos! intenta con otra por favor"
                         }
                     ?>
                 </li>
                 <li>
                     <?php
-                        echo "Las siguientes instalaciones de tipo <span class='bg-dark text-white'>$tipo_instalacion</span> tienen capacidad para la/s fecha/s seleccionada/s:";
+                        echo "Las siguientes instalaciones de tipo <span class='bg-dark text-white'>$tipo_instalacion</span> tienen capacidad para las fechas específicadas en la columna de la derecha:";
                     ?>
                 </li>
                 <li>
-                    ¡IMPORTANTE! Recuerda que las intalaciones de tipo astillero necesitan que todas las fechas estén disponibles entre la fecha de atraque y salida.
+                    ¡IMPORTANTE! Recuerda que las intalaciones de tipo astillero necesitan que todas las fechas estén disponibles entre la fecha de atraque y salida. Por el contrario, las de tipo muelle solo nececitas tener capacidad en la fecha de atraque.
                 </li>
             </ul>
             <table class="table">
