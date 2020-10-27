@@ -96,7 +96,7 @@
                         } elseif ($instalacion_a_usar == 1){
                             echo "Lamentablemente no hemos podido encontrar ninguna instalacion con capacidad para la/s fecha/s que elegiste!, vuelve a intentarlo con otras fechas por favor";
                         } elseif ($esta_la_patente == FALSE){
-                            echo "La patente no está presente en nuestra base de datos! intenta con otra por favor"
+                            echo "La patente no está presente en nuestra base de datos! intenta con otra por favor";
                         }
                     ?>
                 </li>
