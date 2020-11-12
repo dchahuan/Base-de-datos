@@ -29,9 +29,20 @@ def get_mensajes():
     id1 = body.get("id1")
     id2 = body.get("id2")
     
-    if body.get("id1") or body.get("id2"):
-        if body.get("id1") and body.get("id2"):
-            pass
+    if id1 or id2:
+        if id1 and id2:
+            usuario_1 = list(db.usuarios.find({"uid":int(id1)},{"_id":0}))
+            usuario_2 = list(db.usuarios.find({"uid":int(id2)},{"_id":0}))
+            if usuario_1 and usuario_2:
+                data = list(db.mensajes.find({"$or":[{"sender":int(id1),"receptant":int(id2)},{"sender":int(id2),"receptant":int(id1)}]},{"_id":0}))
+                return json.jsonify(data)
+            else:
+                if not usuario_1 and not usuario_2:
+                    return json.jsonify({"error":"Ni uno de los usuarios ingresados existe"})
+                elif not usuario_1:
+                    return json.jsonify({"error":"Solo existe el usuario 2"})
+                else:
+                    return json.jsonify({"error":"Solo existe el usuario 1"})
         else:
             return json.jsonify({"error": "Alguno de los parametros esta faltando"})
 
@@ -76,5 +87,37 @@ def get_user(uid):
     return json.jsonify(data)
 
 #### RUTA TEXTO ####
+@app.route("/text-search")
+def text_search():
+    data = json.loads(request.data)
+    
+    desired = data.get("desired")
+    required = data.get("required")
+    forbidden = data.get("forbidden")
+    userId = data.get("userId")
+    string_consulta = ""
+
+    if desired:
+        string_consulta += " ".join(desired)
+    
+
+    ## Solo funciona esta
+    if required:
+        for i in required:
+            string_consulta += f" \"{i}\" "
+    
+    if forbidden:
+        for i in forbidden:
+            string_consulta += f" -\"{i}\" "
+
+    if string_consulta == "":
+        return json.jsonify(list(db.mensajes.find({},{"_id":0})))
+
+    if userId:
+        data_return = db.mensajes.find({'$text':{'$search':string_consulta},"sender":userId},{"_id":0})
+    else:
+        data_return = db.mensajes.find({'$text':{'$search':string_consulta}},{"_id":0})
+    data_return = list(data_return)
+    return json.jsonify(data_return)
 if __name__ == "__main__":
     app.run(debug=True)
