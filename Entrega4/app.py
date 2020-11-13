@@ -68,7 +68,13 @@ def post_mensaje():
 
 @app.route("/messages/<int:mid>", methods = ["DELETE"])
 def delete_mensaje(mid):
-    mid = request.json[mid]
+    
+    data = list(db.mensajes.find({"mid":mid},{"_id":0}))
+    if len(data) == 0:
+        return json.jsonify("No existe el mensaje pedido")
+    
+    db.mensajes.remove({"mid":mid})
+
     return json.jsonify({"success":True})
 
 
@@ -100,7 +106,6 @@ def text_search():
     if desired:
         string_consulta += " ".join(desired)
     
-
     ## Solo funciona esta
     if required:
         for i in required:
