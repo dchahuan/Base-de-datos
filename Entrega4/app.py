@@ -66,12 +66,12 @@ def post_mensaje():
 
     return json.jsonify({"success":True})
 
-@app.route("/messages/<int:mid>", methods = ["DELETE"])
+@app.route("/message/<int:mid>", methods = ["DELETE"])
 def delete_mensaje(mid):
-    
+
     data = list(db.mensajes.find({"mid":mid},{"_id":0}))
     if len(data) == 0:
-        return json.jsonify("No existe el mensaje pedido")
+        return json.jsonify({"error":"No existe el mensaje pedido"})
     
     db.mensajes.remove({"mid":mid})
 
