@@ -1,3 +1,4 @@
+import re
 from flask import Flask,json, request
 from flask.json import jsonify
 from pymongo import MongoClient
@@ -59,10 +60,23 @@ def get_mensaje_individual(mid):
 
 @app.route("/messages", methods = ["POST"])
 def post_mensaje():
+    
+    sobran = False
+    for llave in request.json.keys():
+        if llave not in MENSAJE_KEYS:
+            sobran = True
+            break
+
+    largo_lista_filtrada = len(list(filter(lambda x: x in MENSAJE_KEYS, list(request.json.keys()))))
+
+    if sobran or largo_lista_filtrada != len(MENSAJE_KEYS):
+        return json.jsonify({"error":"Algun parametro que deberia estar no existe o tienes un parametro que sobra"})
+
     data = {key:request.json[key] for key in MENSAJE_KEYS}
 
+    print(type(request.json))
     # Falta chequear data
-    db.mensajes.insert_one(data)
+    print(len(list(data.keys())))
 
     return json.jsonify({"success":True})
 
@@ -95,7 +109,7 @@ def get_user(uid):
 #### RUTA TEXTO ####
 @app.route("/text-search")
 def text_search():
-    data = json.loads(request.data)
+    data = request.json
     
     desired = data.get("desired")
     required = data.get("required")
