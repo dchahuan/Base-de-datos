@@ -21,9 +21,21 @@ def home():
 
 #### RUTA MENSAJES ####
 
+@app.route("/messages")
+def get_all_mensajes():
+
+    '''
+        Retorna todos los atributos de todos los mensajes de la base de datos.
+    '''
+    data = list(db.mensajes.find({},{"_id":0}))
+    return json.jsonify(data)
 
 @app.route("/messages")
 def get_mensajes():
+
+    '''
+        Retorna los mensajes entre dos usuarios - /messages?id1=433&id2=355
+    '''
 
     body = request.args.to_dict()
     
@@ -53,6 +65,9 @@ def get_mensajes():
 
 @app.route("/messages/<int:mid>")
 def get_mensaje_individual(mid):
+    '''
+        Retorna el mensaje con id = mid
+    '''
     data = list(db.mensajes.find({"mid":mid},{"_id":0}))
     if len(data) == 0:
         return json.jsonify({"error": "El id del mensaje colocado no existe"})
