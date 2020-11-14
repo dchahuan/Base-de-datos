@@ -22,15 +22,6 @@ def home():
 #### RUTA MENSAJES ####
 
 @app.route("/messages")
-def get_all_mensajes():
-
-    '''
-        Retorna todos los atributos de todos los mensajes de la base de datos.
-    '''
-    data = list(db.mensajes.find({},{"_id":0}))
-    return json.jsonify(data)
-
-@app.route("/messages")
 def get_mensajes():
 
     '''
