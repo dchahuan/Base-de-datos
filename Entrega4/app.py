@@ -66,9 +66,12 @@ def get_mensaje_individual(mid):
 
 @app.route("/messages", methods = ["POST"])
 def post_mensaje():
+    '''
+        Inserta mensaje a la base de datos si los parametros son correctos
+    '''
     
     sobran = False
-    for llave in request.json.keys():
+    for llave in request.json:
         if llave not in MENSAJE_KEYS:
             sobran = True
             break
@@ -79,10 +82,15 @@ def post_mensaje():
         return json.jsonify({"error":"Algun parametro que deberia estar no existe o tienes un parametro que sobra"})
 
     data = {key:request.json[key] for key in MENSAJE_KEYS}
-
-    print(type(request.json))
+    
     # Falta chequear data
-    print(len(list(data.keys())))
+    mid_query = list(db.mensajes.find({},{"mid": 1, "_id": 0}).sort([("mid", -1)]).limit(1))
+    mid = mid_query[0]["mid"]
+    nuevo_mid = int(mid) + 1
+
+    data["mid"] = nuevo_mid
+
+    db.mensajes.insert_one(data)
 
     return json.jsonify({"success":True})
 
