@@ -57,7 +57,7 @@ def get_mensajes():
 @app.route("/messages/<int:mid>")
 def get_mensaje_individual(mid):
     '''
-        Retorna el mensaje con id = mid
+        Retorna el mensaje con id = mid de la base de datos
     '''
     data = list(db.mensajes.find({"mid":mid},{"_id":0}))
     if len(data) == 0:
@@ -88,6 +88,9 @@ def post_mensaje():
 
 @app.route("/message/<int:mid>", methods = ["DELETE"])
 def delete_mensaje(mid):
+    '''
+        Borra el mensaje con id = mid de la base de datos. 
+    '''
 
     data = list(db.mensajes.find({"mid":mid},{"_id":0}))
     if len(data) == 0:
@@ -102,15 +105,23 @@ def delete_mensaje(mid):
 
 @app.route("/users")
 def get_users():
+    '''
+        Retorna todos los usuarios de la base de datos
+    '''
     data = list(db.usuarios.find({},{"_id":0}))
     return json.jsonify(data)
 
 @app.route("/users/<int:uid>")
 def get_user(uid):
+    '''
+        Retorna al usurio con id = uid de la base de datos
+        Además debe retornar todos los mensajes emitidos por él
+    '''
     data = list(db.usuarios.find({"uid":uid},{"_id":0}))
+    data_mensajes = list(db.mensajes.find({"sender":uid},{"_id":0}))
     if len(data) == 0:
         return json.jsonify({"error": "El id del usuario colocado no existe"})
-    return json.jsonify(data)
+    return json.jsonify(data, data_mensajes)
 
 #### RUTA TEXTO ####
 @app.route("/text-search")
