@@ -1,4 +1,3 @@
-import re
 from flask import Flask,json, request
 from flask.json import jsonify
 from pymongo import MongoClient
