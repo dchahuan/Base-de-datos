@@ -25,7 +25,9 @@ def home():
 def get_mensajes():
 
     '''
-        Retorna los mensajes entre dos usuarios - /messages?id1=433&id2=355
+        Retorna los mensajes entre dos usuarios ssi se le pasan paremetros como- /messages?id1=433&id2=355
+        sino devuelve toda la base de datos de mensajes
+
     '''
 
     body = request.args.to_dict()
@@ -143,7 +145,8 @@ def text_search():
     string_consulta = ""
 
     if desired:
-        string_consulta += " ".join(desired)
+        for i in desired:
+            string_consulta += f"{i}"
     
     ## Solo funciona esta
     if required:
@@ -154,10 +157,15 @@ def text_search():
         for i in forbidden:
             string_consulta += f" -\"{i}\" "
 
-    if string_consulta == "":
+
+    if string_consulta == "" and not userId:
         return json.jsonify(list(db.mensajes.find({},{"_id":0})))
 
+
     if userId:
+        if string_consulta == "":
+            return json.jsonify(list(db.mensajes.find({"sender":userId},{"_id":0})))
+
         data_return = db.mensajes.find({'$text':{'$search':string_consulta},"sender":userId},{"_id":0})
     else:
         data_return = db.mensajes.find({'$text':{'$search':string_consulta}},{"_id":0})
