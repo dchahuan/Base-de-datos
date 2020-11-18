@@ -144,10 +144,14 @@ def text_search():
     userId = data.get("userId")
     string_consulta = ""
 
+    lista_palabras_largas = []
     if desired:
         for i in desired:
-            string_consulta += f"{i}"
-    
+            if len(i.split(" ")) > 1:
+                lista_palabras_largas.append(i)
+            else:
+                string_consulta += f" {i} "
+
     ## Solo funciona esta
     if required:
         for i in required:
@@ -157,11 +161,7 @@ def text_search():
         for i in forbidden:
             string_consulta += f" -\"{i}\" "
 
-
-
-
-
-
+    print(string_consulta)
     if userId:
         if string_consulta == "":
             return json.jsonify(list(db.mensajes.find({"sender":userId},{"_id":0})))
@@ -171,7 +171,15 @@ def text_search():
                 data_palabra_forbiden = list(db.mensajes.find({'$text':{'$search':f"\"{i}\""},"sender":userId},{"_id":0}))
                 data_tmp = list(filter(lambda x: x not in data_palabra_forbiden,data_tmp))
             return json.jsonify(data_tmp)
-        data_return = db.mensajes.find({'$text':{'$search':string_consulta},"sender":userId},{"_id":0})
+        data_return = list(db.mensajes.find({'$text':{'$search':string_consulta},"sender":userId},{"_id":0}))
+
+
+        if lista_palabras_largas:
+            for i in lista_palabras_largas:
+                data_palabra = list(db.mensajes.find({'$text':{'$search':string_consulta + f"\"{i}\""},"sender":userId},{"_id":0}))
+                for j in data_palabra:
+                    if j not in data_return:
+                        data_return.append(j)
     else:
         if string_consulta == "":
             return json.jsonify(list(db.mensajes.find({},{"_id":0})))
@@ -181,9 +189,15 @@ def text_search():
                 data_palabra_forbiden = list(db.mensajes.find({'$text':{'$search':f"\"{i}\""}},{"_id":0}))
                 data_tmp = list(filter(lambda x: x not in data_palabra_forbiden,data_tmp))
             return json.jsonify(data_tmp)
-        data_return = db.mensajes.find({'$text':{'$search':string_consulta}},{"_id":0})
+        data_return = list(db.mensajes.find({'$text':{'$search':string_consulta}},{"_id":0}))
 
-    data_return = list(data_return)
+        if lista_palabras_largas:
+            for i in lista_palabras_largas:
+                data_palabra = list(db.mensajes.find({'$text':{'$search':string_consulta + f"\"{i}\""}},{"_id":0}))
+                for j in data_palabra:
+                    if j not in data_return:
+                        data_return.append(j)
+
     return json.jsonify(data_return)
 
 
