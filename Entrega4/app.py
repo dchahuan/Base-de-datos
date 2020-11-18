@@ -158,18 +158,34 @@ def text_search():
             string_consulta += f" -\"{i}\" "
 
 
-    if string_consulta == "" and not userId:
-        return json.jsonify(list(db.mensajes.find({},{"_id":0})))
+
+
 
 
     if userId:
         if string_consulta == "":
             return json.jsonify(list(db.mensajes.find({"sender":userId},{"_id":0})))
-
+        if forbidden and not required and not desired:
+            data_tmp = set(db.mensajes.find({"sender":userId},{"_id":0}))
+            for i in forbidden:
+                data_palabra_forbiden = list(db.mensajes.find({'$text':{'$search':f"\"{i}\""},"sender":userId},{"_id":0}))
+                data_tmp = list(filter(lambda x: x not in data_palabra_forbiden,data_tmp))
+            return json.jsonify(data_tmp)
         data_return = db.mensajes.find({'$text':{'$search':string_consulta},"sender":userId},{"_id":0})
     else:
+        if string_consulta == "":
+            return json.jsonify(list(db.mensajes.find({},{"_id":0})))
+        if forbidden and not required and not desired:
+            data_tmp =  list(db.mensajes.find({},{"_id":0}))
+            for i in forbidden:
+                data_palabra_forbiden = list(db.mensajes.find({'$text':{'$search':f"\"{i}\""}},{"_id":0}))
+                data_tmp = list(filter(lambda x: x not in data_palabra_forbiden,data_tmp))
+            return json.jsonify(data_tmp)
         data_return = db.mensajes.find({'$text':{'$search':string_consulta}},{"_id":0})
+
     data_return = list(data_return)
     return json.jsonify(data_return)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
