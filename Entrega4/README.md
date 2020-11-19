@@ -1,4 +1,4 @@
-# Tarea 1: Visualización de Información :eyes: :memo:
+# Entrega 4: Desarrollo de una Web API :memo: :iphone:
 
 ## Consideraciones generales :memo:
 
@@ -7,27 +7,24 @@
 ### Cosas implementadas y no implementadas :white_check_mark: :x:
 
 * Parte 1 - GET:
-    * Ruta "/messages":
-	* 1) /messages?id1=x&id2=y: Hecha completa
-	* 2) Si no se incluye una request en el body: Hecha completa
-    * Ruta "/messages/<int:mid>": Hecha completa
-    * Ruta "/users": Hecha completa
-    * Ruta "/users/<int:uid>": Hecha completa
+    * Ruta ```/messages```:
+    * A) De tipo ```/messages?id1=x&id2=y```: Hecha completa
+    * B) Si no se incluye una request en el body: Hecha completa
+    * Ruta ```/messages/<int:mid>```: Hecha completa
+    * Ruta ```/users```: Hecha completa
+    * Ruta ```/users/<int:uid>```: Hecha completa
     
 * Parte 2 - POST:
-    * Ruta "/messages": Hecha completa
-    * Encabezado: Hecha completa
-    * Imagenes: Hecha completa
-    * Contenedores: Hecha completa
+    * Ruta ```/messages```: Hecha completa
     
 * Parte 3: DELETE
-    * Ruta "/message/<int:mid>": Hecha completa
+    * Ruta ```/message/<int:mid>```: Hecha completa
 
 * Parte 4: TEXT-SEARCH
-    * Desired: Hecha completa
-    * Required: Hecha completa
-    * Forbidden: Hecha completa 
-    * User_id: Hecha completa
+    * ```Desired```: Hecha completa
+    * ```Required```: Hecha completa
+    * ```Forbidden```: Hecha completa 
+    * ```User_id```: Hecha completa
 
 ## Ejecución :computer:
 El módulo principal de la tarea a ejecutar es  ```app.py```. Además se deben tener en cuenta los siguientes archivos:
