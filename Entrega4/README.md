@@ -34,6 +34,16 @@ El módulo principal de la tarea a ejecutar es  ```app.py```. Además se deben t
 
 Estos dos están específicamente relacionados con el virtual environment y contienen la información necesaria para poder correr la aplicación (incluyendo librerias o qué versión de python utilizamos)
 
+## Librerías :books:
+### Librerías externas utilizadas
+
+La tarea está fundamentalmente hecha con la librería ```Flask``` y ```MongoDB```.
+En específico se utilizó lo siguiente (notar que cada una tiene más funciones):
+
+1. ```flask```: ```Flask```, ```json```, ```request```
+2. ```flask.json```: ```jsonify```
+3. ```pymongo```: ```MongoClient```
+
 ## Referencias de código externo :book:
 
 Las referencias de codigo que usamos para esta tarea son exclusivamente de la página oficial del curso (Ayudantías).
