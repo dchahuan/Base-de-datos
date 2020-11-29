@@ -17,8 +17,7 @@
                 </li>
             </ul>
             <?php if (isset($_SESSION["pasaporte"])){
-                echo "<a class = 'btn btn-light my-sm-0 my-2 mr-2' href='/~grupo16/mensajes.php' role = 'button'>Mensajes</a>";
-                echo "<a class='btn btn-light my-sm-0 my-2 mr-2' href='/~grupo16/home.php' role='button'>Home</a><a class='btn btn-light my-sm-0 my-2' href='/~grupo16/login/scripts/logout.php' role='button'>Logout</a>";
+                echo "<a class='btn btn-light my-sm-0 my-2 mr-2' href='/~grupo16/home.php' role='button'>Home</a><a class = 'btn btn-light my-sm-0 my-2 mr-2' href='/~grupo16/mensajes.php' role = 'button'>Mensajes</a><a class='btn btn-light my-sm-0 my-2' href='/~grupo16/login/scripts/logout.php' role='button'>Logout</a>";
             } else {
                 echo '<a class="btn btn-light my-sm-0 my-2 mr-2" href="/~grupo16/login/login_form.php" role="button">Login</a>
                 <a class="btn btn-light my-sm-0 my-2" href="/~grupo16/login/signup_form.php" role="button">Register</a>';
