@@ -21,7 +21,7 @@
                         <a class="nav-link" href="/~grupo16/mensajes.php">Mensajes</a>
                     </li>';
                 echo '<li class="nav-item" id="nav-puerto">
-                        <a class="nav-link" href="/~grupo16/mapa.php">Mensajes</a>
+                        <a class="nav-link" href="/~grupo16/mapa.php">Mapa</a>
                     </li>';
                 echo "</ul>";
                 echo "<a class='btn btn-light my-sm-0 my-2 mr-2' href='/~grupo16/home.php' role='button'>Home</a><a class='btn btn-light my-sm-0 my-2' href='/~grupo16/login/scripts/logout.php' role='button'>Logout</a>";
