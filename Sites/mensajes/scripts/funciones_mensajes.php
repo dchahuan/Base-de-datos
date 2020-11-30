@@ -24,7 +24,7 @@ function get_message_sent($name){
 
 
     foreach($mensajes as $m){
-        echo $m->sender;
+        echo $m->sender. " ". $m->sender == $uid . "</br>";
         if ($m->sender == $uid){
             array_push($array_mesajes, $m);
         }
