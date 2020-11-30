@@ -32,7 +32,8 @@ El módulo principal de la tarea a ejecutar es  ```app.py```. Además se deben t
 1. ```Pipfile```
 2. ```Pipfile.lock```
 
-Estos dos están específicamente relacionados con el virtual environment y contienen la información necesaria para poder correr la aplicación (incluyendo librerias o qué versión de python utilizamos)
+Estos dos están específicamente relacionados con el virtual environment y contienen la información necesaria para poder correr la aplicación (incluyendo librerias o qué versión de python utilizamos).
+Específicamente el ayudante debe hacer uso del comando ```pipenv install``` para instalar los paquetes incluidos en estos dos archivos. Posterior a esto se usa el comando ```pipenv shell``` y finalmente ```python app.py```. (o en su defecto ```flask run```).
 
 ## Librerías :books:
 ### Librerías externas utilizadas

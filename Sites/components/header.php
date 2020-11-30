@@ -15,10 +15,18 @@
                 <li class="nav-item" id="nav-puerto">
                     <a class="nav-link" href="/~grupo16/consultas/puertos.php">Puertos</a>
                 </li>
-            </ul>
+            
             <?php if (isset($_SESSION["pasaporte"])){
+                echo '<li class="nav-item" id="nav-puerto">
+                        <a class="nav-link" href="/~grupo16/mensajes.php">Mensajes</a>
+                    </li>';
+                echo '<li class="nav-item" id="nav-puerto">
+                        <a class="nav-link" href="/~grupo16/mapa.php">Mapa</a>
+                    </li>';
+                echo "</ul>";
                 echo "<a class='btn btn-light my-sm-0 my-2 mr-2' href='/~grupo16/home.php' role='button'>Home</a><a class='btn btn-light my-sm-0 my-2' href='/~grupo16/login/scripts/logout.php' role='button'>Logout</a>";
             } else {
+                echo "</ul>";
                 echo '<a class="btn btn-light my-sm-0 my-2 mr-2" href="/~grupo16/login/login_form.php" role="button">Login</a>
                 <a class="btn btn-light my-sm-0 my-2" href="/~grupo16/login/signup_form.php" role="button">Register</a>';
             }?>
