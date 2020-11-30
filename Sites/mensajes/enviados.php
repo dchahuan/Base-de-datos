@@ -23,7 +23,7 @@ if (isset($_SESSION["pasaporte"])){
     </h3>
 
     <?php
-        echo $data_nombre;
+        print_r($data_nombre);
     ?>
 </div>
 
