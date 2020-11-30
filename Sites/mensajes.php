@@ -26,22 +26,22 @@ if (isset($_SESSION["pasaporte"])){
         <div class="card">
         <div class="list-group">
             
-            <a href="/~grupo16/recibidos.php" class="list-group-item list-group-item-action d-flex align-items-center">
+            <a href="/~grupo16/mensajes/recibidos.php" class="list-group-item list-group-item-action d-flex align-items-center">
                 <img src = "/~grupo16/img/icons/inbox.png" style = "max-width: 50px"></img>
                 <h3 class = "mx-4">Ver mensajes recibidos</h3>
                 
             </a>
-            <a href="/~grupo16/enviados.php" class="list-group-item list-group-item-action d-flex align-items-center">
+            <a href="/~grupo16/mensajes/enviados.php" class="list-group-item list-group-item-action d-flex align-items-center">
                 <img src = "/~grupo16/img/icons/outbox.png" style = "max-width: 50px"></img>
                 <h3 class = "mx-4">Ver mensajes enviados</h3>
                 
             </a>
-            <a href="/~grupo16/enviar.php" class="list-group-item list-group-item-action d-flex align-items-center">
+            <a href="/~grupo16/mensajes/enviar.php" class="list-group-item list-group-item-action d-flex align-items-center">
                 <img src = "/~grupo16/img/icons/enviar.png" style = "max-width: 50px"></img>
                 <h3 class = "mx-4">Enviar mensaje</h3>
                 
             </a>
-            <a href="/~grupo16/texto.php" class="list-group-item list-group-item-action d-flex align-items-center">
+            <a href="/~grupo16/mensajes/texto.php" class="list-group-item list-group-item-action d-flex align-items-center">
                 <img src = "/~grupo16/img/icons/lupa.png" style = "max-width: 50px"></img>
                 <h3 class = "mx-4">Buscar mensajes por texto</h3>
                 
