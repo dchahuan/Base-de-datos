@@ -12,4 +12,24 @@ function get_user_id($name){
 
     return $uid;
 }
+
+function get_message_sent($name){
+
+    $uid = get_user_id($name);
+
+    $mensajes = file_get_contents("https://entrega5-bdd.herokuapp.com/messages");
+    $mensajes = json_decode($mensajes);
+
+    $array_mesajes = [];
+
+
+    foreach($mensajes as $m){
+        if ($m->sender == $uid){
+            array_push($array_mesajes, $m);
+        }
+
+    }
+
+    return $array_mesajes;
+}
 ?>
