@@ -18,6 +18,11 @@ db = client.get_database()
 def home():
     return "<h1>Hello world</h1>"
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return json.jsonify({"error": "route not found"}), 404
+
 #### RUTA MENSAJES ####
 
 @app.route("/messages")
