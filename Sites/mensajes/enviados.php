@@ -13,7 +13,7 @@ if (isset($_SESSION["pasaporte"])){
     $resultado_usuario = $db -> prepare($query_nombre_ususario);
     $resultado_usuario ->execute([$_SESSION["pasaporte"]]);
     $data_nombre = $resultado_usuario -> fetchAll();
-    $data_nombre = $data_nombre[0];
+    $data_nombre = $data_nombre[0]["nombre"];
 ?>
 
 
@@ -23,7 +23,7 @@ if (isset($_SESSION["pasaporte"])){
     </h3>
 
     <?php
-        print_r($data_nombre);
+        echo $data_nombre;
     ?>
 </div>
 
