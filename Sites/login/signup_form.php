@@ -84,7 +84,7 @@
             } else if ($_GET["error"] == "edad_no_int"){
                 echo "La edad no es un numero entero.";
             } else if ($_GET["error"] == "er_i"){
-                echo "Error por parte de nosotros lo lamentamos.";
+                echo "El nombre elejido ya existe";
             } 
             echo "</h7>";
         } else if (isset($_GET["signup"])){
