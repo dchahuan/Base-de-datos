@@ -46,7 +46,7 @@ function send_message($message, $sender, $receptant, $lat, $long, $date){
     $url = 'https://entrega5-bdd.herokuapp.com/messages';
     $data = array('message' => $message, 
                 'sender' => intval($sender),
-                'receptant' => $receptant,
+                'receptant' => intval($receptant),
                 'lat' => $lat,
                 'long' => $long,
                 'date' => $date);
