@@ -1,14 +1,11 @@
 <?php
 
 function get_user_id($name){
-    $res = file_get_contents("https://entrega5-bdd.herokuapp.com/users");
+    $res = file_get_contents(
+        sprintf("https://entrega5-bdd.herokuapp.com/users/name/%s",$name)
+    );
     $res = json_decode($res);
-    $uid;
-    foreach($res as $user){
-        if ($user->name == $name){
-            $uid = $user->uid;
-        } 
-    }
+    $uid = $res[0]->uid;
 
     return $uid;
 }
