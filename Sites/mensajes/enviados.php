@@ -24,7 +24,6 @@ if (isset($_SESSION["pasaporte"])){
     </h3>
 
     <?php
-        echo get_user_id($data_nombre);
         print_r(get_message_sent($data_nombre));
     ?>
 </div>

@@ -17,20 +17,8 @@ function get_message_sent($name){
 
     $uid = get_user_id($name);
 
-    $mensajes = file_get_contents("https://entrega5-bdd.herokuapp.com/messages");
+    $mensajes = file_get_contents(sprintf("https://entrega5-bdd.herokuapp.com/messages/sent/%d",$uid));
     $mensajes = json_decode($mensajes);
-
-    $array_mesajes = [];
-
-
-    foreach($mensajes as $m){
-        echo sprintf("%d",$m->sender) . "</br>";
-        if ($m->sender == $uid){
-            array_push($array_mesajes, $m);
-        }
-
-    }
-
-    return $array_mesajes;
+    return $mensajes;
 }
 ?>
