@@ -22,7 +22,10 @@ if (isset($_SESSION["pasaporte"])){
         Enviar mensajes
     </h3>
 
-
+    <?php
+    
+        
+    ?>
     
 </div>
 
