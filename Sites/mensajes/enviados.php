@@ -30,7 +30,6 @@ if (isset($_SESSION["pasaporte"])){
         } else {
             print_r($array_mesajes);
         }
-
     ?>
 </div>
 
