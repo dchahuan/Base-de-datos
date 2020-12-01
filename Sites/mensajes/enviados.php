@@ -24,7 +24,13 @@ if (isset($_SESSION["pasaporte"])){
     </h3>
 
     <?php
-        print_r(get_message_sent($data_nombre));
+        $array_mesajes = get_message_sent($data_nombre);
+        if (count($array_mesajes) == 0){
+            echo "<h5>No tienes mensajes enviados :(</h5>";
+        } else {
+            print_r($array_mesajes);
+        }
+
     ?>
 </div>
 
