@@ -5,6 +5,7 @@
 if (isset($_SESSION["pasaporte"])){
     include "components/head.php";
     include "components/header.php";
+    require("mensajes/scripts/funciones_mensajes.php");
     require("config/conexion.php");
     require("config/conexion_2.php");
 
@@ -31,7 +32,7 @@ if (isset($_SESSION["pasaporte"])){
              
               echo '<div class="media-body ml-4">
                 <h4 class="font-weight-bold mb-0">'.$data_usuario[1].'<span class="text-muted font-weight-normal">@'.$data_usuario[2].'</span></h4>
-                <div class="text-muted mb-2">ID:'.$data_usuario[0].'</div>
+                <div class="text-muted mb-2">ID:'.get_user_id($data_usuario[1]).'</div>
               </div>
             </div>
                 ';
