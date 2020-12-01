@@ -34,13 +34,8 @@ if (isset($_SESSION["pasaporte"])){
         $result = $db -> prepare($query_es_capitan);
         $result -> execute([$_SESSION["pasaporte"]]);
         $es_capitan = $result -> fetchAll();
-        
-        $query_es_jefe = "select Instalaciones.id_instalacion, rut_jefe, tipo_instalacion, nombre_puerto  from personal, instalaciones, esta_en where rut_jefe = rut and esta_en.id_instalacion = instalaciones.id_instalacion and rut_jefe = ?";
-        $resultado_jefe = $db_2 -> prepare($query_es_jefe);
-        $resultado_jefe -> execute([$_SESSION["pasaporte"]]);
-        $es_jefe = $resultado_jefe -> fetchAll();
-        $es_jefe_tupla = $es_jefe[0];
 
+        $es_jefe = array();
         
         if (count($es_capitan) > 0 ){
             $longitud = (-1)*(90 + rand_float());
