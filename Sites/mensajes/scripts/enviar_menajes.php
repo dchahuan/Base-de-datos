@@ -13,7 +13,7 @@ if (isset($_SESSION["pasaporte"])){
     $date = date("Y-m-d");
 
     if (empty($text) || empty($uid_receptor)){
-        header("Location: /~grupo16/mensajes/enviar.php?error=empty");
+        header("Location: /~grupo16/mensajes/enviar.php?error=empty".$uid_receptor.$text);
         exit();
     } else if (!filter_var($uid_receptor, FILTER_VALIDATE_INT)){
         header("Location: /~grupo16/mensajes/enviar.php?error=non_int_uid");
