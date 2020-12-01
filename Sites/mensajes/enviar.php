@@ -27,12 +27,12 @@ if (isset($_SESSION["pasaporte"])){
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Escriba el mensaje:</label>
 
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            <textarea class="form-control" name = "mensaje" id="exampleFormControlTextarea1" rows="5"></textarea>
         </div>
 
         <div class="form-group">
             <label for="name" class="control-label">Uid del receptor: </label>
-            <input type="text" name="pasaporte" class="form-control" placeholder="Uid" id="name">
+            <input type="text" name="uid" class="form-control" placeholder="Uid" id="name">
         </div>
 
         <button type="submit" class = "btn btn-dark">Enviar</button>
