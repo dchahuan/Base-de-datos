@@ -1,5 +1,28 @@
 <?php
 
+function api_signup($name, $edad){
+    $url = 'https://entrega5-bdd.herokuapp.com/users';
+    $data = array('name' => $name, 'age' => $edad,'description' => "");
+
+// use key 'http' even if you send the request to https://...
+    $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/json",
+            'method'  => 'POST',
+            'content' => json_encode($data)
+        )
+    );
+    $context  = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+    $result = json_decode($result);
+    if (isset($result->error)){
+        return FALSE;
+    }
+    return TRUE;
+};
+
+
+
 if (isset($_POST["signup-submit"])){
     require("../../config/conexion.php");
 
@@ -30,16 +53,21 @@ if (isset($_POST["signup-submit"])){
             header("Location:  /~grupo16/login/signup_form.php?error=invalid_passport");
             exit();
         } else {
-            $query = "insert into usuarios(nombre,pasaporte,edad,nacionalidad,sexo,pwd) values (?,?,?,?,?,?);";           
-            $db -> prepare($query) -> execute([$username,$n_pasaporte,$edad,$pais,$sexo,$pwd]);
-            header("Location:  /~grupo16/login/signup_form.php?signup=success");
-            exit();
+            $api_result = api_signup($username, $edad);
+
+            if ($api_result == TRUE){
+                $query = "insert into usuarios(nombre,pasaporte,edad,nacionalidad,sexo,pwd) values (?,?,?,?,?,?);";           
+                $db -> prepare($query) -> execute([$username,$n_pasaporte,$edad,$pais,$sexo,$pwd]);
+                header("Location:  /~grupo16/login/signup_form.php?signup=success");
+                exit();
+            } else {
+                header("Location: /~grupo16/login/signup_form.php?error=er_i");
+                exit();
+            }
+            
 
         }
-
-
     }
-
 } else {
     header("Location: /~grupo16/login/signup_form.php");
     exit();
