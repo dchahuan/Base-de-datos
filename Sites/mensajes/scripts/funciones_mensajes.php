@@ -1,6 +1,8 @@
 <?php
 
 function get_user_id($name){
+
+    $name = str_replace(' ', '%20', $name);
     $res = file_get_contents(
         sprintf("https://entrega5-bdd.herokuapp.com/users/name/%s",$name)
     );
