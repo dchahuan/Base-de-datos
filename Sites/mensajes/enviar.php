@@ -22,14 +22,16 @@ if (isset($_SESSION["pasaporte"])){
         Enviar mensajes
     </h3>
 
-    <form action="/~grupo16/mensajes/scripts/enviar_menajes.php">
+    <form action="/~grupo16/mensajes/scripts/enviar_menajes.php" method = "POST">
+
         <div class="form-group">
-            <label for="textarea">Escriba mensaje</label>
-            <textarea name="mensaje" id="textarea" rows="10"></textarea>
+            <label for="exampleFormControlTextarea1">Escriba el mensaje:/label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-        <div class="form-control">
-            <label for="uid">Escriba el uid:</label>
-            <input type="text" class="form-control" id = "uid" name = "uid">
+
+        <div class="form-group">
+            <label for="name" class="control-label">Uid del receptor: </label>
+            <input type="text" name="pasaporte" class="form-control" placeholder="Numero de pasaporte" id="name">
         </div>
 
         <button type="submit" class = "btn btn-dark">Enviar</button>
