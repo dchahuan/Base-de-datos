@@ -7,7 +7,6 @@ function get_user_id($name){
         sprintf("https://entrega5-bdd.herokuapp.com/users/name/%s",$name)
     );
     $res = json_decode($res);
-    print_r($res);
     $uid = $res[0]->uid;
 
     return $uid;
