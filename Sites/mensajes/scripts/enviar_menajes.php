@@ -5,6 +5,7 @@ session_start();
 if (isset($_SESSION["pasaporte"])){
 
     require("../../config/conexion.php");
+    require("../../config/conexion_2.php");
     require("funciones_mensajes.php");
 
     $text = $_POST["mensaje"];
@@ -35,14 +36,17 @@ if (isset($_SESSION["pasaporte"])){
         $result -> execute([$_SESSION["pasaporte"]]);
         $es_capitan = $result -> fetchAll();
 
-        $es_jefe = array();
+        $query_es_jefe = "SELECT Instalaciones.nombre_puerto FROM Instalaciones, Esta_en WHERE Instalaciones.id_instalacion = Esta_en.id_instalacion AND rut_jefe = ?";
+        $result = $db_2 -> prepare($query_es_jefe);
+        $result -> execute([$_SESSION["pasaporte"]]);
+        $es_jefe = $result -> fetchAll();
         
         if (count($es_capitan) > 0 ){
             $longitud = (-1)*(90 + rand_float());
             $latitud = (-1)*(rand_float(27.374641, 50.291406));
             $validez = send_message($text,$uid_sender,inval($uid_receptor),$latitud,$longitud,$date);
         } else if (count($es_jefe) > 0){
-            $puerto = $es_jefe_tupla[3];
+            $puerto = $es_jefe[0][0];
             ### Faltan querys de long y lat
         } else {
             # Coordenadas de santiago segun https://www.geodatos.net/coordenadas/chile/santiago
