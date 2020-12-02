@@ -46,7 +46,8 @@ if (isset($_SESSION["pasaporte"])){
                 echo "<h5>$contador</h5>";
                 echo '<table class="table user-view-table m-0">
                 <tbody>
-                <tr>Mensaje</td>
+                <tr>
+                    <td>Mensaje</td>
                     <td>'.$mensaje->message.'</td>
                 </tr>
                 <tr>
