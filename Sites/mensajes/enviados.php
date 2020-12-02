@@ -28,8 +28,57 @@ if (isset($_SESSION["pasaporte"])){
         if (count($array_mesajes) == 0){
             echo "<h5>No tienes mensajes enviados :(</h5>";
         } else {
-            print_r($array_mesajes);
+            $uid_actual = $array_mesajes[0]->receptant;
+            echo "<div class = 'card'>";
+            echo "<h3>Mensajes recibidos de".$uid_actual."</h3></br>";
+            echo '<table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Receptor</th>
+                        <th scope="col">Mensaje</th>
+                        <th scope="col">Latitud</th>
+                        <th scope="col">Longitud</th>
+                        <th scope = "col>Fecha</th>
+                    </tr>
+                    </thead>
+                    <tbody>';
+            foreach($array_mesajes as $mensaje){
+                if ($mensaje->receptant != $uid_actual){
+                    $uid_actual = $mensaje->receptant;
+                    echo "</tbody>";
+                    echo "</table>";
+                    echo "</div>";
+                    echo "<div class = 'card'>";
+                    echo "<h3>Mensajes recibidos de".$uid_actual."</h3></br>";
+                    echo '<table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Receptor</th>
+                                <th scope="col">Mensaje</th>
+                                <th scope="col">Latitud</th>
+                                <th scope="col">Longitud</th>
+                                <th scope = "col>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+                }
+
+                echo '<tr>';
+                echo '<td>'.$mensaje->receptant.'</td>';
+                echo '<td>'.$mensaje->message.'</td>';
+                echo '<td>'.$mensaje->lat.'</td>';
+                echo '<td>'.$mensaje->long.'</td>';
+                echo '<td>'.$mensaje->date.'</td>';
+                echo '</tr>';
+
+
+            }
+            
         }
+
+        echo "</tbody>";
+        echo "</table>";
+        echo "</div>";
     ?>
 </div>
 
