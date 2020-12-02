@@ -43,7 +43,7 @@ if (isset($_SESSION["pasaporte"])){
                     echo '<div class="card-body">';
                     echo "<h3>Mensajes recibidos de".$uid_actual."</h3></br>";
                 }
-                echo "<h5>$contador</h5>";
+                echo "<h5>Mensaje #$contador</h5>";
                 echo '<table class="table user-view-table m-0">
                 <tbody>
                 <tr>
