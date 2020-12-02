@@ -59,6 +59,7 @@ if (isset($_SESSION["pasaporte"])){
 
             $data = $data[0];
             print_r($data);
+            echo $puerto;
             $latitud = $data[0];
             $longitud = $data[1];
 
