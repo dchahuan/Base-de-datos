@@ -47,9 +47,9 @@ if (isset($_SESSION["pasaporte"])){
             $validez = send_message($text,$uid_sender,inval($uid_receptor),$latitud,$longitud,$date);
         } else if (count($es_jefe) > 0){
             $puerto = $es_jefe[0][3];
-            echo $puerto;
+
             ### Faltan querys de long y lat
-            $query_coords = "select latitud, longitud from ubicacion where puerto = ?";
+            $query_coords = "select latitud, longitud from ubicacion where puerto = ?;";
             $resultado = $db-> prepare($query_coords);
             $resultado -> execute([$puerto]);
             
