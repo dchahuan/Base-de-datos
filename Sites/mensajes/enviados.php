@@ -29,28 +29,46 @@ if (isset($_SESSION["pasaporte"])){
             echo "<h5>No tienes mensajes enviados :(</h5>";
         } else {
             $uid_actual = $array_mesajes[0]->receptant;
-            echo "<div class = 'card'>";
+            echo "<div class = 'card mb-2'>";
+            echo '<div class="card-body">';
             echo "<h3>Mensajes recibidos de ".$uid_actual."</h3></br>";
-
+            $contador = 0;
             foreach($array_mesajes as $mensaje){
                 if ($mensaje->receptant != $uid_actual){
                     $uid_actual = $mensaje->receptant;
+                    $contador  = 0;
+                    echo "</div>";
                     echo "</div>";
                     echo "<div class = 'card'>";
+                    echo '<div class="card-body">';
                     echo "<h3>Mensajes recibidos de".$uid_actual."</h3></br>";
                 }
-
-                echo '<p>'.$mensaje->receptant.'</p>';
-                echo '<p>'.$mensaje->message.'</p>';
-                echo '<p>'.$mensaje->lat.'</p>';
-                echo '<p>'.$mensaje->long.'</p>';
-                echo '<p>'.$mensaje->date.'</p>';
-
-
-
+                echo "<h5>$contador/h5>";
+                echo '<table class="table user-view-table m-0">
+                <tbody>
+                <tr>Mensaje</td>
+                    <td>'.$mensaje->message.'</td>
+                </tr>
+                <tr>
+                    <td>Latitud:</td>
+                    <td>'.$mensaje->lat.'</td>
+                </tr>
+                                    
+                <tr>
+                    <td>Longitud:</td>
+                    <td>'.$mensaje->long.'</td>
+                </tr>
+                <tr>
+                    <td>Fecha de emision:</td>
+                    <td>'.$mensaje->date.'</td>
+                </tr>
+                </tbody>
+                </table>';
+                $contador++;
             }
             
         }
+        echo "</div>";
         echo "</div>";
     ?>
 </div>
