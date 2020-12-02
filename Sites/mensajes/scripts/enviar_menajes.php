@@ -40,7 +40,7 @@ if (isset($_SESSION["pasaporte"])){
         $result = $db_2 -> prepare($query_es_jefe);
         $result -> execute([$_SESSION["pasaporte"]]);
         $es_jefe = $result -> fetchAll();
-        
+        print_r($es_jefe);
         if (count($es_capitan) > 0 ){
             $longitud = (-1)*(90 + rand_float());
             $latitud = (-1)*(rand_float(27.374641, 50.291406));
