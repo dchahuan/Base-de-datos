@@ -40,13 +40,12 @@ if (isset($_SESSION["pasaporte"])){
                     echo "<h3>Mensajes recibidos de".$uid_actual."</h3></br>";
                 }
 
-                echo '<tr>';
-                echo '<td>'.$mensaje->receptant.'</td>';
-                echo '<td>'.$mensaje->message.'</td>';
-                echo '<td>'.$mensaje->lat.'</td>';
-                echo '<td>'.$mensaje->long.'</td>';
-                echo '<td>'.$mensaje->date.'</td>';
-                echo '</tr>';
+                echo '<p>'.$mensaje->receptant.'</p>';
+                echo '<p>'.$mensaje->message.'</p>';
+                echo '<p>'.$mensaje->lat.'</p>';
+                echo '<p>'.$mensaje->long.'</p>';
+                echo '<p>'.$mensaje->date.'</p>';
+
 
 
             }
