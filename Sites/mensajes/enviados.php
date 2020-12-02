@@ -30,37 +30,14 @@ if (isset($_SESSION["pasaporte"])){
         } else {
             $uid_actual = $array_mesajes[0]->receptant;
             echo "<div class = 'card'>";
-            echo "<h3>Mensajes recibidos de".$uid_actual."</h3></br>";
-            echo '<table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Receptor</th>
-                        <th scope="col">Mensaje</th>
-                        <th scope="col">Latitud</th>
-                        <th scope="col">Longitud</th>
-                        <th scope = "col>Fecha</th>
-                    </tr>
-                    </thead>
-                    <tbody>';
+            echo "<h3>Mensajes recibidos de ".$uid_actual."</h3></br>";
+
             foreach($array_mesajes as $mensaje){
                 if ($mensaje->receptant != $uid_actual){
                     $uid_actual = $mensaje->receptant;
-                    echo "</tbody>";
-                    echo "</table>";
                     echo "</div>";
                     echo "<div class = 'card'>";
                     echo "<h3>Mensajes recibidos de".$uid_actual."</h3></br>";
-                    echo '<table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Receptor</th>
-                                <th scope="col">Mensaje</th>
-                                <th scope="col">Latitud</th>
-                                <th scope="col">Longitud</th>
-                                <th scope = "col>Fecha</th>
-                            </tr>
-                        </thead>
-                        <tbody>';
                 }
 
                 echo '<tr>';
@@ -75,9 +52,6 @@ if (isset($_SESSION["pasaporte"])){
             }
             
         }
-
-        echo "</tbody>";
-        echo "</table>";
         echo "</div>";
     ?>
 </div>
