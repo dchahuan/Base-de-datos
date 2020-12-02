@@ -36,11 +36,11 @@ if (isset($_SESSION["pasaporte"])){
         $result -> execute([$_SESSION["pasaporte"]]);
         $es_capitan = $result -> fetchAll();
 
-        $query_es_jefe = "SELECT Instalaciones.nombre_puerto FROM Instalaciones, Esta_en WHERE Instalaciones.id_instalacion = Esta_en.id_instalacion AND rut_jefe = ?";
-        $result = $db_2 -> prepare($query_es_jefe);
-        $result -> execute([$_SESSION["pasaporte"]]);
-        $es_jefe = $result -> fetchAll();
-        print_r($es_jefe);
+        $query_es_jefe = "select Instalaciones.id_instalacion, rut_jefe, tipo_instalacion, nombre_puerto  from personal, instalaciones, esta_en where rut_jefe = rut and esta_en.id_instalacion = instalaciones.id_instalacion and rut_jefe = ?";
+        $resultado_jefe = $db_2 -> prepare($query_es_jefe);
+        $resultado_jefe -> execute([$_SESSION["pasaporte"]]);
+        $es_jefe = $resultado_jefe -> fetchAll();
+        
         if (count($es_capitan) > 0 ){
             $longitud = (-1)*(90 + rand_float());
             $latitud = (-1)*(rand_float(27.374641, 50.291406));
