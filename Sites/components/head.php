@@ -103,7 +103,7 @@
     crossorigin=""></script>
 
     <style>
-    #mapid{ height: 300px}
+    #mapid{ height: 600px}
     </style>
 
     
