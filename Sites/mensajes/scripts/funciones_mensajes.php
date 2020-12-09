@@ -117,6 +117,7 @@ function text_search($desired = "",$required = "",$forbidden  = "", $name){
     $context  = stream_context_create( $options );
     $result = file_get_contents( 'https://entrega5-bdd.herokuapp.com/text-search', false, $context );
     $response = json_decode($result, true);
+    return $response;
     
     
 
