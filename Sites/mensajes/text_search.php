@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_SESSION["pasaport"])){
+if (isset($_SESSION["pasaporte"])){
     include "../components/head.php";
     include "../components/header.php";
     require("../config/conexion.php");
@@ -17,6 +17,8 @@ if (isset($_SESSION["pasaport"])){
         <?php
             if (isset($POST["name"])){
                 echo "Mensajes";
+            } else{
+                echo "<h3 class = 'text-danger'>Tienes que entrar a este link por el form</h3>";
             }
         
         ?>
