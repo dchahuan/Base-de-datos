@@ -29,7 +29,7 @@ if (isset($_SESSION["pasaporte"])){
 <script>
 
   // initialize the map
-  var map = L.map('mapid').setView([-38, -90.5], 7);
+  var map = L.map('mapid').setView([-38, -90.5], 3);
 
   // load a tile layer
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
