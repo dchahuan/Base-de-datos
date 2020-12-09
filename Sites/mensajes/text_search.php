@@ -35,8 +35,8 @@ if (isset($_SESSION["pasaporte"])){
                     echo "<h3>Mensajes enviados a ".get_user_name($uid_actual)."</h3></br>";
                     $contador = 0;
                     foreach($array_mesajes as $mensaje){
-                        if ($mensaje->receptant != $uid_actual){
-                            $uid_actual = $mensaje->receptant;
+                        if ($mensaje["receptant"] != $uid_actual){
+                            $uid_actual = $mensaje["receptant"];
                             $contador  = 0;
                             echo "</div>";
                             echo "</div>";
