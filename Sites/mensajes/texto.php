@@ -23,8 +23,10 @@ if (isset($_SESSION["pasaporte"])){
     </h3>
     <div class="card">
         <div class="card-body">
+            <h3> Data </h3>
+            <hr>
             <form action="/~grupo16/mensajes/scripts/text_search.php" method = "GET" >
-    
+                
                 <div class="form-group">
                     <label for="d" class="control-label">Desired: </label>
                     <input type="text" name="d" class="form-control" placeholder="Word1,Word2,Word3...." id="d">
