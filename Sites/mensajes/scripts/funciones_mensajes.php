@@ -47,7 +47,7 @@ function get_user_name($uid){
         sprintf("https://entrega5-bdd.herokuapp.com/users/%d",$uid)
     );
     $res = json_decode($res);
-    
+    print_r($res);
     if (isset($res->error)){
         return "";
     }
