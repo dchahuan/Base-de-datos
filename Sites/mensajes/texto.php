@@ -19,37 +19,33 @@ if (isset($_SESSION["pasaporte"])){
 
 <div class="container">
     <h3 class = "text-center"> 
-        Menu Mensajes
+        Text-Search
     </h3>
+    <div class="card">
+        <div class="card-body">
+            <form action="/~grupo16/mensajes/scripts/text_search.php" method = "GET" >
+    
+                <div class="form-group">
+                    <label for="d" class="control-label">Desired: </label>
+                    <input type="text" name="d" class="form-control" placeholder="Word1,Word2,Word3...." id="d">
+                </div>
 
-    <ul>
-        <div class="card">
-        <div class="list-group">
-            
-            <a href="/~grupo16/recibidos.php" class="list-group-item list-group-item-action d-flex align-items-center">
-                <img src = "/~grupo16/img/icons/inbox.png" style = "max-width: 50px"></img>
-                <h3 class = "mx-4">Ver mensajes recibidos</h3>
-                
-            </a>
-            <a href="/~grupo16/enviados.php" class="list-group-item list-group-item-action d-flex align-items-center">
-                <img src = "/~grupo16/img/icons/outbox.png" style = "max-width: 50px"></img>
-                <h3 class = "mx-4">Ver mensajes enviados</h3>
-                
-            </a>
-            <a href="/~grupo16/enviar.php" class="list-group-item list-group-item-action d-flex align-items-center">
-                <img src = "/~grupo16/img/icons/enviar.png" style = "max-width: 50px"></img>
-                <h3 class = "mx-4">Enviar mensaje</h3>
-                
-            </a>
-            <a href="/~grupo16/texto.php" class="list-group-item list-group-item-action d-flex align-items-center">
-                <img src = "/~grupo16/img/icons/lupa.png" style = "max-width: 50px"></img>
-                <h3 class = "mx-4">Buscar mensajes por texto</h3>
-                
-            </a>
-        </div>
+                <div class="form-group">
+                    <label for="name" class="control-label">Required: </label>
+                    <input type="text" name="r" class="form-control" placeholder="Word1,Word2,Word3...." id="r">
+                </div>
+
+                <div class="form-group">
+                    <label for="f" class="control-label">Forbidden: </label>
+                    <input type="text" name="f" class="form-control" placeholder="Word1,Word2,Word3...." id="f">
+                </div>
+
+
+
+            </form>
         </div>
     
-    </ul>
+    </div>
 
 
 </div>

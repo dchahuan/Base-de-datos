@@ -72,4 +72,46 @@ function rand_float($st_num=.276865,$end_num=.97999,$mul=10000000000)
     {
     return rand($st_num*$mul,$end_num*$mul)/$mul;
     }
+
+function text_search($desired = "",$required = "",$forbidden  = "", $name){
+    $uid = get_user_id($name);
+    if ($desired === ""  && $required === "" && $forbidden === ""){
+        # Retornar todos los mensajes
+    }
+
+    # Retornar parametros especificos
+
+    $data = array('userId' => intval($uid));
+
+    if ($desired !== ""){
+        $data['desired'] = explode(",",$desired);
+        
+    }
+    
+    if ($required !== ""){
+        $data['required'] = explode(",",$required);
+        
+    }
+
+    if ($forbidden !== ""){
+        $data['forbidden'] = explode(",",$forbidden);
+        
+    }
+
+    $options = array(
+        'http' => array(
+        'method'  => 'GET',
+        'content' => json_encode( $data ),
+        'header'=>  "Content-Type: application/json\r\n" .
+                    "Accept: application/json\r\n"
+        )
+    );
+    
+    $context  = stream_context_create( $options );
+    $result = file_get_contents( 'https://entrega5-bdd.herokuapp.com/text-search', false, $context );
+    $response = json_decode($result, true);
+    
+    
+
+}
 ?>

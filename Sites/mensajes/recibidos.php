@@ -20,7 +20,7 @@ if (isset($_SESSION["pasaporte"])){
 
 <div class="container">
     <h3 class = "text-center"> 
-        Mensajes Enviados
+        Mensajes Recibidos
     </h3>
 
     <?php
