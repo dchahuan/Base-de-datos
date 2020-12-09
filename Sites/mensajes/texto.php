@@ -23,7 +23,7 @@ if (isset($_SESSION["pasaporte"])){
     </h3>
     <div class="card">
         <div class="card-body">
-            <h6> Data </h6>
+            <h4> Data </h4>
             <hr>
             <form action="/~grupo16/mensajes/scripts/text_search.php" method = "GET" >
                 
@@ -49,7 +49,7 @@ if (isset($_SESSION["pasaporte"])){
                     
                 </div>
 
-
+                <button type="submit" class = "btn btn-dark">Enviar</button>
 
             </form>
         </div>
