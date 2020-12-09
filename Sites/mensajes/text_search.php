@@ -17,7 +17,9 @@ if (isset($_SESSION["pasaporte"])){
         <?php
             if (isset($_POST["name"])){
                 echo "Mensajes";
-                echo boolval("     ");
+                echo isset($_POST["d"]) ? 'true' : 'false'."</br>";
+                echo isset($_POST["f"]) ? 'true' : 'false'."</br>";
+                echo isset($_POST["r"]) ? 'true' : 'false'."</br>";
             } else{
                 echo "<h3 class = 'text-danger'>Tienes que entrar a este link por el form</h3>";
             }
