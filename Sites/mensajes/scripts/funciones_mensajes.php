@@ -42,6 +42,19 @@ function get_valid_user($uid){
     return TRUE;
 }
 
+function get_user_name($uid){
+    $res = file_get_contents(
+        sprintf("https://entrega5-bdd.herokuapp.com/users/%d",$uid)
+    );
+    $res = json_decode($res);
+    
+    if (isset($res->error)){
+        return "";
+    }
+    $name = $res[0]->name;
+    return $name;
+}
+
 function send_message($message, $sender, $receptant, $lat, $long, $date){
     $url = 'https://entrega5-bdd.herokuapp.com/messages';
     $data = array('message' => $message, 
@@ -75,7 +88,7 @@ function rand_float($st_num=.276865,$end_num=.97999,$mul=10000000000)
 
 function text_search($desired = "",$required = "",$forbidden  = "", $name){
     $uid = get_user_id($name);
-    
+
     $data = array('userId' => intval($uid));
 
     if ($desired !== ""){

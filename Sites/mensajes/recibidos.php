@@ -31,7 +31,7 @@ if (isset($_SESSION["pasaporte"])){
             $uid_actual = $array_mesajes[0]->sender;
             echo "<div class = 'card mb-2'>";
             echo '<div class="card-body">';
-            echo "<h3>Mensajes recibidos de ".$uid_actual."</h3></br>";
+            echo "<h3>Mensajes recibidos de ".get_user_name($uid_actual)."</h3></br>";
             $contador = 0;
             foreach($array_mesajes as $mensaje){
                 if ($mensaje->sender != $uid_actual){
@@ -41,7 +41,7 @@ if (isset($_SESSION["pasaporte"])){
                     echo "</div>";
                     echo "<div class = 'card'>";
                     echo '<div class="card-body">';
-                    echo "<h3>Mensajes recibidos de".$uid_actual."</h3></br>";
+                    echo "<h3>Mensajes recibidos de ".get_user_name($uid_actual)."</h3></br>";
                 }
                 echo "<h5>Mensaje #$contador</h5>";
                 echo '<table class="table user-view-table m-0">
