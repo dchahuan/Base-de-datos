@@ -25,7 +25,8 @@ if (isset($_SESSION["pasaporte"])){
         <div class="card-body">
             <h4> Data </h4>
             <hr>
-            <form action="/~grupo16/mensajes/scripts/text_search.php" method = "GET" >
+            
+            <form action="/~grupo16/mensajes/text_search.php" method = "POST" >
                 
                 <div class="form-group">
                     <label for="d" class="control-label">Desired: </label>
