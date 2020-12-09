@@ -17,7 +17,7 @@ if (isset($_SESSION["pasaporte"])){
         <?php
             if (isset($_POST["name"])){
                 echo "Mensajes";
-                echo trim($_POST["d"]) === "" ? 'true' : 'false';
+                echo trim($_POST["d"]) !== "" ? 'true' : 'false';
                 echo isset($_POST["f"]) ? 'true' : 'false';
                 echo isset($_POST["r"]) ? 'true' : 'false';
                 
