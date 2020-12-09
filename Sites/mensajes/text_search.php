@@ -5,6 +5,7 @@ session_start();
 if (isset($_SESSION["pasaporte"])){
     include "../components/head.php";
     include "../components/header.php";
+    require("scripts/funciones_mensajes.php");
     require("../config/conexion.php");
     require("../config/conexion_2.php");
     $query_nombre_ususario = "select nombre from usuarios where pasaporte = ?";
