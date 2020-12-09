@@ -23,7 +23,7 @@ if (isset($_SESSION["pasaporte"])){
     </h3>
     <div class="card">
         <div class="card-body">
-            <h3> Data </h3>
+            <h6> Data </h6>
             <hr>
             <form action="/~grupo16/mensajes/scripts/text_search.php" method = "GET" >
                 
@@ -40,6 +40,13 @@ if (isset($_SESSION["pasaporte"])){
                 <div class="form-group">
                     <label for="f" class="control-label">Forbidden: </label>
                     <input type="text" name="f" class="form-control" placeholder="Word1,Word2,Word3...." id="f">
+                </div>
+
+                <div class="form-group">
+                    <?php
+                        echo "<input value='$data_nombre' name='name' class = 'd-none' type='text' disable>"
+                    ?>
+                    
                 </div>
 
 
