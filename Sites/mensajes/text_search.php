@@ -22,7 +22,6 @@ if (isset($_SESSION["pasaporte"])){
     </h3>
         <?php
             if (isset($_POST["name"])){
-                echo "Mensajes";
                 $d = trim($_POST["d"]);
                 $r = trim($_POST["r"]);
                 $f = trim($_POST["f"]);
@@ -50,20 +49,20 @@ if (isset($_SESSION["pasaporte"])){
                         <tbody>
                         <tr>
                             <td>Mensaje</td>
-                            <td>'.$mensaje->message.'</td>
+                            <td>'.$mensaje["message"].'</td>
                         </tr>
                         <tr>
                             <td>Latitud:</td>
-                            <td>'.$mensaje->lat.'</td>
+                            <td>'.$mensaje["lat"].'</td>
                         </tr>
                                             
                         <tr>
                             <td>Longitud:</td>
-                            <td>'.$mensaje->long.'</td>
+                            <td>'.$mensaje["long"].'</td>
                         </tr>
                         <tr>
                             <td>Fecha de emision:</td>
-                            <td>'.$mensaje->date.'</td>
+                            <td>'.$mensaje["date"].'</td>
                         </tr>
                         </tbody>
                         </table>';
