@@ -22,7 +22,7 @@ if (isset($_SESSION["pasaporte"])){
         Mapa Mensajes
     </h3>
     
-    <div id = "mapaid" style = "heigth = 300px"></div>
+    <div id = "mapid" style = "heigth = 300px"></div>
 </div>
 
 <?php
