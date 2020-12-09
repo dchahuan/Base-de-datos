@@ -75,12 +75,7 @@ function rand_float($st_num=.276865,$end_num=.97999,$mul=10000000000)
 
 function text_search($desired = "",$required = "",$forbidden  = "", $name){
     $uid = get_user_id($name);
-    if ($desired === ""  && $required === "" && $forbidden === ""){
-        # Retornar todos los mensajes
-    }
-
-    # Retornar parametros especificos
-
+    
     $data = array('userId' => intval($uid));
 
     if ($desired !== ""){
