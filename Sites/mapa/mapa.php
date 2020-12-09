@@ -29,7 +29,7 @@ if (isset($_SESSION["pasaporte"])){
 <script>
 
   // initialize the map
-  var map = L.map('mapid').setView([42.35, -71.08], 13);
+  var map = L.map('mapid').setView([-38, -90.5], 13);
 
   // load a tile layer
   L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
