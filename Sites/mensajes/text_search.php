@@ -15,7 +15,7 @@ if (isset($_SESSION["pasaporte"])){
         Text-Search Resultados
     </h3>
         <?php
-            if (isset($POST["name"])){
+            if (isset($_POST["name"])){
                 echo "Mensajes";
             } else{
                 echo "<h3 class = 'text-danger'>Tienes que entrar a este link por el form</h3>";
