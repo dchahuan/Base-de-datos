@@ -29,7 +29,7 @@ if (isset($_SESSION["pasaporte"])){
                 if (count($array_mesajes) == 0){
                     echo "<h5>No has enviado mensajes :(</h5>";
                 } else {
-                    $uid_actual = $array_mesajes[0]->receptant;
+                    $uid_actual = $array_mesajes[0]["receptant"];
                     echo "<div class = 'card mb-2'>";
                     echo '<div class="card-body">';
                     echo "<h3>Mensajes enviados a ".get_user_name($uid_actual)."</h3></br>";
