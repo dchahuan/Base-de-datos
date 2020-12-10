@@ -21,34 +21,61 @@ if (isset($_SESSION["pasaporte"])){
     <h3 class = "text-center"> 
         Mapa Mensajes
     </h3>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="border p-4" style="margin-left: 15%; margin-right: 0%">
-                <h2 style="color:black; text-align: center;" class="center mb-4">Capacidad y porcentaje de ocupación</h2>
-                <ul>
-                    <li> Para revisar que instalaciones tienen capacidad en una fecha en específico, ingresa un rango a continuación!</li>
-                </ul>
-                <form action="consulta1_puerto.php" method="POST">
-                    <div class="form-group mt-3">
-                        <label>Selecciona fechas:</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" id="date_range" name="date_range" class="form-control pull-right" required>
-                            <?php
-                                // echo "<input value= '$nombre_puerto' name='nombre_puerto' class = 'd-none' type='text' disable>";
-                            ?>
-                            <span class="input-group-btn">
-                                <button class="btn btn-dark btn-flat" type="submit" name="submitRangeDates">Consultar</button>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-                <!-- Aqui enviar los datos a consulta1_puertos.php para ejecutarlo -->
-            </div>
+    <div class="card">
+        <div class="card-body">
+            <h4> Palabras claves: </h4>
+            <hr>
+
+            <form action="/~grupo16/mensajes/text_search.php" method = "POST" >
+
+                <div class="form-group mt-3">
+
+                  <label>Selecciona fechas:</label>
+
+                  <div class="input-group">
+
+                      <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="text" id="date_range" name="date_range" class="form-control pull-right" required>
+                      <?php
+                          // echo "<input value= '$nombre_puerto' name='nombre_puerto' class = 'd-none' type='text' disable>";
+                      ?>
+
+                  </div>
+
+                </div>
+                
+                <div class="form-group">
+                    <label for="d" class="control-label">Desired: </label>
+                    <input type="text" name="d" class="form-control" placeholder="Word1,Word2,Word3...." id="d">
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="control-label">Required: </label>
+                    <input type="text" name="r" class="form-control" placeholder="Word1,Word2,Word3...." id="r">
+                </div>
+
+                <div class="form-group">
+                    <label for="f" class="control-label">Forbidden: </label>
+                    <input type="text" name="f" class="form-control" placeholder="Word1,Word2,Word3...." id="f">
+                </div>
+
+                <div class="form-group">
+                    <?php
+                        echo "<input value='$data_nombre' name='name' class = 'd-none' type='text' disable>"
+                    ?>
+                    
+                </div>
+
+                <button type="submit" class = "btn btn-dark">Enviar</button>
+
+            </form>
         </div>
     </div>
+
+    <hr>
+
     <div id = "mapid">
     </div>
 </div>
