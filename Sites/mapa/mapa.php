@@ -17,7 +17,7 @@ if (isset($_SESSION["pasaporte"]) && isset($_POST["name"])){
     $data_nombre = $resultado_usuario -> fetchAll();
     $data_nombre = $data_nombre[0];
 
-    $date_range = $_POST["data_range"];
+    $date_range = $_POST["date_range"];
     $uid = $_POST["usuario"];
     $required = $_POST["required"];
     $nombre = $_POST["name"]
@@ -32,9 +32,9 @@ if (isset($_SESSION["pasaporte"]) && isset($_POST["name"])){
     <div id = "mapid">
     </div>
     <?php
-        echo $date_range;
+
         $mensajes = mapa($required, $date_range, $uid);
-        print_r($mensajes);
+
       ?>
 </div>
 
@@ -49,7 +49,11 @@ if (isset($_SESSION["pasaporte"]) && isset($_POST["name"])){
 }).addTo(map);
 
   <?php
-    echo "var marker = L.marker([-38, -90.5]).addTo(map);"
+    foreach($mensajes as $m){
+      echo "var marker = L.marker([".$m->lat.", ".$m->long."]).addTo(map);";
+      echo "marker.bindPopup('".$m->message."').openPopup();";
+    }
+
   ?>
 
 </script>

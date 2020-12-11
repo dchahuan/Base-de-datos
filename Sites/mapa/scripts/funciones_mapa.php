@@ -2,7 +2,6 @@
 
 function mapa($palabras, $fechas, $uid){
     $data = array();
-    echo $fechas;
     $data["date_range"] = $fechas;
 
     if (trim($palabras) !== ""){
