@@ -44,7 +44,7 @@ if (isset($_SESSION["pasaporte"])){
         if (count($es_capitan) > 0 ){
             $longitud = (-1)*(90 + rand_float());
             $latitud = (-1)*(rand_float(27.374641, 50.291406));
-            $validez = send_message($text,$uid_sender,inval($uid_receptor),$latitud,$longitud,$date);
+            $validez = send_message($text,$uid_sender,intval($uid_receptor),$latitud,$longitud,$date);
         } else if (count($es_jefe) > 0){
             $puerto = $es_jefe[0][3];
             $puerto = $puerto.trim(" ");
