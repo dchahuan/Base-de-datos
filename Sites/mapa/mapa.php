@@ -49,7 +49,10 @@ if (isset($_SESSION["pasaporte"]) && isset($_POST["name"])){
 }).addTo(map);
 
   <?php
-    echo "var marker = L.marker([-38, -90.5]).addTo(map);"
+    foreach($mensajes as $m){
+      echo "var marker = L.marker([".$m->lat.", ".$m->long."]).addTo(map);";
+    }
+
   ?>
 
 </script>
