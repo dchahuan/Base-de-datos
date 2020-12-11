@@ -6,6 +6,7 @@ function mapa($palabras, $fechas, $uid){
 
     if (trim($palabras) !== ""){
         $data["required"] = explode(",",$required);
+        print_r(explode(",",$required));
     }
 
     if (trim($uid) !== ""){
