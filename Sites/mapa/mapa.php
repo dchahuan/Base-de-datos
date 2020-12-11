@@ -51,6 +51,7 @@ if (isset($_SESSION["pasaporte"]) && isset($_POST["name"])){
   <?php
     foreach($mensajes as $m){
       echo "var marker = L.marker([".$m->lat.", ".$m->long."]).addTo(map);";
+      echo "marker.bindPopup('".$m->message."').openPopup();";
     }
 
   ?>
