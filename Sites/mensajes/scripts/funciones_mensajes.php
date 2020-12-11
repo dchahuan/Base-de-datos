@@ -12,7 +12,6 @@ function get_user_id($name){
     return $uid;
 }
 
-
 function get_message_sent($name){
 
     $uid = get_user_id($name);

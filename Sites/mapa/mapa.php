@@ -7,6 +7,7 @@ if (isset($_SESSION["pasaporte"])){
     include "../components/header.php";
     require("../config/conexion.php");
     require("../config/conexion_2.php");
+    require("scripts/funciones_mapa.php");
 
 
     $query_nombre_ususario = "select nombre from usuarios where pasaporte = ?";
@@ -14,6 +15,11 @@ if (isset($_SESSION["pasaporte"])){
     $resultado_usuario ->execute([$_SESSION["pasaporte"]]);
     $data_nombre = $resultado_usuario -> fetchAll();
     $data_nombre = $data_nombre[0];
+
+    $date_range = $POST["data_range"];
+    $uid = $POST["usuario"];
+    $required = $POST["required"];
+    $nombre = $POST["name"]
 ?>
 
 <body>
@@ -36,7 +42,9 @@ if (isset($_SESSION["pasaporte"])){
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-  </script>
+  var marker = L.marker([-38, -90.5]).addTo(mymap);
+
+</script>
 
 </body>
 
