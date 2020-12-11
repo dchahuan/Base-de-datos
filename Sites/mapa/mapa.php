@@ -17,10 +17,10 @@ if (isset($_SESSION["pasaporte"]) && isset($_POST["name"])){
     $data_nombre = $resultado_usuario -> fetchAll();
     $data_nombre = $data_nombre[0];
 
-    $date_range = $POST["data_range"];
-    $uid = $POST["usuario"];
-    $required = $POST["required"];
-    $nombre = $POST["name"]
+    $date_range = $_POST["data_range"];
+    $uid = $_POST["usuario"];
+    $required = $_POST["required"];
+    $nombre = $_POST["name"]
 ?>
 
 <body>
