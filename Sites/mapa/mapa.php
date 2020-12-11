@@ -32,9 +32,9 @@ if (isset($_SESSION["pasaporte"]) && isset($_POST["name"])){
     <div id = "mapid">
     </div>
     <?php
-        echo $date_range;
+
         $mensajes = mapa($required, $date_range, $uid);
-        print_r($mensajes);
+
       ?>
 </div>
 

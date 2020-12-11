@@ -70,8 +70,8 @@
                     ],
                     "firstDay": 1
                 },
-                "startDate": "2020-01-01",
-                "endDate": "2020-01-07",
+                "startDate": "2015-01-01",
+                "endDate": "2020-12-10",
                 "opens": "center"
             });
         });
