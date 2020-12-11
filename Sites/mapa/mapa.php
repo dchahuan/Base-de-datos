@@ -43,7 +43,7 @@ if (isset($_SESSION["pasaporte"])){
 }).addTo(map);
 
   <?php
-    echo "<script> var marker = L.marker([-38, -90.5]).addTo(map); </script>"
+    echo "var marker = L.marker([-38, -90.5]).addTo(map);"
   ?>
 
 </script>
