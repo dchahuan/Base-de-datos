@@ -42,7 +42,9 @@ if (isset($_SESSION["pasaporte"])){
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-  var marker = L.marker([-38, -90.5]).addTo(map);
+  <?php
+    echo "<script> var marker = L.marker([-38, -90.5]).addTo(map); </script>"
+  ?>
 
 </script>
 
