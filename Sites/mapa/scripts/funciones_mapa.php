@@ -5,7 +5,7 @@ function mapa($palabras, $fechas, $uid){
     $data["date_range"] = $fechas;
 
     if (trim($palabras) !== ""){
-        $data["required"] = explode(",",$required);
+        $data["required"] = explode(",",$palabras);
     }
 
     if (trim($uid) !== ""){
