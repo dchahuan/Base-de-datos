@@ -15,6 +15,8 @@ function mapa($palabras, $fechas, $uid){
         }
     }
 
+    $url = "https://entrega5-bdd.herokuapp.com/mapa";
+
     $options = array(
         'http' => array(
             'header'  => "Content-type: application/json",
