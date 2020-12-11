@@ -41,30 +41,19 @@ if (isset($_SESSION["pasaporte"])){
                         <?php
                             // echo "<input value= '$nombre_puerto' name='nombre_puerto' class = 'd-none' type='text' disable>";
                         ?>
-
                     </div>
-
                 </div>
 
                 <div class="form-group">
                     <label for="d" class="control-label">ID Usuario: </label>
-                    <input type="text" name="d" class="form-control" placeholder=" ... " id="d">
-                </div>
-                
-                <div class="form-group">
-                    <label for="d" class="control-label">Desired: </label>
-                    <input type="text" name="d" class="form-control" placeholder="Word1,Word2,Word3...." id="d">
+                    <input type="text" name="usuario" class="form-control" placeholder=" ... " id="usuario">
                 </div>
 
                 <div class="form-group">
                     <label for="name" class="control-label">Required: </label>
-                    <input type="text" name="r" class="form-control" placeholder="Word1,Word2,Word3...." id="r">
+                    <input type="text" name="required" class="form-control" placeholder="Word1,Word2,Word3...." id="required">
                 </div>
 
-                <div class="form-group">
-                    <label for="f" class="control-label">Forbidden: </label>
-                    <input type="text" name="f" class="form-control" placeholder="Word1,Word2,Word3...." id="f">
-                </div>
 
                 <div class="form-group">
                     <?php
