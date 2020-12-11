@@ -2,7 +2,8 @@
   session_start();
         
 
-if (isset($_SESSION["pasaporte"])){
+if (isset($_SESSION["pasaporte"]) && isset($_POST["name"])){
+
     include "../components/head.php";
     include "../components/header.php";
     require("../config/conexion.php");
@@ -52,6 +53,10 @@ if (isset($_SESSION["pasaporte"])){
 
 <?php
 } else {
+    if (!isset($_POST["name"])){
+      header("Location: /~grupo16/mapa/data_mapa.php");
+    exit();
+    }
     header("Location: /~grupo16/index.php?error=nouser");
     exit();
 }?>
